@@ -1,0 +1,243 @@
+/* INTRO SLIDER
+------------------------------------------- */
+.intro-slider-block {
+  $slide-h:370px;
+  
+  .container.cont-main {
+    padding:60px 15px;
+  }
+
+  .pager-block, .intro-slider .slide {
+    height: $slide-h;
+  }
+}
+
+
+.intro-slider { 
+  .slide {
+    font-size: 16px;
+    text-align:left;
+    position: relative;
+
+    small {
+      @include font-style(cond-font, light, "1.1em/1em");
+      display:block;
+      letter-spacing:0.1em;
+    }
+    .text {
+      margin-top: 6em;
+      width:50%;
+    }
+
+    h1 {
+      @include font-style(cond-font, light, "2.3em/1em");
+      margin:10px 0 20px 0;
+      letter-spacing:0.1em;
+    }
+    
+    p {
+      @include font-style(cond-font, light, "1em/1.7em");
+    }
+    
+    .btn {
+      letter-spacing:0.1em;
+      font-size:0.8em;
+      line-height: 1em;
+      text-transform: uppercase;
+      padding:1.4em 1.6em;
+    }
+    
+    .btn-download {
+      border: none;
+      margin:8px 15px 8px 0;
+      padding: 0;
+    }
+
+    .btn-download {
+      padding:13px 18px 13px 66px;
+      width: auto;
+    }
+ 
+    .img-main {
+      position:absolute;
+      right:0;
+      bottom:0;
+      height: 100%;
+      width: auto;
+      z-index:100;
+    } 
+    
+    @media (max-width: 767px) {
+      font-size: 12px;
+      
+      .text {
+        margin-top:4em;
+      }
+      p {
+        display: none;
+      }
+      
+      .btn {
+        padding:1em 1.1em;
+      }
+    }
+    
+  }
+}
+
+.dark-bg .intro-slider .slide {
+  color: rgba(#fff, 0.7);
+  h1 {
+    color: #fff;
+  }
+}
+
+// Tab Links
+// ....................................
+.tab-pager{
+  a {
+    display:block;
+    padding:0 0 0 20px;
+    text-transform: uppercase;
+    @include font-style(cond-font, light, "12px/50px");
+    letter-spacing:0.1em;
+    margin:0;
+    border-left:1px solid getvar(colors bcolor-xl);
+    text-align:left;
+    color: getvar(colors bcolor);
+    
+    .icon {
+      margin-right: 15px;
+      opacity:0.4;
+    }
+    
+    &.active{
+      border:1px solid getvar(colors bcolor-xl);
+      border-left:none;
+      color: getvar(colors pcolor);
+      .icon {
+        opacity: 1;
+      }
+    }
+    
+    &:hover {
+      color: getvar(colors pcolor);
+    }
+
+  }
+  
+  &:after, &:before {
+    content:"";
+    display:block;
+    border-left: 1px solid getvar(colors bcolor-xl);
+    height: 30px;
+  }
+} 
+
+.dark-bg .tab-pager{
+
+  a {
+    color: rgba(#fff, 0.7);
+    border-left: 1px solid rgba(#fff, 0.5);
+    
+    &.active {
+      border:1px solid rgba(#fff, 0.5);
+      border-left:none;
+    }
+  }
+  
+  &:after, &:before {
+    border-left: 1px solid rgba(#fff, 0.5);
+  }
+
+}
+
+@media (max-width: 1199px) {
+  .intro-slider-block {
+    $slide-h: 300px;
+    
+    .pager-block, .intro-slider .slide {
+      height: $slide-h;
+    }
+
+  }
+}
+
+@media (max-width: 991px) {
+
+  .intro-slider-block {
+    $slide-h: 300px;
+    $btn-w: 150px;
+    $btn-h: 35px;
+
+    .pager-block, .intro-slider .slide {
+      height: $slide-h;
+    }
+
+  }
+
+  .tab-pager {
+    a {
+      text-align: center;
+      width: 50px;
+      padding:0;
+      .icon {
+        margin:0;
+      }
+      
+      span {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .intro-slider-block {
+    $slide-h: 200px;
+    $btn-w: 100px;
+    $btn-h: 25px;
+    
+    .container.cont-main {
+      padding: 30px 15px;
+    }
+    
+    .pager-block, .intro-slider .slide {
+      height: $slide-h;
+    }
+    
+  }
+
+  .tab-pager {
+    &:before, &:after {
+      display: none;
+    }
+    
+    a {
+      text-align: center;
+      width: 35px;
+      padding:0;
+      line-height:30px;
+      
+      .icon {
+        margin:0;
+      }
+      
+      span {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 360px) {
+  .intro-slider-block .intro-slider .slide {
+    .img-main {
+      height: 50%;
+    }
+    
+  }
+}

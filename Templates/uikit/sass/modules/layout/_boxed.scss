@@ -1,0 +1,53 @@
+/* BOXED LAYOUT
+-------------------------------------------------- */
+$boxed-pad: 40px + 30px;
+.boxed-wrapper {
+  margin-left: auto;
+  margin-right:auto;
+  
+  @media (min-width: 768px) {
+  
+    $cont-max : 750px;
+    $boxed-w: $cont-max + $boxed-pad;
+    max-width: $boxed-w;
+    
+    .container {
+      max-width: $cont-max!important;
+      width:auto!important;
+    }
+    .nav-main, .nav-top {
+      max-width: $boxed-w;
+    }
+    
+  }
+  @media (min-width: 992px) {
+  
+    $cont-max : 970px;
+    $boxed-w: $cont-max + $boxed-pad;
+    max-width: $boxed-w;
+    
+    .nav-main, .nav-top {
+      max-width: $boxed-w;
+    }
+    
+    .container {
+      max-width: $cont-max!important;
+      width:auto!important;
+    }
+  }
+  @media (min-width: 1200px) {
+    
+    $cont-max : 1170px;
+    $boxed-w: $cont-max + $boxed-pad;
+    max-width: $boxed-w;
+    
+    .nav-main, .nav-top {
+      max-width: $boxed-w;
+    }
+    
+    .container {
+      max-width: $cont-max!important;
+      width:auto!important;
+    }
+  }
+}
