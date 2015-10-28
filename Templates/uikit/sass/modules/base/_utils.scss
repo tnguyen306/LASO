@@ -1,0 +1,171 @@
+/* UTILITY CLASSES
+------------------------------------------- */
+/* Lists */
+.no-list {
+  list-style: none;
+  padding:0;
+  margin:0;
+  > li {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.vlist {
+  @extend .no-list;
+  > li {
+    display:block;
+  }
+}
+
+.hlist {
+  @extend .no-list;
+  font-size:0;
+  zoom: 1;
+  > li {
+    display:inline-block;
+    font-size: getvar(type font-size);
+  }
+}
+
+
+/* Sizing */
+.sizing-cbox {
+  @include vendorize(box-sizing, content-box);
+}
+
+.sizing-bbox {
+  @include vendorize(box-sizing, border-box);
+}
+/* Borders */
+.round {
+  @include vendorize(border-radius, 50%);
+}
+
+/* Type */
+.case-u { text-transform:uppercase}
+.case-l { text-transform:lowercase}
+.case-c { text-transform:capitalize}
+.italic { font-style: italic}
+.align-center { text-align: center}
+.align-left { text-align: left}
+.align-right { text-align: right}
+.fsize-120pc {font-size:1.2em!important}
+
+/* Box */
+.no-margin {margin:0!important}
+.no-margin-r {margin-right:0!important}
+.no-margin-l {margin-left:0!important}
+.no-margin-b {margin-bottom:0!important}
+.no-margin-t {margin-top:0!important}
+.no-margin-x {margin-left:0!important;margin-right:0!important}
+.no-margin-y {margin-top:0!important;margin-bottom:0!important}
+.no-pad {padding:0!important}
+.no-pad-l {padding-left:0!important}
+.no-pad-r {padding-right:0!important}
+.no-pad-t {padding-top:0!important}
+.no-pad-b {padding-bottom:0!important}
+.no-pad-x {padding-left:0; padding-right:0}
+.no-pad-y {padding-left:0; padding-right:0}
+.h-100pc {height: 100%}
+.w-100pc {width: 100%}
+.fillw {width:100%; height:auto; display:block}
+.table-fixed {table-layout:fixed}
+.abs-filler {
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+}
+
+/* Clearing */
+.clear{clear:both!important;visibility: hidden;display: block; height:0}
+.clearfix:before, .clearfix:after { content: '\0020';display: block;overflow: hidden;visibility: hidden;height:0}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1;}
+
+/* Positioning */
+.block {display: block}
+.inline {display: inline}
+.inline-block {display: inline-block}
+.table-block {display: table;}
+.cell {display: table-cell}
+.hidden {display:none};
+.hcenter {margin-left:auto; margin-right:auto;}
+.vcenter {
+  display: table;
+  height: 100%;
+  width: 100%;
+  table-layout:fixed;
+  .vcenter-this {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+
+/* Media Specific */
+.width-100pc { width:100%;}
+.width-80pc { width:80%;}
+.width-60pc { width:60%;}
+.width-70pc { width:70%;}
+.width-50pc { width:50%;}
+.width-30pc { width:30% }
+.width-33pc { width:33%;}
+.width-40pc { width:40%;}
+
+.space-b { margin-bottom: 30px;}
+.space-t { margin-top: 30px;}
+
+.mgb-10 {margin-bottom: 10px}
+.mgb-20 {margin-bottom: 20px}
+.mgb-30 {margin-bottom: 30px}
+
+@media (max-width:767px) {
+  .block-xs, .show-xs { display:block!important}
+  .no-border-xs {border: none!important}
+  .no-float-xs {float:none!important}
+  .no-margin-r-xs {margin-right:0!important}
+  .no-margin-l-xs {margin-left:0!important}
+  .no-margin-y-xs {margin-top:0!important;margin-bottom:0!important}
+  .space-b-xs { margin-bottom: 30px}
+  .space-t-xs { margin-top: 30px}
+  .space-y-xs { margin-top: 15px; margin-bottom: 15px}
+  .mgb-10-xs {margin-bottom: 10px}
+  .mgb-20-xs {margin-bottom: 20px}
+  .mgb-30-xs {margin-bottom: 30px}
+  .width-50pc-xs { width:50%; }
+  .width-30pc-xs { width:30%; }
+  .width-100pc-xs, .fullw-xs { width:100%; }
+  .width-80pc-xs { width:80%;}
+}
+
+/* TRANSITIONS
+-------------------------------------------------- */
+.ts {
+  @include vendorize(transition, all 1s ease);
+}
+.ts-onhover:hover {
+  .ts-spin {
+    @include vendorize(transform, "rotate(360deg)");
+  } 
+  .ts-scale {
+    @include vendorize(transform, "scale(1.1) ");
+  }
+  .ts-01 {
+    @include vendorize(transform, "scale(1.1) rotate(360deg)");
+  } 
+}
+
+/* MISC
+--------------------------------------------------- */
+.icon-left {
+  margin-right: 10px;
+}
+
+.icon-right {
+  margin-left: 10px;
+}
+
+

@@ -1,0 +1,51 @@
+/* PORFOLIO
+------------------------------------ */
+.portfolio-grid {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.project {
+  position: relative;
+  margin: 15px 0;
+
+  .project-links {
+  
+    i {
+      @include fixed-icon(round, 60px);
+      background: #fff;
+      color: getvar(colors pcolor);
+      margin: 0 0 15px 0;
+    }
+    
+    .title {
+      text-transform: capitalize;
+      color: #fff;
+      margin: 0 0 7px 0;
+      font: getvar(cond-font m-bold) 17px/1 getvar(cond-font name);
+      display: block;
+    }
+    
+    span {
+      text-transform: uppercase;
+      color: #fff;
+      font: getvar(cond-font light) 10px/1 getvar(cond-font name);
+    }
+  } 
+  
+  
+}
+
+
+.portfolio-filter.hlinks {
+  margin: 0 0 40px 0;
+  text-align: center;
+  > li {
+    margin:5px 3px;
+  }
+  > li.active > a, > li:hover > a {
+    background: getvar(colors pcolor);
+    color: #fff;
+  }
+}

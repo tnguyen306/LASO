@@ -1,0 +1,189 @@
+// SKINS
+// =====================================================================
+// - Hold your colors in a map for better organization
+// - To select a skin simply set $active-skin( found in variables.scss ) with your map
+// - Your skin colors will now be available via getvar(colors [key])
+// - You only need 3 colors i.e 
+//   + $bcolor -- base dark color for text, titles etc
+//   + $pcolor -- primary color for links, accents etc
+//   + $scolor -- secondary color for misc uses e.g buttons etc
+// - Feel free to add your own
+// =====================================================================
+
+// Skin 1
+// =========================================
+$s1-bcolor:#2A3744;
+$s1-pcolor:#679B08;
+$s1-scolor:#F1812E;
+
+$skin-1:(
+  bcolor: $s1-bcolor,
+  pcolor: $s1-pcolor,
+  scolor: $s1-scolor,
+  bcolor-m: tint($s1-bcolor, 20%),
+  bcolor-l: tint($s1-bcolor, 40%),
+  bcolor-ml: tint($s1-bcolor, 50%),
+  bcolor-xl: tint($s1-bcolor, 80%), 
+  bcolor-xxl: tint($s1-bcolor, 95%), 
+  text: tint($s1-bcolor, 25%),
+  title: $s1-bcolor,
+  nav: lighten($s1-bcolor, 20%),
+  nav-active: $s1-pcolor,
+  link: $s1-pcolor,
+
+  // used to generate css class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s1-bcolor,
+    pcolor: $s1-pcolor,
+    scolor: $s1-scolor,
+    bcolor-l: tint($s1-bcolor, 40%),
+    bcolor-ml: tint($s1-bcolor, 50%),
+    bcolor-xl: tint($s1-bcolor, 80%), 
+    bcolor-xxl: tint($s1-bcolor, 95%),     
+    "white": #fff,
+    "black": #000,
+    "red": #D93600,
+    "orange":#FF9326,
+    "yellow":#FEBB08,
+    "green":#468C00,
+    "blue":#0085B2,
+    "violet":#A333A3,
+    "azure":#00B2B2, 
+    "cyan": #00C0FF,    
+  ),
+);
+
+// Skin 2
+// =========================================
+$s2-bcolor:#2A3744;
+$s2-pcolor:#218C8D;
+$s2-scolor:#FC886F;
+$skin-2:(
+  bcolor: $s2-bcolor,
+  pcolor: $s2-pcolor,
+  scolor: $s2-scolor,
+  bcolor-m: tint($s2-bcolor, 20%),
+  bcolor-l: tint($s2-bcolor, 40%),
+  bcolor-ml: tint($s2-bcolor, 50%),
+  bcolor-xl: tint($s2-bcolor, 80%), 
+  bcolor-xxl: tint($s2-bcolor, 95%), 
+  text: tint($s2-bcolor, 25%),
+  title: $s2-bcolor,
+  nav: lighten($s2-bcolor, 20%),
+  nav-active: $s2-pcolor,
+  link: $s2-pcolor,
+
+  // used to generate css class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s2-bcolor,
+    pcolor: $s2-pcolor,
+    scolor: $s2-scolor,
+    bcolor-l: tint($s2-bcolor, 40%),
+    bcolor-ml: tint($s2-bcolor, 50%),
+    bcolor-xl: tint($s2-bcolor, 80%), 
+    bcolor-xxl: tint($s2-bcolor, 95%),     
+    "white": #fff,
+    "black": #000,
+    "red": #D93600,
+    "orange":#FF9326,
+    "yellow":#FEBB08,
+    "green":#468C00,
+    "blue":#0085B2,
+    "violet":#A333A3,
+    "azure":#00B2B2, 
+    "cyan": #00C0FF,    
+  ),
+);
+
+
+// Skin 3
+// =========================================
+$s3-bcolor:#2A3744;
+$s3-pcolor:#ED7E68;
+$s3-scolor:#4DB3B3;
+
+$skin-3:(
+  bcolor: $s3-bcolor,
+  pcolor: $s3-pcolor,
+  scolor: $s3-scolor,
+  bcolor-m: tint($s3-bcolor, 20%),
+  bcolor-l: tint($s3-bcolor, 40%),
+  bcolor-ml: tint($s3-bcolor, 50%),
+  bcolor-xl: tint($s3-bcolor, 80%), 
+  bcolor-xxl: tint($s3-bcolor, 95%), 
+  text: tint($s3-bcolor, 25%),
+  title: $s3-bcolor,
+  nav: lighten($s3-bcolor, 20%),
+  nav-active: $s3-pcolor,
+  link: $s3-pcolor,
+
+  // used to generate css class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s3-bcolor,
+    pcolor: $s3-pcolor,
+    scolor: $s3-scolor,
+    bcolor-l: tint($s3-bcolor, 40%),
+    bcolor-ml: tint($s3-bcolor, 50%),
+    bcolor-xl: tint($s3-bcolor, 80%), 
+    bcolor-xxl: tint($s3-bcolor, 95%),     
+    "white": #fff,
+    "black": #000,
+    "red": #D93600,
+    "orange":#FF9326,
+    "yellow":#FEBB08,
+    "green":#468C00,
+    "blue":#0085B2,
+    "violet":#A333A3,
+    "azure":#00B2B2, 
+    "cyan": #00C0FF,    
+  ),
+);
+
+
+// Skin 4
+// =========================================
+$s4-bcolor:#2A3744;
+$s4-pcolor:#018EA1;
+$s4-scolor:#E86363;
+
+$skin-4:(
+  bcolor: $s4-bcolor,
+  pcolor: $s4-pcolor,
+  scolor: $s4-scolor,
+  bcolor-m: tint($s4-bcolor, 20%),
+  bcolor-l: tint($s4-bcolor, 40%),
+  bcolor-ml: tint($s4-bcolor, 50%),
+  bcolor-xl: tint($s4-bcolor, 80%), 
+  bcolor-xxl: tint($s4-bcolor, 95%), 
+  text: tint($s4-bcolor, 25%),
+  title: $s4-bcolor,
+  nav: lighten($s4-bcolor, 20%),
+  nav-active: $s4-pcolor,
+  link: $s4-pcolor,
+
+  // used to generate css class names e.g .bcolor-bg
+  classes:(
+    bcolor: $s4-bcolor,
+    pcolor: $s4-pcolor,
+    scolor: $s4-scolor,
+    bcolor-l: tint($s4-bcolor, 40%),
+    bcolor-ml: tint($s4-bcolor, 50%),
+    bcolor-xl: tint($s4-bcolor, 80%), 
+    bcolor-xxl: tint($s4-bcolor, 95%),     
+    "white": #fff,
+    "white-90pc":rgba(#fff, 0.9),
+    "white-10pc":rgba(#fff, 0.1),
+    "white-50pc":rgba(#fff, 0.1),
+    "black": #000,
+    "red": #D93600,
+    "orange":#FF9326,
+    "yellow":#FEBB08,
+    "green":#468C00,
+    "blue":#0085B2,
+    "violet":#A333A3,
+    "azure":#00B2B2, 
+    "cyan": #00C0FF,    
+  ),
+);
+
+
