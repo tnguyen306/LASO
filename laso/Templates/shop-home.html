@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" class="style-1">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop</title>
+
+    <!-- Bootstrap core CSS
+    ================================================== -->
+    <link href="uikit/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template
+    ================================================== -->
+    <link href="uikit/css/uikit.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="uikit/js/html5shiv.js"></script>
+    <script src="uikit/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="page-bg preload">
+  
+    <!-- Preloader 
+    ============================================ -->
+    <div class="page-preloader">
+      <div class="vcenter"> <div class="vcenter-this"><img class="anim" src="images/loader.gif" alt="loading..." /></div></div>
+    </div>
+    <!-- /Preloader 
+    ============================================ --> 
+    
+    <!-- Page Wrapper
+    ++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="page-wrapper">
+    
+      <!-- Nav Block 
+      ============================================ -->
+      <section class="nav-block">
+      
+        <!-- Nav Top
+        .......................................... -->
+        <nav class="nav-top navbar hnav hnav-sm invert-colors bcolor-bg" role="navigation">
+        
+          <!-- Container 
+          .......................................... -->
+          <div class="container">
+
+            <!-- Navbar Collapse-->
+            <div class="navbar-dont-collapse">
+            
+              <!-- Navbar Left -->
+              <ul class="nav navbar-nav navbar-left">
+                <li><a href="#"><i class="icon-left fa fa-comments"></i>support@domain.com</a></li>
+              </ul>
+              <!-- /Navbar Left -->
+              
+              <!-- Navbar Right -->
+              <ul class="nav navbar-nav navbar-right">
+                <li class="hidden-xs"><a href="#">follow us</a></li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              </ul>
+              <!-- /Navbar right -->
+              
+            </div>
+            <!-- /Navbar Collapse -->
+            
+          </div>
+          <!-- /Container
+          .......................................... -->
+          
+        </nav>
+        <!-- Nav Top
+        .......................................... -->
+
+        <!-- Nav Main 
+        .......................................... -->
+        <nav class="nav-main navbar hnav hnav-md" role="navigation">
+        
+          <!-- Container 
+          .......................................... -->
+          <div class="container">
+          
+            <!-- Header-->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="ti ti-menu"></i>
+              </button>
+              <a class="navbar-brand" href="index.html">
+                <img class="hidden-xs" src="images/logo.png" alt="" /> <!-- Default Logo -->
+                <img class="visible-xs" src="images/logo-xs.png" alt="" /> <!-- Mobile Logo -->
+              </a>
+            </div>
+            <!-- /Header-->
+            
+            <!-- Nav Buttons -->
+            <div class="nav-buttons navbar-right">
+            
+              <!-- Btn Wrapper -->
+              <div class="btn-wrapper navbar-el dropdown  navbar-left">
+                
+                <a class="btn btn-primary no-border case-u navbar-btn no-margin-y" data-toggle="dropdown"><i class="icon ti ti-user visible-sm visible-xs"></i><span class="hidden-xs hidden-sm">Sign In</span></a>
+                
+                <!-- Form Panel -->
+                <div class="form-panel nav-form-panel dropdown-menu">
+                    <fieldset>
+                      <form>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            <input type="email" class="form-control" placeholder="Email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                            <input type="password" class="form-control" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="checkbox-inline"><input type="checkbox" value="">Remember me </label>
+                          <a class="pull-right" href="#">Password?</a>
+                        </div>
+                        <button class="btn btn-primary btn-block no-border">sign in</button>
+                      </form>
+                    </fieldset>
+                </div>
+                <!-- /Form Panel -->
+                
+              </div>
+              <!-- /Btn Wrapper -->
+              
+              <!-- Navbar btn-group -->
+              <div class="navbar-btn-group btn-group navbar-left no-margin-l-xs">
+              
+                <!-- Btn Wrapper -->
+                <div class="btn-wrapper dropdown">
+                
+                  <a class="btn btn-default no-border" data-toggle="dropdown"><i class="ti ti-search"></i></a>
+                  
+                  <!-- Form Panel -->
+                  <div id="nav-search" class="form-panel nav-form-panel nav-search dropdown-menu">
+                    <fieldset>
+                      <!-- Search -->
+                      <form class="form-inline no-margin-x">
+                        <div class="form-group no-margin-b">
+                          <input type="text" placeholder="Search anything" class="form-control">
+                          <button class="btn btn-primary" type="button">go</button>
+                        </div>
+                      </form>
+                      <!-- /Search -->
+                    </fieldset>
+                  </div>
+                  <!-- /Form Panel -->
+                </div>
+                <!-- /Btn Wrapper -->
+                
+                <!-- Btn Wrapper -->
+                <div class="btn-wrapper dropdown">
+                
+                  <a class="btn btn-primary no-border" data-toggle="dropdown"><b class="count">3</b><i class="ti ti-bag"></i></a>
+                  
+                  <!-- Form Panel -->
+                  <div class="form-panel nav-form-panel dropdown-menu">
+                  
+                    <header class="case-c">(3) Items - $500.00</header>
+                    
+                    <fieldset>
+                      <ul class="vlinks vlinks-iconed vlinks-ruled-dots no-margin-y">
+                        <li><img src="images/products/product1.jpg" alt="" class="img"><a class="title">Some Product</a><span class="meta">2 x $40.50</span></li>
+                        <li><img src="images/products/product2.jpg" alt="" class="img"><a class="title">Some Product</a><span class="meta">2 x $40.50</span></li>
+                        <li><img src="images/products/product3.jpg" alt="" class="img"><a class="title">Some Product</a><span class="meta">2 x $40.50</span></li>
+                      </ul>
+                    </fieldset>
+                    
+                    <fieldset>
+                      <div class="row grid-10">
+                        <div class="col-md-6">
+                          <button class="btn btn-base btn-bigger btn-block mgb-10-xs">view cart</button>
+                        </div>
+                        <div class="col-md-6">
+                          <button class="btn btn-primary btn-bigger btn-block">checkout</button>
+                        </div>
+                      </div>
+                    </fieldset>
+                    
+                  </div>
+                  <!-- /Form Panel -->
+                  
+                </div>
+                <!-- /Btn Wrapper -->
+
+              </div>
+              <!-- /Navbar right -->
+              </div>
+            <!-- Nav Buttons -->
+            
+            <!-- Navbar Collapse-->
+            <div class="collapse navbar-collapse">
+            
+              <!-- Navbar Right -->
+              <ul class="nav navbar-nav navbar-right case-u">
+                <li><a href="index.html">home</a></li>
+                <li class="dropdown mega active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">pages<i class="fa fa-angle-down toggler visible-xs"></i></a>
+                  
+                  <!-- Mega Menu -->
+                  <div class="mega-menu dropdown-menu">
+                    <!-- Row -->
+                    <div class="row">
+                    
+                      <!-- col -->
+                      <div class="col-md-3">
+                        <img class="featured-img hidden-xs hidden-sm" src="images/menu-pic.jpg" alt="" />
+                      </div>
+                      <!-- /col -->
+                      
+                      <!-- col -->
+                      <div class="col-md-3">
+                        <h5>business pages</h5>
+                        <ul class="links">
+                          <li><a href="about.html">about</a></li>
+                          <li><a href="services.html">services</a></li>
+                          <li><a href="portfolio.html">portfolio</a></li>
+                          <li><a href="price-plans.html">price plans</a></li>
+                          <li><a href="team.html">team</a></li>
+                        </ul>
+                      </div>
+                      <!-- /col -->
+                      
+                      <!-- col -->
+                      <div class="col-md-3">
+                        <h5>common pages</h5>
+                        <ul class="links">
+                          <li><a href="side-bar.html">side bar</a></li>
+                          <li><a href="error-404.html">404</a></li>
+                          <li><a href="error-generic.html">generic error</a></li>
+                          <li><a href="contact.html">contact</a></li>
+                          <li><a href="faq.html">faq</a></li>
+                        </ul>
+                      </div>
+                      <!-- /col -->
+                      
+                      <!-- col -->
+                      <div class="col-md-3">
+                        <h5>other pages</h5>
+                        <ul class="links">
+                          <li><a href="blog.html">blog</a></li>
+                          <li><a href="blog-post.html">single post</a></li>
+                          <li><a href="login.html">login</a></li>
+                          <li><a href="register.html">register</a></li>
+                          <li><a href="one-pager.html">One page site</a></li>
+                        </ul>
+                      </div>
+                      <!-- /col -->
+                    </div>
+                    <!-- /Row -->
+                  </div>
+                  <!-- /Mega Menu -->
+                  
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">shop<i class="fa fa-angle-down toggler visible-xs"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="shop-home.html">shop home</a></li>
+                    <li><a href="shop-category.html">Category</a></li>
+                    <li><a href="shop-category-fullw.html">Category Full width</a></li>
+                    <li><a href="shop-product.html">Product</a></li>
+                    <li><a href="shop-cart.html">Cart</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">features<i class="fa fa-angle-down toggler visible-xs"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="uikit/index.html">elements</a></li>
+                    <li><a href="uikit/index.html#roboto.demo?viewer=ajax">fonts</a></li>
+                    <li><a href="uikit/index.html#font-awesome.demo?viewer=ajax">icons</a></li>
+                    <li><a href="uikit/index.html#animations.demo?viewer=ajax">animations</a></li>
+                    <li><a href="uikit/index.html#bxslider.demo?viewer=ajax">slider</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+              <!-- /Navbar right -->
+            </div>
+            <!-- /Navbar Collapse -->
+          </div>
+          <!-- /Container
+          .......................................... -->
+          
+        </nav>
+        <!-- Nav Main 
+        .......................................... -->
+        
+      </section>
+      <!-- /Nav Block
+      ============================================ -->
+      
+      <!-- Intro Block
+      ============================================ -->
+      <div class="intro-block intro-slider-block">
+      
+        <!-- Container -->
+        <div class="container cont-main">
+        
+          <!-- Row -->
+          <div class="row">
+          
+            <!-- Col -->
+            <div class="col-xs-10 col-sm-10 col-md-9">
+            
+              <!-- Intro Slider Wrapper -->
+              <div class="intro-slider">
+              
+                <!-- BxSlider -->
+                <div class="bxslider" data-call="bxslider" data-options="{controls:false, pagerCustom: '#intro-pager'}">
+                  
+                  <!-- Slide -->
+                  <div class="slide">
+                    <!-- Text -->
+                    <div class="text">
+                      <small class="pcolor case-u bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="400">multipurpose</small>
+                      <h1 class="bx-layer case-u" data-anim="slideInDown" data-dur="1000" data-delay="200" contenteditable="true">modular design</h1>
+                      <p class="bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="0" contenteditable="true">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.</p>
+                      <a class="btn btn-primary no-border btn-bigger bx-layer" data-anim="slideInUp" data-dur="1000" data-delay="600">learn more</a>
+                    </div>
+                    <!-- /Text -->
+                    <img class="img-main" src="images/screen-4.png" alt=""/>
+                  </div>
+                  <!-- /Slide -->
+                  
+                  <!-- Slide -->
+                  <div class="slide">
+                    <!-- Text -->
+                    <div class="text">
+                      <small class="pcolor case-u bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="400">responsive</small>
+                      <h1 class="bx-layer case-u" data-anim="slideInDown" data-dur="1000" data-delay="200" contenteditable="true">bootstrap base</h1>
+                      <p class="bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="0" contenteditable="true">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.</p>
+                      <a class="btn btn-primary no-border btn-bigger bx-layer" data-anim="slideInUp" data-dur="1000" data-delay="600">learn more</a>
+                    </div>
+                    <!-- /Text -->
+                    <img class="img-main" src="images/screen-4.png" alt=""/>
+                  </div>
+                  <!-- /Slide -->
+                  
+                  <!-- Slide -->
+                  <div class="slide">
+                    <!-- Text -->
+                    <div class="text">
+                      <small class="pcolor case-u bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="400">portable</small>
+                      <h1 class="bx-layer case-u" data-anim="slideInDown" data-dur="1000" data-delay="200" contenteditable="true">reusable blocks</h1>
+                      <p class="bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="0" contenteditable="true">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.</p>
+                      <a class="btn btn-primary no-border btn-bigger bx-layer" data-anim="slideInUp" data-dur="1000" data-delay="600">learn more</a>
+                    </div>
+                    <!-- /Text -->
+                    <img class="img-main" src="images/screen-4.png" alt="" />
+                  </div>
+                  <!-- /Slide -->
+                  
+                  <!-- Slide -->
+                  <div class="slide">
+                    <!-- Text -->
+                    <div class="text">
+                      <small class="pcolor case-u bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="400">purchase once</small>
+                      <h1 class="bx-layer case-u" data-anim="slideInDown" data-dur="1000" data-delay="200" contenteditable="true">free updates</h1>
+                      <p class="bx-layer" data-anim="slideInDown" data-dur="1000" data-delay="0" contenteditable="true">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.</p>
+                      <a class="btn btn-primary no-border btn-bigger bx-layer" data-anim="slideInUp" data-dur="1000" data-delay="600">learn more</a>
+                    </div>
+                    <!-- /Text -->
+                    <img class="img-main" src="images/screen-4.png" alt=""/>
+                  </div>
+                  <!-- /Slide -->
+                  
+                </div>
+                <!-- /BxSlider -->
+                
+              </div>
+              <!-- Intro Slider -->
+              
+            </div>
+            <!-- /Col -->
+            
+            <!-- Col -->
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <div class="pager-block vcenter">
+                <div class="vcenter-this">
+                  <!-- Pager -->
+                  <div id="intro-pager" class="tab-pager">
+                    <a data-slide-index="0" href="#"><i class="icon fa  fa-circle"></i><span>Multipurpose Theme</span></a>
+                    <a data-slide-index="1" href="#"><i class="icon fa fa-circle"></i><span>Fully Responsive</span></a>
+                    <a data-slide-index="2" href="#"><i class="icon fa fa-circle"></i><span>portable uikit</span></a>
+                    <a data-slide-index="3" href="#"><i class="icon fa fa-circle"></i><span>free updates</span></a>
+                  </div>
+                  <!-- /Pager -->
+                </div>
+              </div>
+            </div>
+            <!-- /Col -->
+            
+          </div>
+          <!-- /Row -->
+        </div>
+        <!-- /Container -->
+      
+      </div>
+      <!-- /Intro Block
+      ============================================ -->
+      
+      <!-- Content Block
+      ============================================ -->
+      <section class="content-block default-bg">
+      
+        <!-- Container -->
+        <div class="container cont-main pad-t-50pc">
+          
+          <h4 class="slider-title">Products and Packages</h4>
+          
+          <!-- Slider Wrapper -->
+          <div class="products-slider bx-controls-box bx-controls-above-right">
+            <!-- BxSlider -->
+            <div class="bxslider" data-call="bxslider" data-options="{slideMargin: 30, pager:false}" data-breaks="[{screen:0, slides:1}, {screen:370, slides:2}, {screen:600, slides:3, slideMargin: 20}, {screen:992, slides:4}]">
+              <!-- Slide -->
+              <div class="slide">
+                <!-- product -->
+                <div class="product product-hide-desc">
+                  <div class="text"> 
+                      <h4>Basic Package</h4>
+                      <h5>Features</h5>
+                      <article><p><ul>
+                        <li>House and Senate bills with summaries</li>
+                        <li>Fiscal notes for bills</li>
+                        <li>Summaries by date for full committee meetings</li>
+                        <li>Favorite bills</li>
+                          </ul></p></article>
+                  </div>
+                  <div class="title">                    
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                  </div>
+                  <div class="links">
+                    <span class="price">$1000</span>
+                    <div class="btn-group">
+                      <a class="btn btn-base" href=""><i class="icon fa fa-heart"></i></a>
+                      <a class="btn btn-primary" href=""><i class="icon fa fa-shopping-cart"></i></a>	
+                    </div>
+                  </div>
+                </div>
+                <!-- /product -->
+              </div>
+              <!-- /Slide -->
+              
+<!-- Slide -->
+              <div class="slide">
+                <!-- product -->
+                <div class="product product-hide-desc">
+                  <div class="text"> 
+                      <h4>Mid-range Package</h4>
+                      <h5>Features</h5>
+                      <article><p><ul>
+                        <li>All Basic Package features</li>
+                        <li>Favorites list for committee meetings</li>
+                        <li>Free student intern account</li>                        
+                          </ul></p></article>
+                  </div>
+                  <div class="title">                    
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                  </div>
+                  <div class="links">
+                    <span class="price">$2000</span>
+                    <div class="btn-group">
+                      <a class="btn btn-base" href=""><i class="icon fa fa-heart"></i></a>
+                      <a class="btn btn-primary" href=""><i class="icon fa fa-shopping-cart"></i></a>	
+                    </div>
+                  </div>
+                </div>
+                <!-- /product -->
+              </div>
+              <!-- /Slide -->
+            
+<!-- Slide -->
+              <div class="slide">
+                <!-- product -->
+                <div class="product product-hide-desc">
+                  <div class="text"> 
+                      <h4>Advanced Package</h4>
+                      <h5>Features</h5>
+                      <article><p><ul>
+                        <li>All Mid-range Package features</li>
+                        <li>Fiscal notes for bills</li>
+                        <li>Summaries by date for full committee meetings</li>
+                        <li>Bill tracking</li>
+                          </ul></p></article>
+                  </div>
+                  <div class="title">                    
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                  </div>
+                  <div class="links">
+                    <span class="price">$3000</span>
+                    <div class="btn-group">
+                      <a class="btn btn-base" href=""><i class="icon fa fa-heart"></i></a>
+                      <a class="btn btn-primary" href=""><i class="icon fa fa-shopping-cart"></i></a>	
+                    </div>
+                  </div>
+                </div>
+                <!-- /product -->
+              </div>
+              <!-- /Slide -->
+              
+<!-- Slide -->
+              <div class="slide">
+                <!-- product -->
+                <div class="product product-hide-desc">
+                  <div class="text"> 
+                      <h4>Ultimate Package</h4>
+                      <h5>Features</h5>
+                      <article><p><ul>
+                        <li>House and Senate bills with summaries</li>
+                        <li>Fiscal notes for bills</li>
+                        <li>Summaries by date for full committee meetings</li>
+                        <li>Voter data</li>
+                          </ul></p></article>
+                  </div>
+                  <div class="title">                    
+                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                  </div>
+                  <div class="links">
+                    <span class="price">$4000</span>
+                    <div class="btn-group">
+                      <a class="btn btn-base" href=""><i class="icon fa fa-heart"></i></a>
+                      <a class="btn btn-primary" href=""><i class="icon fa fa-shopping-cart"></i></a>	
+                    </div>
+                  </div>
+                </div>
+                <!-- /product -->
+              </div>
+              <!-- /Slide -->
+            </div>
+            <!-- /BxSlider -->
+          </div>
+          <!-- /Slider Wrapper -->
+
+        </div>
+        <!-- /Container -->
+      </section>
+      <!-- /Content Block
+      ============================================-->
+                 
+      <!-- Footer
+      =================================================== -->
+      <footer class="footer-block">
+      
+        <!-- Container -->
+        <div class="container main clearfix">
+        
+          <!-- Brand -->
+          <div class="brand-col">
+            <div class="brand">
+              <img src="images/logo-footer.png" alt="logo"/>
+            </div>
+          </div>
+          <!-- /Brand -->
+          
+          <!-- Links -->
+          <div class="links-col">
+            <!-- Row -->
+            <div class="row-fluid">
+              <!-- Col -->
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <h5>guest</h5>
+                <ul class="v-links">
+                  <li><a href="#">login</a></li>
+                  <li><a href="#">sign up</a></li>
+                  <li><a href="#">customer support</a></li>
+                  <li><a href="#">information</a></li>
+                </ul>
+              </div>
+              <!-- Col -->
+              
+              <!-- Col -->
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <h5>information</h5>
+                <ul class="v-links">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Delivery Informations</a></li>
+                  <li><a href="#">Terms and conditions</a></li>
+                  <li><a href="#">Return Policy</a></li>
+                  <li><a href="#">Shipping and Deliveries</a></li>
+                  <li><a href="#">Enquiries</a></li>
+                </ul>
+              </div>
+              <!-- /Col -->
+              
+              <!-- Col -->
+              <div class="col-xs-6 col-sm-3 col-md-3">
+                <h5>member</h5>
+                <ul class="v-links">
+                  <li><a href="#">Account</a></li>
+                  <li><a href="#">Wishlist and Favourites</a></li>
+                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="#">View Cart</a></li>
+                </ul>
+              </div>
+              <!-- /Col -->
+              
+              <!-- Col -->
+              <div class="col-xs-6 col-sm-3 col-md-3 newsletter">
+                <h5>newsletter</h5>
+                <form>
+                  <input type="text" class="form-control" placeholder="Email Address">
+                  <button class="btn btn-primary" type="button">get newsletter</button>
+                </form>
+              </div>
+              <!-- /Col -->
+           </div>
+           <!-- /Row -->
+          </div>
+          <!-- /Links -->
+
+        </div>
+        <!-- /Container ->
+        
+        <!-- Bottom -->
+        <div class="bottom">
+          <!-- Container -->
+          <div class="container">
+            <span class="copy-text">&copy; 2015 Your Corporation. Theme by <a href="#">Rahisi</a> Themes.</span>
+            <ul class="payment-methods clearfix">
+              <li><img alt="card" src="images/cards/visa.png"></li>
+              <li><img alt="card" src="images/cards/paypal.png"></li>
+              <li><img alt="card" src="images/cards/mastercard.png"></li>
+              <li><img alt="card" src="images/cards/cirrus.png"></li>
+              <li><img alt="card" src="images/cards/visa-debit.png"></li>
+            </ul>
+          </div>
+          <!-- /Container -->
+        </div>
+        <!-- /Bottom -->
+        
+        
+      </footer>
+      <!-- /Footer
+      =================================================== -->
+      
+    </div>
+    <!-- /Page Wrapper
+    ++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <!-- Javascript
+    ================================================== -->
+    <script src="uikit/js/jquery-latest.min.js"></script>
+    <script src="uikit/bootstrap/js/bootstrap.min.js"></script>
+    <script src="uikit/js/uikit.min.js"></script>
+    <!-- /JavaScript
+    ================================================== -->
+  </body>
+</html>

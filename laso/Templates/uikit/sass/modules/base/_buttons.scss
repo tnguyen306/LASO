@@ -1,0 +1,204 @@
+/* BUTTONS
+-------------------------------------------*/
+.btn, .navbar-btn {
+  text-transform:capitalize;
+  border: 1px solid rgba(#000, 0.1);
+  
+  .icon, .icon-left {
+    display:inline-block;
+  } 
+  .icon-left {
+    margin-right:10px;
+  }
+  
+  &.no-border {
+    border:none;
+  }
+}
+
+
+.btn-outline-white, .btn-outline-white:hover, .btn-outline-white:active {
+  background:none;
+  border:1px solid #fff;
+  color: #fff;
+}
+.btn-outline-white:hover, .btn-outline-white:active {
+  background:rgba(#fff, 0.1);
+} 
+.btn-grad, .grad {
+  background-image: linear-gradient(to bottom, rgba(#fff, 0.1) 5%, rgba(#000, 0.08) 100%); /* W3C */
+  box-shadow:inset 0 1px 0 0 rgba(#fff, 0.2);
+}
+
+.btn-color {
+  color: #fff;
+  
+  &:hover {
+    background-image: linear-gradient(to bottom, rgba(#000, 0.1) 1%, rgba(#000, 0.1) 100%);
+  }
+}
+
+.btn-primary {
+  background-color:getvar(colors pcolor);
+  color: #fff;
+  
+  &:hover {
+    background: darken(getvar(colors pcolor), 7%);
+  }
+  
+  &.btn-outline {
+    color:getvar(colors pcolor);
+    border: 2px solid getvar(colors pcolor);
+    background: none;
+    
+    &:hover {
+      color: #fff;
+      background: getvar(colors pcolor);
+    }
+  }
+}
+
+.btn-default {
+  background-color: getvar(colors bcolor-xxl);
+  color: getvar(colors title);
+}
+
+.btn-primary, .btn-secondary, .btn-base, .btn-color {
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+
+$btn-colors:(
+  primary: getvar(colors pcolor),
+  secondary: getvar(colors scolor),
+  base: getvar(colors bcolor-m),
+);
+
+@each $color, $val in $btn-colors {
+  .btn-#{$color} {
+    background-color:  $val;
+    color:#fff;
+    
+    &:hover {
+      background-color:  darken($val, 10%);
+      color: #fff;
+    }
+  }
+}
+
+.btn-white {
+  background-color: #fff;
+  color: getvar(colors bcolor);
+  border: none;
+  
+  &:hover, &.active {
+    background-color: #fff;
+    color: getvar(colors pcolor);
+    border: none;
+  }
+}
+
+.btn-twins {
+  position: relative;
+  width: 200px;
+  display:inline-block;
+  
+ .btn {
+    display: inline-block;
+    margin: 0;
+    padding:0;
+    width: 50%;  
+    line-height:40px;
+    font-size: 14px;
+  } 
+  
+  span {
+    $h:20px;
+    font-size: floor(0.5 * $h);
+    background: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left:0;
+    top:0;
+    color: gatvar(colors bcolor);
+    display: block;
+    font-style: italic;
+    height: $h;
+    width: $h;
+    line-height: $h;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.btn-md {
+    width: 220px;  
+    .btn {
+      line-height: 50px;
+      font-size:15px;
+    }
+    
+    span {
+      $h: 25px;
+      height: $h;
+      width: $h;
+      line-height: $h;
+      font-size: floor(0.5 * $h);
+    }
+  }
+  &.btn-lg {
+    width: 250px;  
+    .btn {
+      line-height: 60px;
+      font-size:16px;
+    }
+    
+    span {
+      $h: 30px;
+      height: $h;
+      width: $h;
+      line-height: $h;
+      font-size: floor(0.5 * $h);
+    }
+  }
+}
+
+.btn-download {
+  $ih: 30px;
+  $pad-y: 13px;
+  $pad-x: floor($pad-y * 1.65);
+  padding:$pad-y $pad-x $pad-y ($ih + $pad-x + 15px);
+  position:relative;
+  font-size: floor(0.65 * $ih);
+  font-weight:getvar(body-font m-bold);
+  text-align:left;
+  line-height:1;
+  
+  .icon {
+    @include fixed-icon(round, $ih);
+    background: rgba(#000, 0.1);
+    position:absolute;
+    left:$pad-x;
+    top:$pad-y;
+  }
+  
+  span {
+    display:block;
+    font-size:floor(0.3 * $ih);
+    margin-top:5px;
+    font-style: italic;
+    opacity:0.6;
+  }
+}
+
+.btn.btn-bigger {
+  padding:1em 2.5em;
+  
+  &.btn-xs {
+    padding:0.7em 1.9em;  
+  }
+}

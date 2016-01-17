@@ -1,0 +1,802 @@
+/* HNAV
+----------------------------------------- */
+$hnav-sizes:(
+  default:(
+    active: false,
+    nav-h: 100px,
+    link-h: 35px,
+    brand-h: 35px,
+    brand-font-size:20px,
+    el-h: 35px,
+    toggle-h: 35px,
+    font-size: 13px,
+    link-pad-x: 20px,
+  ),
+  
+  hnav-sm:(
+    active: true,
+    nav-h: 45px,
+    link-h: 45px,
+    brand-h: 30px,
+    brand-font-size:15px,
+    el-h: 30px,
+    toggle-h:  30px,
+    font-size: 12px,
+    link-pad-x: 12px,
+  ),
+);
+// Default vars
+$hnav-default: map-get($hnav-sizes, default);
+
+.hnav {
+  border: 1px solid rgba(#000, 0.1);
+  margin:0;
+  font-family: getvar(nav-font name);
+  z-index: getvar(z-layers nav);
+  
+  &.no-border {
+    border:none;
+  }
+  
+  .container {
+    position: relative;  
+    z-index: getvar(z-layers content);
+  }
+
+  .navbar-collapse {
+    padding:0;
+    margin:0;
+    
+    
+    @media (max-width: 767px) {
+      overflow: auto;
+      max-height: 300px;
+    }
+  }
+
+  .navbar-dont-collapse {
+    @media (max-width: 767px) {
+      .navbar-nav {
+        margin:0;
+        border: none;
+      }
+      .navbar-right {
+        float:right;
+      }
+      
+      .navbar-left {
+        float:left;
+      }
+      .navbar-nav > li {
+        display: inline-block;
+        > a, &.active > a {
+          background: none;
+          border:none;
+        }
+      }
+    }
+  }
+}
+
+/* navbar brand 
+........................... */
+.hnav .navbar-brand {
+  display: block;
+  margin:0;
+  padding:0 15px;
+  color: inherit;
+  line-height: map-get($hnav-default, nav-h);
+  height: map-get($hnav-default, nav-h);
+  font-size: map-get($hnav-default, brand-font-size);
+
+  img {
+    width: auto;
+    display:block;
+    line-height:1;
+    height: map-get($hnav-default, brand-h);
+    margin: cmg(map-get($hnav-default, nav-h), map-get($hnav-default, brand-h)) 0;
+  }
+  
+  &.border-r {
+    border-right: 1px solid rgba(#000, 0.1);
+    padding-right: 30px;
+    margin-right:15px; 
+  }
+}
+
+/* navbar toggle 
+........................... */
+.hnav .navbar-toggle {
+  $h: map-get($hnav-default, toggle-h);
+  padding:0;
+  text-align:center;
+  color: getvar(colors bcolor);
+  margin:cmg(map-get($hnav-default, nav-h), $h) 15px 0 15px;
+  height: $h;
+  width: $h;
+  line-height: $h;
+  font-size: floor($h * 0.5); 
+  border-radius:0;  
+  border: 1px solid getvar(colors bcolor-ml);
+}
+
+/* navbar elements
+........................... */
+.hnav {
+  .navbar-el, .navbar-text, .navbar-btn, .navbar-form, .navbar-btn-group {
+    margin-top:cmg(map-get($hnav-default, nav-h), map-get($hnav-default, el-h));
+    height: map-get($hnav-default, el-h);
+    line-height: map-get($hnav-default, el-h);
+    font-size: map-get($hnav-default, font-size);
+  }
+  
+  .navbar-right {
+    margin-left: 15px;
+    margin-right: 0;
+  }
+
+  .navbar-left {
+    margin-right: 15px;
+  }
+
+  .navbar-left, .navbar-right {
+    @media (max-width: 767px) {
+      margin:0;
+    }
+  }
+}
+
+/* navbar btn
+........................... */
+.nav-buttons .navbar-btn {
+  @media (max-width: 767px) {
+    margin-top:0;
+  }
+}
+.hnav {
+  .navbar-btn {
+    padding:0 15px;
+    position:relative;
+    
+    .icon, .icon-left {
+      line-height: inherit;
+    }
+  }
+  
+  .btn-wrapper {
+    position:relative;
+    z-index: 20;
+    > .btn, > .navbar-btn {
+      display:block;
+    }
+    @media (max-width: 767px) {
+      position: static;
+    }
+  }
+  
+  .navbar-btn-group {
+    float:left;
+    
+    .btn {
+      padding:0 15px;
+      height: map-get($hnav-default, el-h);
+      line-height: map-get($hnav-default, el-h);
+      font-size: map-get($hnav-default, font-size);
+    }
+    
+    .btn-wrapper {
+      float:left;
+      position:relative;
+      > .btn {
+        display:block;
+      }
+      
+      @media (max-width: 767px) {
+        position: static;
+      }
+    }
+  }
+
+  .btn .count {
+    display:block;
+    min-width:23px;
+    line-height:23px;
+    text-align:center;
+    border-radius: 50%;
+    color: #fff;
+    background: getvar(colors scolor);
+    right:-10px;
+    top:-10px;
+    position:absolute;
+    font-size:11px;
+  }
+  
+  @media (max-width: getvar(screens small-max)) {
+    .nav-buttons {
+      position: absolute;
+      top: cmg(map-get($hnav-default, nav-h), map-get($hnav-default, el-h));
+      right: map-get($hnav-default, toggle-h) + 30px;
+      
+      .navbar-left  {
+        float:left;
+        margin:0 0 0 15px;
+      }
+    }
+  }
+}
+
+/* nav-form-panel
+........................... */
+.hnav {
+  .nav-form-panel.dropdown-menu {
+    position: absolute;
+    min-width: 270px;
+    left:auto;
+    right: 0;
+    padding:0;
+    border:1px solid rgba(#000, 0.1);
+    line-height: getvar(type line-h);
+    top: map-get($hnav-default, el-h) + 5px;
+    
+    fieldset {
+      padding:20px;
+    }
+    
+    header {
+      font-size: 17px;
+      padding: 10px 15px;
+    }
+    
+    .btn {
+      line-height: 34px;
+      height: 34px;
+      padding-top:0;
+      padding-bottom:0;
+    }
+    
+    @media (max-width: 767px) {
+      min-width: 0;
+      left: auto;
+      right: - 50px;
+      min-width: 250px;
+    }
+  }
+  .nav-search.nav-form-panel.dropdown-menu {
+    min-width: 0;
+    
+    .form-group {
+      position: relative;
+      
+      .btn {
+        position: absolute;
+        right:0;
+        top:0;
+      }
+      input {
+        font-size: 12px;
+        width:250px;
+        padding-right:60px;
+      }
+    }
+  }
+  
+}
+
+/* navbar form
+........................... */
+.hnav .navbar-form {
+  margin:0;
+  padding:0;
+  
+  .form-control, .form-group, .btn, button {
+    padding:0 20px;
+    box-sizing: border-box;
+    height: map-get($hnav-default, el-h); 
+    line-height: map-get($hnav-default, el-h);
+  }
+}
+
+/* navbar nav
+........................... */
+.hnav .navbar-nav {
+  position:static;
+  
+  &.borders-r > li > a, &.borders-lr > li > a{
+    border-right: 1px solid rgba(#000, 0.1);
+  }
+  
+  &.borders-l > li > a, &.borders-lr > li > a{
+    border-left: 1px solid rgba(#000, 0.1);
+  }
+  
+  &.borders-lr > li > a {
+    margin-left:-1px;
+  }
+  
+  &.boxed-links > li > a {
+    line-height: map-get($hnav-default, el-h);
+    margin:cmg(map-get($hnav-default, nav-h), map-get($hnav-default, el-h)) 0;   
+  }
+  
+  > li {
+    > a {
+      color: getvar(colors nav);
+      padding:0 map-get($hnav-default, link-pad-x);
+      line-height: map-get($hnav-default, nav-h);
+      font-size: map-get($hnav-default, font-size);
+      border-radius:0;
+      
+      
+      .icon-left {
+        opacity: 0.5;
+      }
+      .icon-lg {
+        font-size: 2em;
+        line-height: 1;
+      }
+      
+      &.square {
+        display:block;
+        width: map-get($hnav-default, link-h);
+        text-align:center;
+        padding:0;
+      }
+      
+      .toggler {
+        margin-left:10px;
+      }
+    }
+    
+    &:hover > a, &.active > a, &.open > a, > a:focus, &.alt-state > a {
+      color: getvar(colors nav-active);
+      background: none;
+    }
+    
+    // dropdown
+    // .........................
+    &.dropdown {
+      &.mega {
+        position:static;
+      }
+      .caret, .toggler {
+        transition: all 0.3s;
+        color: #ddd;
+      }
+      
+      &.open .caret, &.open .toggler{
+        transform: rotate(180deg);
+      }
+      
+      &.open .dropdown-menu {
+        max-height: 1000px; // any large value
+      }
+      
+      &.open .mega-menu {
+        border:1px solid rgba(#000, 0.1);
+        border-top: 3px solid getvar(colors pcolor);
+      }
+      
+      &.open .mega-menu, &.open .dropdown-menu {
+        box-shadow: 0 0 1px 1px rgba(#000, 0.1);
+      }
+    }
+    
+    // dropdown menu
+    // .........................
+    .dropdown-menu {
+      display:block;
+      overflow:hidden;
+      max-height:0;
+      transition: all 0.3s;
+      padding: 0;
+      border: none;
+      margin-top: -3px;
+      left:0;
+      
+      > li > a {
+        border-bottom: 1px solid #ddd;
+        line-height:3em;
+        text-transform: capitalize;
+        color: getvar(colors text);
+        font-size: 0.9em;
+      }
+      
+      > li:first-child > a {
+        border-top: 3px solid getvar(colors pcolor);
+      }
+      
+      > li.active > a, > li:hover > a {
+        color: getvar(colors pcolor);
+        background: getvar(colors bcolor-xxl);
+      }
+    }
+    
+    // mega menu
+    // .........................
+    .dropdown-menu.mega-menu {
+      width:100%;
+      position: absolute;
+
+      .row {
+        margin:30px 15px;
+      }
+      
+      h5 {
+        text-transform: uppercase;
+        margin:0 0 20px 0;
+        padding:15px;
+        background: getvar(colors bcolor-xxl);
+        line-height:1;
+        font-size:13px;
+      }
+      
+      .featured-img {
+        max-width: 100%;
+        display: block;
+      }
+      
+      .links {
+        @include no-list();
+        
+        > li > a {
+          border-bottom: 1px dotted #ddd;
+          line-height:3em;
+          text-transform: capitalize;
+          color: getvar(colors text);
+          display:block;
+          padding:0 15px; 
+          font-size: 12px;         
+        }
+        
+        > li:last-child > a {
+          border: none;
+        }
+        
+        > li.active > a, > li:hover > a {
+          color: getvar(colors pcolor);
+        }
+      }
+    }
+  }
+  
+  @media (max-width: getvar(screens small-max)) {
+    border: none;
+    padding:0;
+    margin:0 0 15px 0;
+    float:none;
+    
+    > li:last-child .dropdown-menu {
+      border: 4px solid lighten(getvar(colors bcolor), 5%);
+    }
+    
+    > li.dropdown.mega {
+      position:relative;
+      
+      .mega-menu {
+        position: static;
+        .row {
+          margin:0;
+          
+          [class^="col-"] {
+            padding: 0 15px;
+          } 
+          div:first-child {
+            padding-top: 15px;
+          }
+          div:last-child {
+            padding-bottom: 15px;
+          }
+        }
+        
+        h5 {
+          margin: 0;
+        }
+      }
+    }
+    
+    > li.dropdown .dropdown-menu, > li.dropdown.mega .mega-menu {
+      border: 4px solid lighten(getvar(colors bcolor), 5%);
+      border-bottom:0;
+      border-top:0;
+      width: 100%;
+    }
+    
+    > li.dropdown:last-child .dropdown-menu, > li.dropdown.mega:last-child .mega-menu {
+      border-bottom: 4px solid lighten(getvar(colors bcolor), 5%);
+    }
+    > li.dropdown .dropdown-menu > li:first-child > a, li.dropdown.open .mega-menu {
+      border-top: none;
+      margin-top:0;
+    }
+    > li > a{
+      border-bottom: 1px solid rgba(#fff, 0.1);
+      color: #fff;
+      background: getvar(colors bcolor);
+      line-height:3em;
+      font-size: 0.9em;
+      
+      .toggler {
+        float:right;
+        line-height:inherit;
+        margin-right:10px;
+      }
+    }
+    > li:last-child > a {
+      border-bottom: none;
+    }
+    > li.active > a, > li > a:focus,> li.dropdown.open > a {
+      background: lighten(getvar(colors bcolor), 3%);
+      color: #fff;
+    }
+    > li:hover > a{
+      background: lighten(getvar(colors bcolor), 5%);
+      color: #fff;
+    }
+  }
+}
+
+/* Hnav Styles
+----------------------------------------- */
+.hnav .navbar-nav.line-top,  .hnav .navbar-nav.line-bottom{
+  > li:hover > a:after, >li.active > a:after {
+    content: "";
+    position: absolute;
+    height:3px;
+    width:100%;
+    background: getvar(colors pcolor);
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:0 auto;
+    
+    @media (max-width: 767px) {
+      height:70% !important;
+      width:3px;
+      margin:auto 0;
+      right: auto;
+      left:-1px;
+    }
+  }
+  
+  > li.no-line > a:after {
+    display:none;
+  }
+}
+
+.hnav .navbar-nav.line-bottom{
+  > li:hover > a:after, >li.active > a:after {
+    bottom: 0;
+    top:auto;
+  }
+}
+
+.hnav .navbar-nav.boxed-links{
+  > li:hover > a, >li.active > a{
+    color: #fff;
+    background: getvar(colors pcolor);
+  }
+}
+
+/* Hnav Inverse
+----------------------------------------- */
+.hnav.invert-colors {
+  color:#fff;
+  .navbar-brand {
+    color:#fff;
+    &.border-r {
+      border-right: 1px solid rgba(#fff, 0.1);
+    }
+  }
+  .navbar-toggle {
+    color: #fff;
+    border:1px solid rgba(#fff, 0.1);
+  }
+  .navbar-nav {
+    &.borders-lr > li > a, , &.borders-l > li > a, , &.borders-r > li > a{
+      border-color: rgba(#fff, 0.2) !important;
+    }   
+  
+    > li {
+    
+      > a {
+        color: rgba(#fff, 0.8);
+      }
+    
+      &:hover > a, &.active > a {
+        color: #fff;
+      }
+
+    }
+  }
+}
+
+
+@mixin reset-hnav($class, $map) {
+/* Hnav Sizes
+------------------------------------ */ 
+  /* #{$class} */
+  .hnav.#{$class} {
+    min-height: map-get($map, nav-h);
+    // navbar brand
+    // .........................
+    .navbar-brand {
+      line-height: map-get($map, nav-h);
+      height: map-get($map, nav-h);
+      font-size: map-get($map, brand-font-size);
+
+      img {
+        height: map-get($map, brand-h);
+        margin: cmg(map-get($map, nav-h), map-get($map, brand-h)) 0;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .nav-buttons {
+        position: absolute;
+        top: cmg(map-get($map, nav-h), map-get($map, el-h));
+        right: map-get($map, toggle-h) + 30px;
+        
+        .navbar-left, .btn-wrapper.navbar-left {
+          float:left;
+          margin:0 0 0 15px;
+        }
+      }
+    }
+    
+    // navbar toggle
+    // .........................
+    .navbar-toggle {
+      $h: map-get($map, toggle-h);
+      margin-top:cmg(map-get($map, nav-h), $h);
+      height: $h;
+      width: $h;
+      line-height: $h;
+      font-size: floor($h * 0.5);      
+    }
+    
+    // navbar nav
+    // .........................
+    .navbar-nav > li > a {
+      padding:0 map-get($map, link-pad-x);
+      line-height: map-get($map, nav-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-nav.boxed-links > li > a {
+      line-height: map-get($map, el-h);
+      margin:cmg(map-get($map, nav-h), map-get($map, el-h)) 0;   
+    }
+
+    
+    // navbar elements
+    // .........................
+    .navbar-el, .navbar-text, .navbar-btn, .navbar-form, .navbar-btn-group {
+      margin-top:cmg(map-get($map, nav-h), map-get($map, el-h));
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-btn-group .btn {
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .nav-form-panel {
+      top: map-get($map, el-h) + 5px;
+    }
+
+    // navbar form
+    // .........................
+    .navbar-form {
+      .form-group, .button, .btn {
+        height: map-get($map, el-h); 
+        line-height: map-get($map, el-h);
+      }
+    }
+  }
+}
+
+
+@mixin mobile-reset-hnav($class, $map) {
+/* Hnav Sizes
+------------------------------------ */ 
+  /* #{$class} */
+  .hnav.#{$class} {
+    min-height: map-get($map, nav-h);
+    // navbar brand
+    // .........................
+    .navbar-brand {
+      line-height: map-get($map, nav-h);
+      height: map-get($map, nav-h);
+      font-size: map-get($map, brand-font-size);
+
+      img {
+        height: map-get($map, brand-h);
+        margin: cmg(map-get($map, nav-h), map-get($map, brand-h)) 0;
+      }
+    }
+    
+
+    .nav-buttons {
+      position: absolute;
+      top: cmg(map-get($map, nav-h), map-get($map, el-h));
+      right: map-get($map, toggle-h) + 30px;
+      
+      .navbar-left, .btn-wrapper.navbar-left {
+        float:left;
+        margin:0 0 0 15px;
+      }
+    }
+
+    
+    // navbar toggle
+    // .........................
+    .navbar-toggle {
+      $h: map-get($map, toggle-h);
+      margin-top:cmg(map-get($map, nav-h), $h);
+      height: $h;
+      width: $h;
+      line-height: $h;
+      font-size: floor($h * 0.5);      
+    }
+    
+    // navbar nav
+    // .........................
+    .navbar-nav > li > a {
+      padding:0 map-get($map, link-pad-x);
+      line-height: map-get($map, link-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-nav.boxed-links > li > a {
+      line-height: map-get($map, el-h);
+      margin:cmg(map-get($map, nav-h), map-get($map, el-h)) 0;   
+    }
+
+    
+    // navbar elements
+    // .........................
+    .navbar-el, .navbar-text, .navbar-btn, .navbar-form, .navbar-btn-group {
+      margin-top:cmg(map-get($map, nav-h), map-get($map, el-h));
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .navbar-btn {
+      margin-top:0;
+    }
+    
+    .navbar-btn-group .btn {
+      height: map-get($map, el-h);
+      line-height: map-get($map, el-h);
+      font-size: map-get($map, font-size);
+    }
+    
+    .nav-form-panel {
+      top: map-get($map, el-h) + 5px;
+    }
+
+    // navbar form
+    // .........................
+    .navbar-form {
+      .form-group, .button, .btn {
+        height: map-get($map, el-h); 
+        line-height: map-get($map, el-h);
+      }
+    }
+  }
+}
+
+
+@each $size, $vars in $hnav-sizes {
+  @if(map-get($vars, active)) {
+    @include reset-hnav($size, $vars);
+  }
+}
+
+
+
