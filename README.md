@@ -1,2 +1,4 @@
 # LASO
-LASO DEVElopment
+LASO Development
+
+LASO Laravel contains laravel app.
