@@ -21,3 +21,4 @@ Route::get('/diff/{i1}/{i2}', 'DiffController@diff');
 Route::get('/search', 'SearchController@index');
 Route::get('/', 'SearchController@index');
 Route::get('/compare/{id}', 'CompareController@index');
+Route::get('/legislator/{id}', 'AuthorController@index');

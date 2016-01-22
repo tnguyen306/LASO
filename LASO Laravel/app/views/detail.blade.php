@@ -49,11 +49,11 @@
         <tbody>
             <tr>
                 <th width="25%">Author</th>
-                <td width="75%">{{ $author }}</td>
+                <td width="75%"><a href="/legislator/{{$author_id }}">{{ $author }}</a></td>
             </tr>
             <tr>
-                <th width="20%">Co-Authors</th>
-                <td width="80%">{{ $coauthor }}</td>
+                <th width="20%">Co-Author</th>
+                <td width="80%"><a href="/legislator/{{$coauthor_id }}">{{ $coauthor }}</a></td>
             </tr>
             <tr>
                 <th>Status and Vote</th>
@@ -68,12 +68,8 @@
                 <td>{{ $pdate }}</td>
             </tr>
             <tr>
-                <th>Amount</th>
-                <td>{{ $amount }}</td>
-            </tr>
-            <tr>
                 <th>Document</th>
-                <td><a href="#">PDF</a></td>
+                <td><a href="{{$doc_path}}">PDF</a></td>
             </tr>
         </tbody>
     </table>

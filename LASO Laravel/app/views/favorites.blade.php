@@ -51,7 +51,6 @@
                 <th width="10%">ID</th>
                 <th width=40%">Title</th>
                 <th>Author</th>
-                <th>Status</th>
                 <th>Date</th>
             </tr>
         </thead>
@@ -62,7 +61,7 @@
                 <td>{{ $favs->ext_id }}</td>
                 <td>{{ $favs->title }}</td>
                 <td>{{ $favs->author }}</td>
-                <td>{{ $favs->status }}</td>
+
                 <td>{{ $favs->introduced_date }}</td>
             </tr>
 @endforeach

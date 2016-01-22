@@ -382,7 +382,7 @@ class MyDB extends SQLite3
 {
     function __construct()
     {
-        $this->open('C:\Users\Birm\Desktop\LASO\app\storage\db2.db');
+        $this->open('../storage/test.db');
     }
 }
 $db = new MyDB();
