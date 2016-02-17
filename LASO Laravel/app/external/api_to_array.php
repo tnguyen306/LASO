@@ -387,9 +387,9 @@ class MyDB extends SQLite3
 }
 $db = new MyDB();
 for ($x = 0; $x < count($lids); $x++) {
-     $db->exec("INSERT INTO legislators VALUES('".$lids[$x]."','".$fnames[$x]."','".$lnames[$x]."','".$state[$x]."','".$branch[$x]."','".$districts[$x]."','".$photos[$x]."','".$bios[$x]."');");
+     $db->exec("INSERT OR REPLACE INTO legislators VALUES('".$lids[$x]."','".$fnames[$x]."','".$lnames[$x]."','".$state[$x]."','".$branch[$x]."','".$districts[$x]."','".$photos[$x]."','".$bios[$x]."');");
 }
 for ($x = 0; $x < count($ids); $x++) {
-     $db->exec("INSERT INTO bills VALUES(NULL,'".$states[$x]."','".$ids[$x]."','".$titles[$x]."','".SQLite3::escapeString($texts[$x])."','".$descs[$x]."','coming','".$created[$x]."','".$updated[$x]."','','".$urls[$x]."',".$authorids[$x].",".$coauthorids[$x].");");
+     $db->exec("INSERT OR REPLACE INTO bills VALUES(NULL,'".$states[$x]."','".$ids[$x]."','".$titles[$x]."','".SQLite3::escapeString($texts[$x])."','".$descs[$x]."','coming','".$created[$x]."','".$updated[$x]."','','".$urls[$x]."',".$authorids[$x].",".$coauthorids[$x].");");
 }
 ?>
