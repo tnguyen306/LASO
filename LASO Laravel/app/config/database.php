@@ -48,7 +48,7 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => 'C:\Users\Birm\Desktop\LASO\app\storage\test.db',
+			'database' => __DIR__.'/../storage/test.db',
 			'prefix'   => '',
 		),
 

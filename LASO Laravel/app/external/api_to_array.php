@@ -1,5 +1,14 @@
 <?php
 
+class MyDB extends SQLite3
+{
+    function __construct()
+    {
+        $this->open('../storage/test.db');
+    }
+}
+$db = new MyDB();
+
 function decodeAsciiHex($input) {
     $output = "";
 
@@ -295,15 +304,6 @@ foreach ($jsonIterator as $key => $val) {
 echo "<br><br>";
 echo count($ids). " elements in ids <br><br>";
 
-$titles=array();
-$descs=array();
-$states=array();
-$authorids=array();
-$coauthorids=array();
-$updated=array();
-$created=array();
-$urls=array();
-$texts=array();
 
 for ($x = 0; $x < count($ids); $x++) {
     $urladd = str_replace(' ','%20',$ids[$x]);
@@ -315,37 +315,49 @@ for ($x = 0; $x < count($ids); $x++) {
         RecursiveIteratorIterator::SELF_FIRST);
     foreach ($jsonIterator2 as $k2 => $v2) {
 	    if(strcmp($k2,"title")==0){
-		    array_push($titles,$v2);
+		    $ititle=$v2;
 	}elseif(strcmp($k2,"description")==0){
-		    array_push($descs,$v2);
+		    $idesc=$v2;
 	}elseif(strcmp($k2,"state")==0){
-		    array_push($states,$v2);
+		    $istate=$v2;
 	}elseif(strcmp($k2,"sponsors")==0){
-			array_push($authorids,substr($v2[0]['leg_id'],3));
-            array_push($coauthorids,substr($v2[1]['leg_id'],3));
+			$iauthor=substr($v2[0]['leg_id'],3);
+            $icoauthor=substr($v2[1]['leg_id'],3);
 	}elseif(strcmp($k2,"updated_at")==0){
-		    array_push($updated,$v2);
+		    $iupdated=$v2;
 	}elseif(strcmp($k2,"created_at")==0){
-		    array_push($created,$v2);
+		    $icreated=$v2;
 	}elseif(strcmp($k2,"versions")==0){
-		    array_push($urls,$v2[0]['url']);
-                    array_push($texts,pdf2text($v2[0]['url']));
+            $r=0; // revision number                   
+            foreach ($v2 as $w2) {
+                // set unset variables
+                if(isset($idesc)){
+                $idesc=$idesc;
+                }else{
+                $idesc="No Description Found";
+                }
+                if(isset($icoauthor)){
+                $icoauthor=$icoauthor;
+                }else{
+                $icoauthor="1";
+                }
+                // manage revisions
+                $r=$r+1;            
+                $iurl = $w2['url']; // url
+                $itxt=pdf2text($w2['url']); // pdf text
+                // push this revision to the database
+                $new_derived_key = $istate.$ids[$x].'r'.strval($r);
+                $db->exec("INSERT OR REPLACE INTO bills VALUES('".SQLite3::escapeString($new_derived_key)."','".SQLite3::escapeString($istate)."','".SQLite3::escapeString($ids[$x])."','".SQLite3::escapeString($ititle)."','".SQLite3::escapeString($itxt)."','".SQLite3::escapeString($idesc)."','coming','".SQLite3::escapeString($icreated)."','".SQLite3::escapeString($iupdated)."','','".SQLite3::escapeString($iurl)."',".SQLite3::escapeString($iauthor).",'".SQLite3::escapeString($icoauthor)."');");
+            
+            }
 	}
-}
-}catch(Exception $e){
-array_push($titles,"not found");
-array_push($titles,"not found");;
-array_push($descs,"not found");
-array_push($states,"not found");
-array_push($authorids,"1");
-array_push($coauthorids,"1");
-array_push($updated,"not found");
-array_push($created,"not found");
-array_push($urls,"not found");
-array_push($texts,"not found");
 
 }
+    }catch(Exception $e){
+        print $e;
+    }
 }
+
 
 $lids=array();
 $fnames=array();
@@ -355,6 +367,7 @@ $branch=array();
 $districts=array();
 $photos=array();
 $bios=array();
+
 
 $ljson = file_get_contents('http://openstates.org/api/v1//legislators/?state=ga&active=true&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
 $jsonIterator3 = new RecursiveIteratorIterator(
@@ -378,18 +391,9 @@ $jsonIterator3 = new RecursiveIteratorIterator(
 	}
 }
 
-class MyDB extends SQLite3
-{
-    function __construct()
-    {
-        $this->open('../storage/test.db');
-    }
-}
-$db = new MyDB();
+// array because unsure of order
+//TODO add this to within first foreach, instead of two loops
 for ($x = 0; $x < count($lids); $x++) {
-     $db->exec("INSERT OR REPLACE INTO legislators VALUES('".$lids[$x]."','".$fnames[$x]."','".$lnames[$x]."','".$state[$x]."','".$branch[$x]."','".$districts[$x]."','".$photos[$x]."','".$bios[$x]."');");
-}
-for ($x = 0; $x < count($ids); $x++) {
-     $db->exec("INSERT OR REPLACE INTO bills VALUES(NULL,'".$states[$x]."','".$ids[$x]."','".$titles[$x]."','".SQLite3::escapeString($texts[$x])."','".$descs[$x]."','coming','".$created[$x]."','".$updated[$x]."','','".$urls[$x]."',".$authorids[$x].",".$coauthorids[$x].");");
+     $db->exec("INSERT OR REPLACE INTO legislators VALUES('".$lids[$x]."','".$fnames[$x]."','".$lnames[$x]."','".$state[$x]."','".$branch[$x]."','".$districts[$x]."','".$photos[$x]."','');");
 }
 ?>
