@@ -12,6 +12,8 @@
 */
 
 
+//bills, etc
+
 Route::get('/fav/{id}', 'FavController@fav');
 Route::get('bill/{id}', 'BillController@bill');
 Route::get('billrm/{id}/{bid}', 'BillController@favrm');
@@ -22,3 +24,10 @@ Route::get('/search', 'SearchController@index');
 Route::get('/', 'SearchController@index');
 Route::get('/compare/{id}', 'CompareController@index');
 Route::get('/legislator/{id}', 'AuthorController@index');
+
+//login stuff
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@register');
+Route::get('/logout', 'LoginController@logout');

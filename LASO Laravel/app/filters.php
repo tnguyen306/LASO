@@ -43,7 +43,8 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			//return Redirect::to('login');
+            return Response::make('Unauthorized', 401);
 		}
 	}
 });

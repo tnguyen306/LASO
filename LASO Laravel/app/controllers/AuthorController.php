@@ -3,7 +3,7 @@
 class AuthorController extends BaseController
 {
     /**
-     * Show a list of all of the application's users.
+     * Get all by author
      *
      * @return Response
      */

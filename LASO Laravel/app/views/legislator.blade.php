@@ -63,19 +63,21 @@
         <ul class="nav navbar-nav">
 
             <li><a href="/search">Home</a></li>
+@if (Session::get('uid', 'guest')=='guest');
+                <li><a href="/register"><span class="glyphicon glyphicon-userg"></span> Register</a></li>
 
-            <li><a href="/fav/1">Favorites</a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+@else
+            <li><a href="/fav/{{Session::get('uid', 'guest')}}">Favorites</a></li>
 
             
 
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Switch User</a></li>
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+@endif
             </ul>
 
         </div>
