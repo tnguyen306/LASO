@@ -15,7 +15,6 @@ Currently, this application is configured for use with mysql.
 ###TODO
 
 Allow Summary Inputs
-Admin Functions
 
 ### Laravel License
 
