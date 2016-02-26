@@ -1,12 +1,10 @@
 @extends('layout')
 @section('content')
 <div class="container">
-    <h2>{{ $eid }} <a href="/compare/{{$id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span> Compare Revisions</a> 
-@if (Session::get('uid', 'guest')=='guest')
-@else
-<a href="/billrm/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove From Favorites</a><a href="/billadd/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></h2>
-@endif
-    <h3>{{ $title }}</h3>
+    <h2>Editing {{ $eid }}</h2>
+
+<form action="" method="post">
+    <h3><input type="text" class="form-control input-lg" id="title" name="title" placeholder="Title" value="{{ $title }}"></h3>
     <div class="table">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <tbody>
@@ -20,19 +18,19 @@
             </tr>
             <tr>
                 <th>Status and Vote</th>
-                <td>{{ $status }}</td>
+                <td><input type="text" class="form-control input-lg" id="status" name="status" placeholder="Status" value="{{ $status }}"></td>
             </tr>
             <tr>
                 <th>Date Introduced</th>
-                <td>{{ $idate }}</td>
+                <td><input type="text" class="form-control input-lg" id="idate" name="idate" placeholder="Introduced Date" value="{{ $idate }}"></td>
             </tr>
             <tr>
                 <th>Date of Last Status</th>
-                <td>{{ $pdate }}</td>
+                <td><input type="text" class="form-control input-lg" id="pdate" name="pdate" placeholder="Updated Date" value="{{ $pdate }}"></td>
             </tr>
             <tr>
                 <th>Document</th>
-                <td><a href="{{$doc_path}}">PDF</a></td>
+                <td>URL or Path: <a href="{{$doc_path}}">PDF</a><input type="text" class="form-control input-lg" id="doc_path" name="doc_path" placeholder="Document Path" value="{{$doc_path}}"> </td>
             </tr>
         </tbody>
     </table>
@@ -40,13 +38,11 @@
     <h3>Bill Text</h3>
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#full_text">Hide/Show Full Text</button>
         <div class="collapse in" id ="full_text" style="background-color:#FFFFF5;">
-            <div class="container"><p>
-{{ $text }}
+            <div class="container"> <textarea class="form-control" rows="5" name="billtext">{{ $text }}</textarea>
 </p>
         </div>    
     </div>
+<input class="btn btn-large btn-primary" type="submit" value="Change Text">
+</form>
 </div>
-@if (Session::get('admin', 'false')=='true')
-<p><a href="/edit/{{$id}}">Edit this bill</a></p>
-@endif
 @stop

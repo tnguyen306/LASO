@@ -39,7 +39,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Switch User</a></li>
-                <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>>
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+@endif
+@if (Session::get('admin', 'false')=='true');
+                <li><a href="/admin"><span class="glyphicon glyphicon-menu-hamburger"></span> Admin Menu</a></li>
 @endif
             </ul>
         </div>

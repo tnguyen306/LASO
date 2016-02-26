@@ -19,7 +19,7 @@ class LoginController extends BaseController
         $salted_hash = md5(strtolower($id).$pw);
         $count = DB::select('Select * FROM users where email=:id',['id'=>$id]);
         if (count($count)==0){
-            ession::flash('message',"Invalid Login");
+            Session::flash('message',"Invalid Login");
             return Redirect::to('/register');
         }
         else{
@@ -38,7 +38,7 @@ class LoginController extends BaseController
                 return Redirect::to('/');
             }
             else{
-                ession::flash('message',"Invalid Login");
+                Session::flash('message',"Invalid Login");
                 return Redirect::to('/login');
             }
         }

@@ -31,3 +31,12 @@ Route::post('/login', 'LoginController@login');
 Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@register');
 Route::get('/logout', 'LoginController@logout');
+
+//admin functions
+Route::get('edit/{id}', 'AdminController@billmenu');
+Route::post('edit/{id}', 'AdminController@edittext');
+Route::get('admin', 'AdminController@index');
+Route::get('adminlogin', 'AdminController@adminloginpage');
+Route::post('adminlogin', 'AdminController@adminlogin');
+Route::get('adminlogout', 'AdminController@adminlogout');
+
