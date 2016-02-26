@@ -9,7 +9,7 @@ class CompareController extends BaseController
      */
     public function index($id)
     {
-         $results = DB::select('Select id, ext_id ,title,(first_name ||" " ||last_name) as author,status,introduced_date FROM (select * from bills join legislators on bills.author_id = legislators.id)');
+         $results = DB::select('select * from fullbill');
 
          return View::make('selectcompare')->with(array('results'=>$results,'parent'=>$id));
     }

@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration {
 	        $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
-            $table->timestamps();
             $table->string('name')->nullable();
             $table->string('photo_path')->nullable();
+            $table->timestamps();
 		});
 	}
 
@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			//
+			$table->dropColumn(['id','email','password','name','photo_path','created_at','updated_at']);
 		});
 	}
 

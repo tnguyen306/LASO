@@ -22,6 +22,7 @@ class CreateLegislatorsTable extends Migration {
             $table->string('district');
             $table->string('photo_path')->nullable();
             $table->string('bio')->nullable();
+            $table->timestamps();
 		});
 	}
 
@@ -34,7 +35,7 @@ class CreateLegislatorsTable extends Migration {
 	{
 		Schema::table('legislators', function(Blueprint $table)
 		{
-			//
+			$table->dropColumn(['id','first_name','last_name','state','branch','district','photo_path','bio','created_at','updated_at']);
 		});
 	}
 

@@ -29,13 +29,12 @@ class RegisterController extends BaseController
             return Redirect::to('/login');
             // if exists, log in. Should add notificaitions for user later
         }
-        $uidraw= DB::select('Select id FROM users where email=:id limit 1',['id'=>$id]);
-        // I can't believe I have to do this crap
-        $uida = json_decode(json_encode($uidraw), true);
-        $uid=$uida[0]['id'];
-        Session::put('uid', $uid);
-        $count = DB::insert('insert into users values (NULL,?,?,?,?) ',[$id,$name,$photo,$salted_hash]);
-        Session::put('uid', $uid);
-        return Redirect::to('/');
+        $newuser = new User;
+        $newuser->email = $id;
+        $newuser->password = $salted_hash;
+        $newuser->name= $name;
+        $newuser->photo_path = $photo;
+        $newuser->save();
+        return Redirect::to('/login');
     }
 }
