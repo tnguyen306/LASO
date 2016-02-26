@@ -10,6 +10,7 @@ foreach ($details as $detail) {
     public function favrm($id,$bid)
     {
      $deleted = DB::delete('delete from favorites where (user_id=? AND bill_id=?)',[$id,$bid]);
+     Session::flash('message',$bid." removed from favorites");
      return BillController::bill($bid);
     }
 
@@ -20,6 +21,7 @@ foreach ($details as $detail) {
         $newfav->user_id =$id;
         $newfav->bill_id=$bid;
         $newfav->save();
+        Session::flash('message',$bid." added to favorites");
         return BillController::bill($bid);
     }
 }

@@ -45,6 +45,12 @@
         </div>
     </div>
 </nav>
+@if (Session::get('message', 'none')=='none');
+@else
+<div style="padding:1% 5% 1% 5%;">
+<div class="alert alert-info"><strong>{{Session::get('message', 'No Message')}}</strong></div><br>
+</div>
+@endif
 @yield('content')
 </body>
 

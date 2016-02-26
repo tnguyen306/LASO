@@ -22,12 +22,14 @@ class RegisterController extends BaseController
         $count = DB::select('Select * FROM users where email=:id',['id'=>$id]);
         // check nonempty
         if ($id==''||$pw==''||$name==''||$photo==''){
+            Session::flash('message',"All inputs are required.");
             return Redirect::to('/register');
         }
         
         if (!(count($count)==0)){
+            Session::flash('message',"User created. Please log in.");
             return Redirect::to('/login');
-            // if exists, log in. Should add notificaitions for user later
+            // if exists, log in.
         }
         $newuser = new User;
         $newuser->email = $id;
