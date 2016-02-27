@@ -41,7 +41,7 @@ class AdminController extends BaseController
         $details = DB::select('Select * from fullbill where id=:id',['id' => $id]);
 foreach ($details as $detail) {
 }
-        return View::make('billedit')->with(array('eid'=>$detail->ext_id,'title'=>$detail->title,'author'=>$detail->author,'coauthor'=>$detail->coauthor,'status'=>$detail->status,'idate'=>$detail->introduced_date,'pdate'=>$detail->passed_date,'amount'=>$detail->amount,'text'=>$detail->text,'id'=>$id, 'author_id'=>$detail->author_id,'coauthor_id'=>$detail->coauthor_id,'doc_path'=>$detail->doc_path ));
+        return View::make('billedit')->with(array('eid'=>$detail->ext_id,'title'=>$detail->title,'author'=>$detail->author,'coauthor'=>$detail->coauthor,'status'=>$detail->status,'idate'=>$detail->introduced_date,'pdate'=>$detail->passed_date,'amount'=>$detail->amount,'text'=>$detail->text,'id'=>$id, 'author_id'=>$detail->author_id,'coauthor_id'=>$detail->coauthor_id,'doc_path'=>$detail->doc_path,'description'=>$detail->description ));
      }else{
         Session::flash('message',"insufficient permission");
         return Redirect::to('/bill/'.$id);
@@ -54,7 +54,7 @@ foreach ($details as $detail) {
                 Session::flash('message',"All inputs are required.");
                 return Redirect::to('/edit/'.$id);
             }
-            $newbill= array('text'=>Input::get('billtext'),'title'=>Input::get('title'),'status'=>Input::get('status'),'introduced_date'=>Input::get('idate'),'passed_date'=>Input::get('pdate'),'doc_path'=>Input::get('doc_path'));
+            $newbill= array('text'=>Input::get('billtext'),'title'=>Input::get('title'),'status'=>Input::get('status'),'introduced_date'=>Input::get('idate'),'passed_date'=>Input::get('pdate'),'doc_path'=>Input::get('doc_path'),'description'=>Input::get('description'));
             Bill::where('id',$id)
                 ->update($newbill);
             Session::flash('message',"Bill ".$id." edited.");

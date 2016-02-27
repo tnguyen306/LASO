@@ -36,12 +36,20 @@
             </tr>
         </tbody>
     </table>
-
+@if($description=="")
+<p>No Description has been entered for this bill</p>
+@else
+<h3> LASO Bill Summary</h3>
+<div class="container" style="background-color:#FFFFF5;"><p>
+{{{$description}}}
+</p>
+</div>
+@endif
     <h3>Bill Text</h3>
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#full_text">Hide/Show Full Text</button>
         <div class="collapse in" id ="full_text" style="background-color:#FFFFF5;">
             <div class="container"><p>
-{{ $text }}
+{{{ $text }}}
 </p>
         </div>    
     </div>

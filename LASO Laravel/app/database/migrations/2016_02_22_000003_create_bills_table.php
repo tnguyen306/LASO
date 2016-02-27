@@ -25,6 +25,7 @@ class CreateBillsTable extends Migration {
             $table->string('passed_date')->nullable();
             $table->string('revision_id')->nullable();
             $table->text('doc_path');
+            $table->text('description')->nullable();
             $table->string('author_id')->references('id')->on('legislators');
             $table->string('coauthor_id')->references('id')->on('legislators')->nullable();
             $table->timestamps();
@@ -51,6 +52,7 @@ class CreateBillsTable extends Migration {
 			$table->dropColumn('passed_date');
 			$table->dropColumn('revision_id');
 			$table->dropColumn('doc_path');
+            $table->dropColumn('description');
 			$table->dropColumn('author_id');
             $table->dropColumn('coauthor_id');
 			$table->dropColumn('updated_at');

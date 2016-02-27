@@ -34,7 +34,8 @@
             </tr>
         </tbody>
     </table>
-
+<h3>LASO Bill Summary</h3>
+<div class="container"> <textarea class="form-control" rows="5" name="description">{{ $description }}</textarea>
     <h3>Bill Text</h3>
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#full_text">Hide/Show Full Text</button>
         <div class="collapse in" id ="full_text" style="background-color:#FFFFF5;">
