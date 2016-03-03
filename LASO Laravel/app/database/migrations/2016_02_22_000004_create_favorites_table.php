@@ -16,10 +16,11 @@ class CreateFavoritesTable extends Migration {
 		{
             $table->increments('id');
             $table->integer('user_id')->references('id')->on('users');
-            $table->integer('bill_id')->references('id')->on('bills');
+            $table->string('bill_id')->references('id')->on('bills');
             $table->timestamps();
 		});
-        //DB::statement( 'Create VIEW fullfav AS SELECT');
+        DB::statement( 'Create VIEW fullbill AS SELECT * from (SELECT id as a_id, concat(first_name," ",last_name) as author FROM legislators)as t1 JOIN ((SELECT id as b_id, concat(first_name," ",last_name) as coauthor FROM legislators)as t2 JOIN bills on b_id=coauthor_id) on a_id=author_id');
+        DB::statement('Create VIEW fullfav AS SELECT * from (fullbill JOIN (Select id as fid,user_id,bill_id from favorites) as tmp on bill_id=id)');
 	}
 
 	/**
@@ -29,11 +30,13 @@ class CreateFavoritesTable extends Migration {
 	 */
 	public function down()
 	{
+        DB::statment( 'DROP VIEW fullbill' );
+        DB::statment( 'DROP VIEW fullfav' );
 		Schema::table('favorites', function(Blueprint $table)
 		{
 			$table->dropColumn(['id','user_id','bill_id','created_at','updated_at']);
 		});
-        //DB::statment( 'DROP VIEW fullfav' );
+        
 	}
 
 }

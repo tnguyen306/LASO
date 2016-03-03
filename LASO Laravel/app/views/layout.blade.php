@@ -13,6 +13,12 @@
     body {
         background-color:#F5F5EB;
     }
+    del {
+        background-color:red;
+    }
+    ins {
+        background-color:yellowgreen;
+    }
     </style>
 </head>
 <body>

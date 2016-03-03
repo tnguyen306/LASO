@@ -41,10 +41,20 @@
     </table>
 
     <h3>Bill Text Differences</h3>
+<table>
+<tr>
+<td>
+  <blockquote style="background-color:#FFFFF5;">
+{{$d1->text}}
+  </blockquote>
+</td>
+<td>
   <blockquote style="background-color:#FFFFF5;">
     {{ $diff }}
   </blockquote>
-
+</td>
+</tr>
+</table>
 
     </div>
 </div>

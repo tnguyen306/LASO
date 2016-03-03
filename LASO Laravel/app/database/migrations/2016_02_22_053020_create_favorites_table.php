@@ -16,7 +16,7 @@ class CreateFavoritesTable extends Migration {
 		{
             $table->increments('id');
             $table->integer('user_id')->references('id')->on('users');
-            $table->integer('bill_id')->references('id')->on('bills');
+            $table->string('bill_id')->references('id')->on('bills');
             $table->timestamps();
 		});
         DB::statement( 'Create VIEW fullbill AS SELECT * from (SELECT id as a_id, concat(first_name," ",last_name) as author FROM legislators)as t1 JOIN ((SELECT id as b_id, concat(first_name," ",last_name) as coauthor FROM legislators)as t2 JOIN bills on b_id=coauthor_id) on a_id=author_id');

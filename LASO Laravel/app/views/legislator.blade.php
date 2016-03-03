@@ -51,7 +51,24 @@
 
         <tbody>
 
-@foreach ($results as $favs) 
+@foreach ($results1 as $favs) 
+
+            <tr class="searchable">
+
+                <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
+
+                <td>{{ $favs->ext_id }}</td>
+
+                <td>{{ $favs->title }}</td>
+
+                <td>{{ $favs->author }}</td>
+
+                <td>{{ $favs->introduced_date }}</td>
+
+            </tr>
+
+@endforeach
+@foreach ($results2 as $favs) 
 
             <tr class="searchable">
 
