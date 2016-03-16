@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'legislation',
+			'database'  => 'laso_ga',
 			'username'  => 'laso',
-			'password'  => 'laso',
+			'password'  => 'Search4Billz',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
