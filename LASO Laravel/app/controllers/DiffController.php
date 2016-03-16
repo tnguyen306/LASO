@@ -1,5 +1,5 @@
 <?php
-include 'app\external\simplediff.php';
+include '/home/lasoadmin/laso/app/external/simplediff.php';
 class DiffController extends BaseController {
     public function diff($i1,$i2)
     {
