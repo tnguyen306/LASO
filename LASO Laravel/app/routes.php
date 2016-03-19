@@ -24,6 +24,7 @@ Route::get('/search', 'SearchController@index');
 Route::get('/', 'SearchController@index');
 Route::get('/compare/{id}', 'CompareController@index');
 Route::get('/legislator/{id}', 'AuthorController@index');
+Route::get('/legislators/', 'AllLegController@index');
 
 //login stuff
 Route::get('/login', 'LoginController@index');
