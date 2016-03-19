@@ -22,7 +22,7 @@
         <tbody>
 @foreach ($results as $favs) 
             <tr class="searchable">
-                <td><a href=' {{ "/legislator/".$favs->id }} ' class="btn btn-info btn-small" role="button">Page</a></td>
+                <td><a href=' {{ "/legislator/".str_pad($favs->id,6,"0",STR_PAD_LEFT) }} ' class="btn btn-info btn-small" role="button">Page</a></td>
                 <td>{{ $favs->first_name }} {{ $favs->last_name }}</td>
                 <td>{{ $favs->district }}</td>
                 <td>{{ $favs->state }}</td>
