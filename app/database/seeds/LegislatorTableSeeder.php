@@ -41,7 +41,7 @@ class LegislatorTableSeeder extends Seeder {
     }
     public function run()
     {
-        run_state('ga');
-        run_state('fl');
+        self::run_state('ga');
+        self::run_state('fl');
     }
 }
