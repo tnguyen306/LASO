@@ -13,10 +13,10 @@ class SearchController extends BaseController
     }
     public function find()
     {
-        $search = '*'.Input::get('search').'*';
+        $search = Input::get('search');
         $state = Input::get('state');
         //testing
-        $results = DB::select('SELECT * FROM fullbill WHERE title like :search',['search'=>$search]);
+        $results = DB::select('SELECT * FROM fullbill WHERE id like :search',['search'=>$search]);
         //real
         //$results = DB::select('SELECT * FROM fullbill WHERE ((match(title,id,description,text) against (:search)) AND (state = (:state)))',['search'=>$search,'state'=>$state]);
         return View::make('search')->with('results',$results);
