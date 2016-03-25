@@ -91,8 +91,9 @@ class BillTableSeeder extends Seeder {
             }
         }
     }
-    public function run{
+    public function run()
+    {
         run_state("ga","2015_16")
-        run_state("fl","2016:)
+        run_state("fl","2016")
     }
 }
