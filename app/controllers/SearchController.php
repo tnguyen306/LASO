@@ -9,9 +9,14 @@ class SearchController extends BaseController
      */
     public function index()
     {
-         $results = DB::select('Select * from fullbill');
-
-         return View::make('search')->with('results',$results);
+        return View::make('find');
+    }
+    public function find()
+    {
+        $search = Input::get('email');
+        $state = Input::get('state');
+        $results = DB::select('SELECT * FROM bills WHERE (MATCH (title,description) AGAINST (:search)) AND (MATCH state AGAINST (:state)',['search'=>$search,'state'=>$state]);
+        return View::make('search')->with('results',$results);
 
         return View::make('search');
     }
