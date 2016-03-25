@@ -2,9 +2,9 @@
 require_once('pdf_to_text.php');
 class BillTableSeeder extends Seeder {
 
-    public function run()
+    public function run_state($state,$session)
     {
-        $json = file_get_contents('http://openstates.org/api/v1//bills/?state=ga&last_action_since=2015-10-10&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
+        $json = file_get_contents('http://openstates.org/api/v1//bills/?state='.$state.'ga&last_action_since=2015-10-10&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
         $js = json_decode($json);
 
         $jsonIterator = new RecursiveIteratorIterator(
@@ -17,13 +17,13 @@ class BillTableSeeder extends Seeder {
 		        array_push($ids,$val);
 	        }
         }
-        echo count($ids). " bills to import from GA. \n";
+        echo count($ids). " bills to import from ".$state. "\n";
 
 
         for ($x = 0; $x < count($ids); $x++) {
             $urladd = str_replace(' ','%20',$ids[$x]);
             echo $urladd . "\n";
-	        try{$json2 = file_get_contents('http://openstates.org/api/v1//bills/ga/2015_16/'.$urladd.'/?apikey=e2f56937c8c74a67a0f6133152f0c2f2');
+	        try{$json2 = file_get_contents('http://openstates.org/api/v1//bills/'.$state.'/'.$session.'/'.$urladd.'/?apikey=e2f56937c8c74a67a0f6133152f0c2f2');
             $js2 = json_decode($json2);
             $jsonIterator2 = new RecursiveIteratorIterator(
                 new RecursiveArrayIterator(json_decode($json2, TRUE)),
@@ -90,5 +90,9 @@ class BillTableSeeder extends Seeder {
         print $e;
             }
         }
+    }
+    public function run{
+        run_state("ga","2015_16")
+        run_state("fl","2016:)
     }
 }

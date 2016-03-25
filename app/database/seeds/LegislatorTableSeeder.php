@@ -2,9 +2,9 @@
 
 
 class LegislatorTableSeeder extends Seeder {
-    public function run()
+    public function run_state($state)
     {
-        $ljson = file_get_contents('http://openstates.org/api/v1/legislators/?state=ga&active=true&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
+        $ljson = file_get_contents('http://openstates.org/api/v1/legislators/?state='.$state.'&active=true&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
         $jsonIterator3 = new RecursiveIteratorIterator(
                 new RecursiveArrayIterator(json_decode($ljson, TRUE)),
                 RecursiveIteratorIterator::SELF_FIRST);
@@ -23,18 +23,25 @@ class LegislatorTableSeeder extends Seeder {
 		            $iphoto=$v3;
 	        }elseif(strcmp($k3,"party")==0){
 		            $iparty=$v3;
+	        }elseif(strcmp($k3,"chamber")==0){
+		            $ichamber=$v3;
 	        }elseif(strcmp($k3,"suffixes")==0){ // the last field, so all is here
                 $newleg = new Legislator;
                 $newleg->id=$iid;
                 $newleg->first_name=$ifname;
                 $newleg->last_name=$ilname;
                 $newleg->state=$istate;
-                $newleg->branch="coming";
+                $newleg->branch=$ichamber;
                 $newleg->district=$idist;
                 $newleg->photo_path=$iphoto;
                 $newleg->bio=$iparty;
                 $newleg->save();
             }
         }
+    }
+    public function run()
+    {
+        run_state('ga');
+        run_state('fl');
     }
 }
