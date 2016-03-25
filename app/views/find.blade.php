@@ -7,7 +7,7 @@
 <div class="form-group">
 <input type="text" id="search" name="search" class="form-control input-lg"><br>
 <label for="sel1">Select list:</label>
-  <select class="form-control" name="state">
+  <select class="form-control" id="state" name="state">
     <option value="ga">Georgia</option>
     <option value="fl">Florida</option>
   </select>
