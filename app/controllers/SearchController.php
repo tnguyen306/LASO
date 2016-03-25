@@ -18,7 +18,7 @@ class SearchController extends BaseController
         //testing
         //$results = DB::select('SELECT * FROM fullbill WHERE (match(title,id,description,text) against (:search))',['search'=>$search]);
         $results = DB::select('SELECT * FROM fullbill WHERE ((state = (:state)))',['state'=>$state]);
-
+//hi
         //real
         //$results = DB::select('SELECT * FROM fullbill WHERE ((match(title,id,description,text) against (:search)) AND (state = (:state)))',['search'=>$search,'state'=>$state]);
         return View::make('search')->with('results',$results);
