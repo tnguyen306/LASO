@@ -13,7 +13,7 @@ class SearchController extends BaseController
     }
     public function find()
     {
-        $search = Input::get('search');
+        $search = '%'.Input::get('search').'%';
         $state = Input::get('state');
         //testing
         $results = DB::select('SELECT * FROM fullbill WHERE id like :search',['search'=>$search]);
