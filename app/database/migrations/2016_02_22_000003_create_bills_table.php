@@ -12,7 +12,6 @@ class CreateBillsTable extends Migration {
 	 */
 	public function up()
 	{
-        /**
 		Schema::table('bills', function(Blueprint $table)
 		{
 	        $table->string('id');
@@ -32,7 +31,6 @@ class CreateBillsTable extends Migration {
             $table->timestamps();
             DB::statement('ALTER TABLE bills ADD FULLTEXT ft_index_name(title, id,description,text)');
 		});
-        **/
 	}
 
 	/**
@@ -42,7 +40,6 @@ class CreateBillsTable extends Migration {
 	 */
 	public function down()
 	{
-        /**
 		Schema::table('bills', function(Blueprint $table)
 		{
 			$table->dropColumn('id');
@@ -63,7 +60,6 @@ class CreateBillsTable extends Migration {
             $table->dropColumn('created_at');
             DB::statement('ALTER TABLE bills DROP INDEX ft_index_name');
 		});
-        **/
 	}
 
 }
