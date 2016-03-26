@@ -69,10 +69,10 @@ class BillTableSeeder extends Seeder {
                         if($istate=='ga'){
                             //pdf
                             $itxt=pdf2text($w2['url']); // pdf text
-                        }else
+                        }else{
                             //html
                             $doc = new DOMDocument();
-                            $doc->loadHTMLFile($url); // Load the HTML
+                            $doc->loadHTMLFile($w2['url']); // Load the HTML
                             foreach($doc->getElementsByTagName('script') as $script) { // for all scripts
                                 $script->parentNode->removeChild($script); // remove script and content 
                                                                            // so it will not appear in text
