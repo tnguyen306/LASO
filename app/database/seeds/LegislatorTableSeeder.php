@@ -2,7 +2,7 @@
 
 
 class LegislatorTableSeeder extends Seeder {
-    public function run_state($state)
+    public function run_state($state,$stateid)
     {
         $ljson = file_get_contents('http://openstates.org/api/v1/legislators/?state='.$state.'&active=true&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
         $jsonIterator3 = new RecursiveIteratorIterator(
@@ -41,7 +41,8 @@ class LegislatorTableSeeder extends Seeder {
     }
     public function run()
     {
-        self::run_state('ga');
-        self::run_state('fl');
+
+        self::run_state('ga','1001'); 
+        self::run_state('fl','1002');
     }
 }
