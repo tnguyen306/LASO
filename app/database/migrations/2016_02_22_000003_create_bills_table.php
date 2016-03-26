@@ -29,7 +29,7 @@ class CreateBillsTable extends Migration {
             $table->string('author_id')->references('id')->on('legislators');
             $table->string('coauthor_id')->references('id')->on('legislators')->nullable();
             $table->timestamps();
-            DB::statement('ALTER TABLE bills ADD FULLTEXT ft_index_name(title, id,description,text)');
+            //DB::statement('ALTER TABLE bills ADD FULLTEXT ft_index_name(title, id,description,text)');
 		});
 	}
 
@@ -58,7 +58,7 @@ class CreateBillsTable extends Migration {
             $table->dropColumn('coauthor_id');
 			$table->dropColumn('updated_at');
             $table->dropColumn('created_at');
-            DB::statement('ALTER TABLE bills DROP INDEX ft_index_name');
+            //DB::statement('ALTER TABLE bills DROP INDEX ft_index_name');
 		});
 	}
 
