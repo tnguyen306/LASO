@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 		//$this->call('UserTableSeeder'); //Just use registration
-        $this->call('BillTableSeeder');
         $this->call('LegislatorTableSeeder'); // shouldn't change often; BE SURE TO CHECK SOMETIMES.
+        $this->call('BillTableSeeder');
+        
 	}
 
 }

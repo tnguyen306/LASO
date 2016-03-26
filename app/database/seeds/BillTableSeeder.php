@@ -64,7 +64,21 @@ class BillTableSeeder extends Seeder {
                         // manage revisions
                         $r=$r+1;            
                         $iurl = $w2['url']; // url
-                        $itxt=pdf2text($w2['url']); // pdf text
+                        //different states have different methods for full text
+                        $itxt="Error in Fetch; try path for now"
+                        if($istate=='ga'){
+                            //pdf
+                            $itxt=pdf2text($w2['url']); // pdf text
+                        }else
+                            //html
+                            $doc = new DOMDocument();
+                            $doc->loadHTMLFile($url); // Load the HTML
+                            foreach($doc->getElementsByTagName('script') as $script) { // for all scripts
+                                $script->parentNode->removeChild($script); // remove script and content 
+                                                                           // so it will not appear in text
+                            }
+                            $itxt = $doc->textContent; //inherited from DOMNode, get the text.
+                        }
                         // push this revision to the database
                         $new_derived_key = $istate.$ids[$x].'r'.strval($r);
                         $newbill = new Bill;
