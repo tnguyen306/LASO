@@ -65,7 +65,7 @@ class BillTableSeeder extends Seeder {
                         $r=$r+1;            
                         $iurl = $w2['url']; // url
                         //different states have different methods for full text
-                        $itxt="Error in Fetch; try path for now"
+                        $itxt="Error in Fetch; try path for now";
                         if($istate=='ga'){
                             //pdf
                             $itxt=pdf2text($w2['url']); // pdf text
