@@ -71,13 +71,10 @@ class BillTableSeeder extends Seeder {
                             $itxt=pdf2text($w2['url']); // pdf text
                         }else{
                             //html
-                            $doc = new DOMDocument();
-                            $doc->loadHTMLFile($w2['url']); // Load the HTML
-                            foreach($doc->getElementsByTagName('script') as $script) { // for all scripts
-                                $script->parentNode->removeChild($script); // remove script and content 
-                                                                           // so it will not appear in text
-                            }
-                            $itxt = $doc->textContent; //inherited from DOMNode, get the text.
+                            $doc = new DOMDocument;
+                            $doc->load("http://mysite.com");
+                            $xpath = new DOMXpath($doc);
+                            $elements = $xpath->query("*/div[@id='pre']");
                         }
                         // push this revision to the database
                         $new_derived_key = $istate.$ids[$x].'r'.strval($r);
