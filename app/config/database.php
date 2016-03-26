@@ -96,7 +96,7 @@ return array(
 	|
 	*/
 
-	'migrations' => 'migrations',
+	'migrations' => 'migration',
 
 	/*
 	|--------------------------------------------------------------------------
