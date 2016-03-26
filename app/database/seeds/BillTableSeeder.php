@@ -93,7 +93,7 @@ class BillTableSeeder extends Seeder {
     }
     public function run()
     {
-        self::run_state("ga","2015_16");
-        self::run_state("fl","2016");
+        self::run_state('ga','2015_16');
+        self::run_state('fl','2016');
     }
 }
