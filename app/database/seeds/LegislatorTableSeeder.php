@@ -10,7 +10,7 @@ class LegislatorTableSeeder extends Seeder {
                 RecursiveIteratorIterator::SELF_FIRST);
             foreach ($jsonIterator3 as $k3 => $v3) {
 	            if(strcmp($k3,"leg_id")==0){
-		            $iid=substr($v3,3);     
+		            $iid=$v3;     
 	        }elseif(strcmp($k3,"first_name")==0){
 		            $ifname=$v3;
 	        }elseif(strcmp($k3,"last_name")==0){

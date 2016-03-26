@@ -36,9 +36,9 @@ class BillTableSeeder extends Seeder {
 	        }elseif(strcmp($k2,"state")==0){
 		            $istate=$v2;
 	        }elseif(strcmp($k2,"sponsors")==0){
-			        $iauthor=substr($v2[0]['leg_id'],3);
+			        $iauthor=$v2[0]['leg_id'];
                     try{
-                        $icoauthor=substr($v2[1]['leg_id'],3);
+                        $icoauthor=$v2[1]['leg_id'];
                     }catch(Exception $e){
                         $pass_var=1;
                     }
