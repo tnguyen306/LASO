@@ -23,7 +23,7 @@ class CreateFavoritesTable extends Migration {
         DB::statement( 'create view sml2 as SELECT id as b_id, concat(first_name," ",last_name) as coauthor FROM legislators');
         DB::statement( 'Create VIEW fullbill AS SELECT * from sml1 as t1 JOIN (sml2 as t2 JOIN bills on b_id=coauthor_id) on a_id=author_id');
         DB::statement( 'create view pfav as Select id as fid,user_id,bill_id from favorites');
-        DB::statement( 'Create VIEW fullfav AS SELECT * from (fullbill JOIN (pfav) as tmp on bill_id=id)');
+        DB::statement( 'Create VIEW fullfav AS SELECT * from (fullbill JOIN pfav on bill_id=id)');
 	}
 
 	/**

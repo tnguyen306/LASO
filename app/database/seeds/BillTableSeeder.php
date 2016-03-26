@@ -4,7 +4,7 @@ class BillTableSeeder extends Seeder {
 
     public function run_state($state,$session)
     {
-        $json = file_get_contents('http://openstates.org/api/v1//bills/?state='.$state.'ga&last_action_since=2015-10-10&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
+        $json = file_get_contents('http://openstates.org/api/v1//bills/?state='.$state.'&last_action_since=2015-10-10&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
         $js = json_decode($json);
 
         $jsonIterator = new RecursiveIteratorIterator(
