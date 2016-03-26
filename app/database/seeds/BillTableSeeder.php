@@ -73,12 +73,14 @@ class BillTableSeeder extends Seeder {
                             //florida only, so far
                             if(substr($w2['url'],-4,4)=='HTML'){
                                 //html
-                                $doc = new DOMDocument;
-                                $doc->load($w2['url']);
-                                $xpath = new DOMXpath($doc);
-                                $itxt = $xpath->query("*/div[@id='pre']");
+                                $dom = new domDocument('1.0', 'utf-8');
+                                $ihtml =file_get_contents($w2['url']);
+                                $dom->loadHTML($ihtml);
+                                $pre= $dom->getElementsByTagName('pre');
+                                $itxt = $pre->item(0)->nodeValue;
                             }else{
                                 $itxt=pdf2text($w2['url']); // pdf text
+                            }
                         }
                         // push this revision to the database
                         $new_derived_key = $istate.$ids[$x].'r'.strval($r);
