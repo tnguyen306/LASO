@@ -63,7 +63,7 @@
 </div>
 @endif
 <center>
-<img src="/images/logo_m.png"/>
+<img src="/images/logo_m.png" style="height:25%;max-width:300px;max-height:300px;"/>
 <h1>Welcome to <b>L</b>egislative <b>A</b>ide <b>S</b>ervices <b>O</b>nline</h1>
 <h3>About LASO</h3>
 <p>Keep tabs on United States State Legislation with ease, by seeing bills, comparing bill revisions, and looking at legislators' history.</p>
