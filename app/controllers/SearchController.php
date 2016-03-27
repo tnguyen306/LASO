@@ -11,6 +11,10 @@ class SearchController extends BaseController
     {
         return View::make('find');
     }
+    public function landing()
+    {
+        return View::make('landing');
+    }
     public function find()
     {
         $search = '%'.Input::get('search').'%';
