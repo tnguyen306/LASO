@@ -4,7 +4,7 @@
 <div class="container">
 <img src="{{$leg->photo_path}}" style="max-width:200px;max-height:200px;" align="left" style="padding:10 px;">
 <h1>&nbsp;{{$leg->first_name." ".$leg->last_name}}</h1>
-<p>&nbsp;&nbsp;&nbsp;<b>{{"District ".$leg->district}}</b><br>&nbsp;&nbsp;&nbsp;<b>{{"ID: ".$leg->bio}}</b><br>&nbsp;&nbsp;&nbsp;<b>{{"ID: ".$leg->id}}<b></p>
+<p>&nbsp;&nbsp;&nbsp;<b>{{"District ".$leg->district}}</b><br>&nbsp;&nbsp;&nbsp;<b>{{"Party: ".$leg->bio}}</b><br>&nbsp;&nbsp;&nbsp;<b>{{"ID: ".$leg->id}}<b></p>
 </div>
 <br>
 

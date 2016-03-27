@@ -21,8 +21,8 @@ class RegisterController extends BaseController
         $salted_hash = md5(strtolower($id).$pw);
         $count = DB::select('Select * FROM users where email=:id',['id'=>$id]);
         // check nonempty
-        if ($id==''||$pw==''||$name==''||$photo==''){
-            Session::flash('message',"All inputs are required.");
+        if ($id==''||$pw==''||$name==''){
+            Session::flash('message',"All inputs except photo are required.");
             return Redirect::to('/register');
         }
         
