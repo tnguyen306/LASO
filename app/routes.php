@@ -21,7 +21,6 @@ Route::get('billadd/{id}/{bid}', 'BillController@favadd');
 Route::get('db', 'UserController@index');
 Route::get('/diff/{i1}/{i2}', 'DiffController@diff');
 
-Route::get('/compare/{id}', 'CompareController@index');
 Route::get('/legislator/{id}', 'AuthorController@index');
 Route::get('/legislators/', 'AllLegController@index');
 
@@ -44,4 +43,5 @@ Route::get('adminlogout', 'AdminController@adminlogout');
 Route::get('/search', 'SearchController@index');
 Route::get('/', 'SearchController@index');
 Route::post('/find', 'SearchController@find');
-
+Route::post('/compare/{id}','CompareController@find');
+Route::get('/compare/{id}','CompareController@index');
