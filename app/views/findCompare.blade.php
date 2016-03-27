@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<form method="post" action='{{{ "/compare/".$parent."/"}}}'>
+<form method="post" action='{{{ "/compare/".str_replace(' ','%20',$parent)."/"}}}'>
 <div class="container">
 <div class="form-group">
 <h2>Search For Bills To Compare with {{$parent}}</h2>
