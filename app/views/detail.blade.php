@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="container">
-    <h2>{{ $eid }} <a href="/compare/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span> Compare Revisions</a> 
+    <h2>{{ $eid }} <a href="/compare/{{$id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span> Compare Revisions</a> 
 @if (Session::get('uid', 'guest')=='guest')
 @else
 <a href="/billrm/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove From Favorites</a><a href="/billadd/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></h2>
