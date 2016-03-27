@@ -32,7 +32,11 @@
             </tr>
             <tr>
                 <th>Document</th>
-                <td><a href="{{$doc_path}}">PDF</a></td>
+@if (Session::get('uid', 'guest')=='guest');
+                <td>Log in or Register to See</td>
+@else
+                <td><a href="{{$doc_path}}">Document</a></td>
+@endif
             </tr>
         </tbody>
     </table>
