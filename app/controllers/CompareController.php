@@ -12,7 +12,7 @@ class CompareController extends BaseController
     {
          return View::make('findCompare')->with(array('parent'=>$id));
     }
-    public function find()
+    public function find($id)
     {
         $id = Input::get('parent');
         $search = '%'.Input::get('search').'%';

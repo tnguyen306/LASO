@@ -43,5 +43,5 @@ Route::get('adminlogout', 'AdminController@adminlogout');
 Route::get('/search', 'SearchController@index');
 Route::get('/', 'SearchController@index');
 Route::post('/find', 'SearchController@find');
-Route::post('/compare/','CompareController@find');
+Route::post('/compare/{id}','CompareController@find');
 Route::get('/compare/{id}','CompareController@index');
