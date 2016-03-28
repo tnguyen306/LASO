@@ -72,7 +72,12 @@
 <p><b>Georgia</b></p>
 <p><b>Florida</b></p>
 <br>
+@if (Session::get('uid', 'guest')=='guest');
+<h2>Begin Your Search</h2>
+<a href="/register"><button class="btn btn-default btn-primary" ><h1>Sign Up</h1></button></a>
+@else
 <a href="/search"><button class="btn btn-default btn-primary" ><h1>Begin Your Search</h1></button></a>
+@endif
 <br><br>
 <small>LASO is currently in BETA, and registrations may be reset periodically. Contact birm@rbirm.us with questions or concerns.</small>
 </center>

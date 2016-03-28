@@ -34,7 +34,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-            <li><a href="/search">Home</a></li>
+            <li><a href="/">Home</a></li>
 @if (Session::get('uid', 'guest')=='guest');
             </ul>
             <ul class="nav navbar-nav navbar-right">
