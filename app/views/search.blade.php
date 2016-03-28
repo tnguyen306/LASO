@@ -24,7 +24,7 @@
 @foreach ($results as $favs) 
             <tr class="searchable">
                 <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
-                <td>{{ $favs->ext_id }}</td>
+                <td>{{ substr($favs->ext_id,2) }}</td>
                 <td>{{ $favs->title }}</td>
                 <td>{{ $favs->author }}</td>
                 <td>{{ $favs->introduced_date }}</td>
