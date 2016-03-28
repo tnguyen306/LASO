@@ -74,7 +74,7 @@
 
                 <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
 
-                <td>{{ $favs->ext_id }}</td>
+                <td>{{ substr($favs->ext_id,2) }}</td>
 
                 <td>{{ $favs->title }}</td>
 
