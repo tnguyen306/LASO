@@ -20,7 +20,6 @@
                 <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
                 <td>{{ substr($favs->ext_id,0,2) }}</td>
                 <td>{{ substr($favs->ext_id,2) }}</td>
-                <td>{{ $favs->ext_id }}</td>
                 <td>{{ $favs->title }}</td>
                 <td>{{ $favs->author }}</td>
 
