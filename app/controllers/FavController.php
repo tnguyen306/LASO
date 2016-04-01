@@ -19,7 +19,7 @@ class FavController extends BaseController {
                 $legislator = DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$t_item]);
                 foreach ($legislator as $leg) {
                 }
-                $t_item=$leg->first_name.$leg->last_name;
+                $t_item=$leg->first_name." ".$leg->last_name;
             } else { //keyword or similar
                 $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_items,'search2'=>$t_items,'search3'=>$t_items]);
             }
