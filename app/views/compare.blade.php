@@ -3,10 +3,11 @@
 <style>
 .noshow ins{
     background-color:transparent !important;
-    display:none !important;
+    opacity:0 !important;
 }
 .noshow del{
     background-color:transparent !important;
+    text-decoration:none !important;
 }
 </style>
 <div class="container">
