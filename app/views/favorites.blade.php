@@ -3,7 +3,17 @@
 <div class="container">
     <h2>Favorites</h2>
 @foreach ($results as $item)
-<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3><a href="/favrm/{{$item['id']}}/" class="btn btn-danger btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove from Favorites</a>
+<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3>
+@if ($item['type']=="legislator")
+<a href="/legislator/{{$item['item']}}"><button class="btn btn-info btn-small">See More...</button></a>
+@else
+<form action="/find" method="post">
+     <input type="hidden" name="state" id="state" value="%">
+      <input type="hidden" name="search" id="search" value="{{$item['item']}}">
+    <button class="btn btn-info btn-small">See More...</button>
+</form>
+@endif
+<a href="/favrm/{{$item['id']}}/" class="btn btn-danger btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove from Favorites</a>
     <div class="table-responsive">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
@@ -30,11 +40,6 @@
         </tbody>
     </table>
 </div>
-<form action="/find" method="post">
-     <input type="hidden" name="state" id="state" value="%">
-      <input type="hidden" name="search" id="search" value="{{$item['item']}}">
-    <button class="btn btn-info btn-small">See More...</button>
-</form>
 @endforeach
 
 @stop
