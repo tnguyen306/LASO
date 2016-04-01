@@ -23,7 +23,7 @@ foreach ($legislator as $leg) {
         Session::flash('message','Log in to favorite');
     }else{
         $newfav = new Favorite;
-        $newfav->user_id =$id;
+        $newfav->user_id =$uid;
         $newfav->type="legislator";
         $newfav->item=$id;
         $newfav->save();

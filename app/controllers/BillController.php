@@ -24,6 +24,6 @@ foreach ($details as $detail) {
         $newfav->item=$item[0];
         $newfav->save();
         Session::flash('message','bill'.$item[0]." added to favorites");
-        return FavController@fav($id);
+        return FavController::fav($id);
     }
 }
