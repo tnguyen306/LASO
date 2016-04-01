@@ -33,8 +33,8 @@
             </tr>
             <tr>
                 <th>Document</th>
-                <td><a href="{{$d1->doc_path }}">PDF</a></td>
-                <td><a href="{{$d2->doc_path }}">PDF</a></td>
+                <td><a href="{{$d1->doc_path }}" target="_blank">Document</a></td>
+                <td><a href="{{$d2->doc_path }}" target="_blank">Document</a></td>
             </tr>
 
         </tbody>

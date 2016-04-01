@@ -35,7 +35,7 @@
 @if (Session::get('uid', 'guest')=='guest');
                 <td>Log in or Register to See</td>
 @else
-                <td><a href="{{$doc_path}}">Document</a></td>
+                <td><a href="{{$doc_path}}" target="_blank">Document</a></td>
 @endif
             </tr>
         </tbody>
