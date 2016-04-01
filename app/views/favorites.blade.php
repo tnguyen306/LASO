@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="container">
-    <h2>Favorited Bills</h2>
+    <h2>Favorites</h2>
     <div class="table-responsive">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
@@ -15,16 +15,18 @@
             </tr>
         </thead>
         <tbody>
-@foreach ($favorites as $favs) 
-            <tr>
-                <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
-                <td>{{ substr($favs->ext_id,0,2) }}</td>
-                <td>{{ substr($favs->ext_id,2) }}</td>
-                <td>{{ $favs->title }}</td>
-                <td>{{ $favs->author }}</td>
-
-                <td>{{ $favs->introduced_date }}</td>
-            </tr>
+@foreach ($results as $item)
+<h3> {{item->type}} : {{item->item}}</h3>
+    @foreach ($item->results as $favs) 
+                <tr>
+                    <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
+                    <td>{{ substr($favs->ext_id,0,2) }}</td>
+                    <td>{{ substr($favs->ext_id,2) }}</td>
+                    <td>{{ $favs->title }}</td>
+                    <td>{{ $favs->author }}</td>
+                    <td>{{ $favs->introduced_date }}</td>
+                </tr>
+    @endforeach
 @endforeach
         </tbody>
     </table>

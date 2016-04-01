@@ -19,9 +19,11 @@ foreach ($details as $detail) {
         //$added = DB::insert('insert into favorites values (NULL,?,?)',[$id,$bid]);
         $newfav = new Favorite;
         $newfav->user_id =$id;
-        $newfav->bill_id=$bid;
+        $newfav->type="bill";
+        $item = explode('rev',$bid);
+        $newfav->item=$item[0];
         $newfav->save();
-        Session::flash('message',$bid." added to favorites");
+        Session::flash('message','bill'.$item[0]." added to favorites");
         return BillController::bill($bid);
     }
 }

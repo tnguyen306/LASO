@@ -4,7 +4,7 @@
     <h2>{{ $eid }} <a href="/compare/{{$id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span> Compare Revisions</a> 
 @if (Session::get('uid', 'guest')=='guest')
 @else
-<a href="/billrm/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove From Favorites</a><a href="/billadd/{{Session::get('uid', '1')}}/{{$id}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></h2>
+<a href="/billadd/{{Session::get('uid', '1')}}/{{$eid}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></h2>
 @endif
     <h3>{{ $title }}</h3>
     <div class="table">
