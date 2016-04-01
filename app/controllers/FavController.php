@@ -9,6 +9,7 @@ class FavController extends BaseController {
             //parse
             $t_type=$favorite->type;
             $t_item=trim($favorite->item,' ');
+            $t_disp=$t_item;
             $t_items="%".trim($favorite->item,' ')."%";
             $t_id=$favorite->id;
             //search accordingly
@@ -19,12 +20,12 @@ class FavController extends BaseController {
                 $legislator = DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$t_item]);
                 foreach ($legislator as $leg) {
                 }
-                $t_item=$leg->first_name." ".$leg->last_name;
+                $t_disp=$leg->first_name." ".$leg->last_name;
             } else { //keyword or similar
                 $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_items,'search2'=>$t_items,'search3'=>$t_items]);
             }
             //new array for this iteration
-            $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$t_items,"result"=>$t_res,"display"=>$t_item);
+            $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$t_items,"result"=>$t_res,"display"=>$t_disp);
             //now update the master array
             array_push($results,$t_arr);
         }

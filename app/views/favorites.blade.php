@@ -6,7 +6,7 @@
 <h3> <b>{{$item['type']}} : {{$item['display']}}</b></h3>
 @if ($item['type']=="legislator")
 
-<a href="/legislator/{{$item['display']}}"><button class="btn btn-info btn-small">See More...</button></a>
+<a href="/legislator/{{$item['item']}}"><button class="btn btn-info btn-small">See More...</button></a>
 </br>
 @else
 <form action="/find" method="post">
