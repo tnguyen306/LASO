@@ -16,8 +16,8 @@
         </thead>
         <tbody>
 @foreach ($results as $item)
-<h3> {{$item->type}} : {{$item->item}}</h3>
-    @foreach ($item->results as $favs) 
+<h3> {{$item['type']}} : {{$item['item']}}</h3>
+    @foreach ($item['results'] as $favs) 
                 <tr>
                     <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
                     <td>{{ substr($favs->ext_id,0,2) }}</td>
