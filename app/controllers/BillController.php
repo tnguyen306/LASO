@@ -16,6 +16,7 @@ foreach ($details as $detail) {
 
     public function favadd($id,$bid)
     {
+        $uid = Session::get('uid', '0');
         //$added = DB::insert('insert into favorites values (NULL,?,?)',[$id,$bid]);
         $newfav = new Favorite;
         $newfav->user_id =$id;
