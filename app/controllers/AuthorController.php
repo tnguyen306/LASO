@@ -27,7 +27,8 @@ foreach ($legislator as $leg) {
         $newfav->type="legislator";
         $newfav->item=$id;
         $newfav->save();
-        Session::flash('message','legislator '.$item[0]." added to favorites");
+        Session::flash('message','legislator '.$id." added to favorites");
+        return Redirect::to('/fav/'.$uid);
     }
 }
 }

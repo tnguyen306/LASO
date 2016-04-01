@@ -15,6 +15,10 @@ class FavController extends BaseController {
                 $t_res=DB::select('select * from fullbill where id like :search order by updated_at DESC limit 5',['search'=>$t_item]);
             }elseif ($t_type=="legislator"){
                 $t_res=DB::select('select * from fullbill where (a_id like ? or b_id like ?) order by updated_at DESC limit 5',[$t_item,$t_item]);
+                $legislator = DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$id]);
+                foreach ($legislator as $leg) {
+                }
+                $t_item=$leg->first_name.$leg->last_name;
             } else { //keyword or similar
                 $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_item,'search2'=>$t_item,'search3'=>$t_item]);
             }
@@ -29,6 +33,6 @@ class FavController extends BaseController {
     {
         $uid = Session::get('uid', '0');
         DB::select('delete from favorites where (id=:did and user_id=:uid)',['did'=>$id,'uid'=>$uid]);
-        return FavController::fav($id);  
+        return Redirect::to('/fav/'.$uid); 
     }
 }
