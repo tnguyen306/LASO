@@ -7,7 +7,7 @@ class FavController extends BaseController {
         foreach ($favorites as $favorite){
             //parse
             $t_type=$favorite->type;
-            $t_item="%".$favorite->item."%";
+            $t_item="%".trim($favorite->item,' ')."%";
             $t_id=$favorite->id;
             //search accordingly
             if ($t_type=="bill"){
