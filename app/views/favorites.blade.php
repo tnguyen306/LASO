@@ -3,7 +3,7 @@
 <div class="container">
     <h2>Favorites</h2>
 @foreach ($results as $item)
-<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3>
+<h3> <b>{{$item['type']}} : {{$item['display']}}</b></h3>
 @if ($item['type']=="legislator")
 
 <a href="/legislator/{{$item['item']}}"><button class="btn btn-info btn-small">See More...</button></a>
