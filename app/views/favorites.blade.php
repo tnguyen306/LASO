@@ -5,6 +5,7 @@
 @foreach ($results as $item)
 <h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3>
 @if ($item['type']=="legislator")
+</br>
 <a href="/legislator/{{$item['item']}}"><button class="btn btn-info btn-small">See More...</button></a>
 @else
 <form action="/find" method="post">
