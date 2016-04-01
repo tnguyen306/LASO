@@ -11,7 +11,7 @@
 @else
 <form action="/find" method="post">
      <input type="hidden" name="state" id="state" value="%">
-      <input type="hidden" name="search" id="search" value="{{$item['item']}}">
+      <input type="hidden" name="search" id="search" value="{{$item['display']}}">
     <button class="btn btn-info btn-small">See More...</button>
 </form>
 @endif
