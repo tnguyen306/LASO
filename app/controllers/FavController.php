@@ -6,8 +6,8 @@ class FavController extends BaseController {
         $favorites = DB::select('Select * from favorites where user_id=?',[$id]);
         foreach ($favorites as $favorite){
             //parse
-            $t_type="%".$favorite->type."%";
-            $t_item=$favorite->item;
+            $t_type=$favorite->type;
+            $t_item="%".$favorite->item."%";
             $t_id=$favorite->id;
             //search accordingly
             if ($t_type=="bill"){
@@ -18,7 +18,7 @@ class FavController extends BaseController {
                 $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_item,'search2'=>$t_item,'search3'=>$t_item]);
             }
             //new array for this iteration
-            $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$t_item,"result"=>$t_res);
+            $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$favorite->item,"result"=>$t_res);
             //now update the master array
             array_push($results,$t_arr);
         }
