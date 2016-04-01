@@ -41,6 +41,8 @@
     </table>
 
     <h3>Bill Text Differences</h3>
+<button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#sides">Hide/Show Side By Side</button>
+<div class="collapse in" id="sides">
 <table style="table-layout: fixed;width: 100%;">
 <tr>
 <td valign="top" style="width:50%">
@@ -55,7 +57,13 @@
 </td>
 </tr>
 </table>
-
+</div>
+<button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#just_diff">Hide/Show Side By Side</button>
+<div class="collapse out" id="just_diff">
+  <blockquote style="background-color:#FFFFF5;">
+    {{ $diff }}
+  </blockquote>
+</div>
     </div>
 </div>
 @endif
