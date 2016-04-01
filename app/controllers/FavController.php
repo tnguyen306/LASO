@@ -6,7 +6,7 @@ class FavController extends BaseController {
         $favorites = DB::select('Select * from favorites where user_id=?',[$id]);
         foreach ($favorites as $favorite){
             //parse
-            $t_type=$favorite->type;
+            $t_type="%".$favorite->type."%";
             $t_item=$favorite->item;
             $t_id=$favorite->id;
             //search accordingly
