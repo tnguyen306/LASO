@@ -1,5 +1,14 @@
 @extends('layout')
 @section('content')
+<style>
+.noshow ins{
+    background-color:transparent !important;
+    display:none !important;
+}
+.noshow del{
+    background-color:transparent !important;
+}
+</style>
 <div class="container">
     <h2>Comparing: {{$d1->ext_id }} with {{$d2->ext_id}} </h2>
     <h3>{{$d1->title }} <b><i>AND</i></b> {{$d2->title}} </h3>
@@ -47,7 +56,9 @@
 <tr>
 <td valign="top" style="width:50%">
   <blockquote style="background-color:#FFFFF5;">
-{{$d1->text}}
+    <div class="noshow">
+{{$diff}}
+    </div>
   </blockquote>
 </td>
 <td valign="top" style="width:50%">
