@@ -17,11 +17,17 @@ foreach ($legislator as $leg) {
 }
          return View::make('legislator')->with(array('results1'=>$results1,'results2'=>$results2,'leg'=>$leg));
     }
-    public function index($id){
+    public function favadd($id){
     $uid = Session::get('uid', '0');
     if ($uid=='0'){
         Session::flash('message','Log in to favorite');
     }else{
-        
+        $newfav = new Favorite;
+        $newfav->user_id =$id;
+        $newfav->type="legislator";
+        $newfav->item=$id;
+        $newfav->save();
+        Session::flash('message','legislator '.$item[0]." added to favorites");
     }
+}
 }
