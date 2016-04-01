@@ -2,7 +2,7 @@
 class BillController extends BaseController {
     public function bill($id)
     {
-     $details = DB::select('Select * from fullbill where id:id',['id' => $id]);
+     $details = DB::select('Select * from fullbill where id=:id',['id' => $id]);
 foreach ($details as $detail) {
 }
      return View::make('detail')->with(array('eid'=>$detail->ext_id,'title'=>$detail->title,'author'=>$detail->author,'coauthor'=>$detail->coauthor,'status'=>$detail->status,'idate'=>$detail->introduced_date,'pdate'=>$detail->passed_date,'amount'=>$detail->amount,'text'=>$detail->text,'id'=>$id, 'author_id'=>$detail->author_id,'coauthor_id'=>$detail->coauthor_id,'doc_path'=>$detail->doc_path,'description'=>$detail->description ));
@@ -24,6 +24,6 @@ foreach ($details as $detail) {
         $newfav->item=$item[0];
         $newfav->save();
         Session::flash('message','bill'.$item[0]." added to favorites");
-        return BillController::bill($bid);
+        return SearchController::index();
     }
 }

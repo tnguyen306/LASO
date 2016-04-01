@@ -2,8 +2,9 @@
 class FavController extends BaseController {
     public function fav($id)
     {
-        $results = array(); 
-        $favorites = DB::select('Select * from favorites where user_id=?',[$id]);
+        $results = array();
+        $uid = Session::get('uid', '0'); // make this switch before long
+        $favorites = DB::select('Select * from favorites where (user_id=?)',[$id]);
         foreach ($favorites as $favorite){
             //parse
             $t_type=$favorite->type;
@@ -23,5 +24,9 @@ class FavController extends BaseController {
             array_push($results,$t_arr);
         }
         return View::make('favorites')->with('results',$results);
+    }
+    public function rmfav($id){
+        $uid = Session::get('uid', '0');
+        DB::select('delete from favorites where (id=:did and user_id=:uid)',['did'=>$id,'uid'=>$uid])  
     }
 }

@@ -3,7 +3,7 @@
 <div class="container">
     <h2>Favorites</h2>
 @foreach ($results as $item)
-<h3> {{$item['type']}} : {{$item['item']}}</h3>
+<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3>
     <div class="table-responsive">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
