@@ -29,6 +29,6 @@ class FavController extends BaseController {
     {
         $uid = Session::get('uid', '0');
         DB::select('delete from favorites where (id=:did and user_id=:uid)',['did'=>$id,'uid'=>$uid]);
-        return FavController@fav($id);  
+        return FavController::fav($id);  
     }
 }
