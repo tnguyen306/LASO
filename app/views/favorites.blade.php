@@ -3,7 +3,7 @@
 <div class="container">
     <h2>Favorites</h2>
 @foreach ($results as $item)
-<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3>
+<h3> <b>{{$item['type']}} : {{$item['item']}}</b></h3><a href="/favrm/{{$item['id']}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Remove from Favorites</a>
     <div class="table-responsive">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
