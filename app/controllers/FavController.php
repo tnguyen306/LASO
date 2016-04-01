@@ -24,7 +24,7 @@ class FavController extends BaseController {
                 $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_items,'search2'=>$t_items,'search3'=>$t_items]);
             }
             //new array for this iteration
-            $t_arr=array("id"=>$t_id,"type"=>$t_types,"item"=>$t_item,"result"=>$t_res,"display"=>$t_type);
+            $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$t_items,"result"=>$t_res,"display"=>$t_type);
             //now update the master array
             array_push($results,$t_arr);
         }
