@@ -2,6 +2,8 @@
 @section('content')
 <div class="container">
     <h2>Favorites</h2>
+@foreach ($results as $item)
+<h3> {{$item['type']}} : {{$item['item']}}</h3>
     <div class="table-responsive">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
@@ -15,8 +17,6 @@
             </tr>
         </thead>
         <tbody>
-@foreach ($results as $item)
-<h3> {{$item['type']}} : {{$item['item']}}</h3>
     @foreach ($item['result'] as $favs) 
                 <tr>
                     <td><a href=' {{ "/bill/".$favs->id }} ' class="btn btn-info btn-small" role="button">Detail</a></td>
@@ -27,8 +27,9 @@
                     <td>{{ $favs->introduced_date }}</td>
                 </tr>
     @endforeach
-@endforeach
         </tbody>
     </table>
 </div>
+@endforeach
+
 @stop
