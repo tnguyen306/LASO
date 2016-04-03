@@ -20,6 +20,7 @@ Route::get('db', 'UserController@index'); // move to admin before long
 Route::get('/diff/{i1}/{i2}', 'DiffController@diff');
 Route::get('/legislator/{id}', 'AuthorController@index');
 Route::get('/legislators/', 'AllLegController@index');
+Route::get('/legislators/{state}', 'AllLegController@bystate');
 
 //favorites 
 Route::get('/favrm/{id}', 'FavController@rmfav');

@@ -15,4 +15,12 @@ class AllLegController extends BaseController
 
         return View::make('legislators');
     }
+    public function bystate($state)
+    {
+         $results = DB::select('Select * from legislators where state like ?',[$state]);
+
+         return View::make('legislators')->with('results',$results);
+
+        return View::make('legislators');
+    }
 }
