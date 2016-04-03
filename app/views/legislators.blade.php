@@ -1,11 +1,16 @@
 @extends('layout')
 @section('content')
 <div class="container">
+<h2>By State</h2>
+<ul class="nav nav-tabs">
+  <li><a href="/legislators/%">All</a></li>
+  <li><a href="/legislators/fl">Florida</a></li>
+  <li><a href="/legislators/ga">Georgia</a></li>
+</ul>
 <h2>Live Search</h2>
 <div class="form-group">
 <input type="text" id="search" class="form-control input-lg"><br>
 </div>
-
 
 
     <h2>Results</h2>
