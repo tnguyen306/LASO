@@ -14,15 +14,15 @@ class FavController extends BaseController {
             $t_id=$favorite->id;
             //search accordingly
             if ($t_type=="bill"){
-                $t_res=DB::select('select * from fullbill where id like :search order by updated_at DESC limit 5',['search'=>$t_items]);
+                $t_res=DB::select('select * from bills where id like :search order by introduced_date DESC limit 5',['search'=>$t_items]);
             }elseif ($t_type=="legislator"){
-                $t_res=DB::select('select * from fullbill where (a_id like ? or b_id like ?) order by updated_at DESC limit 5',[$t_items,$t_items]);
+                $t_res=DB::select('select * from bills where (author_id like ? or coauthor_id like ?) order by introduced_date DESC limit 5',[$t_items,$t_items]);
                 $legislator = DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$t_item]);
                 foreach ($legislator as $leg) {
                 }
                 $t_disp=$leg->first_name." ".$leg->last_name;
             } else { //keyword or similar
-                $t_res=DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by updated_at DESC limit 10',['search1'=>$t_items,'search2'=>$t_items,'search3'=>$t_items]);
+                $t_res=DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) order by introduced_date DESC limit 10',['search1'=>$t_items,'search2'=>$t_items,'search3'=>$t_items]);
             }
             //new array for this iteration
             $t_arr=array("id"=>$t_id,"type"=>$t_type,"item"=>$t_item,"result"=>$t_res,"display"=>$t_disp);

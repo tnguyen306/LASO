@@ -17,7 +17,6 @@
                 <th width="5%">State</th>
                 <th width="10%">ID</th>
                 <th width=40%">Title</th>
-                <th>Author</th>
                 <th>Date</th>
             </tr>
         </thead>
@@ -28,7 +27,6 @@
                 <td>{{ substr($favs->ext_id,0,2) }}</td>                
                 <td>{{ substr($favs->ext_id,2) }}</td>
                 <td>{{ $favs->title }}</td>
-                <td>{{ $favs->author }}</td>
                 <td>{{ $favs->introduced_date }}</td>
             </tr>
 @endforeach

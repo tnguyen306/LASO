@@ -28,13 +28,13 @@
         <tbody>
             <tr>
                 <th >Author</th>
-                <td><a href="/legislator/{{$d1->author_id }}">{{$d1->author }}</a></td>
-                <td><a href="/legislator/{{$d2->author_id }}">{{$d2->author}}</a></td>
+                <td><a href="/legislator/{{$d1->author_id }}">{{$an1 }}</a></td>
+                <td><a href="/legislator/{{$d2->author_id }}">{{$an2}}</a></td>
             </tr>
             <tr>
                 <th >Co-Authors</th>
-                <td><a href="/legislator/{{$d1->coauthor_id }}">{{$d1->coauthor }}</a></td>
-                <td><a href="/legislator/{{$d2->coauthor_id }}">{{$d2->coauthor}}</a></td>
+                <td><a href="/legislator/{{$d1->coauthor_id }}">{{$cn1 }}</a></td>
+                <td><a href="/legislator/{{$d2->coauthor_id }}">{{$cn2}}</a></td>
             </tr>
             <tr>
                 <th>Date of Last Status</th>

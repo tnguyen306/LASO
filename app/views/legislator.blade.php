@@ -78,8 +78,6 @@
 
                 <td>{{ $favs->title }}</td>
 
-                <td>{{ $favs->author }}</td>
-
                 <td>{{ $favs->introduced_date }}</td>
 
             </tr>
