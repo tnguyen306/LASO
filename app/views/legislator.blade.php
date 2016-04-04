@@ -40,9 +40,6 @@
 
                 <th width=40%">Title</th>
 
-                <th>Author</th>
-
-
                 <th>Date</th>
 
             </tr>
@@ -60,8 +57,6 @@
                 <td>{{ substr($favs->ext_id,2) }}</td>
 
                 <td>{{ $favs->title }}</td>
-
-                <td>{{ $favs->author }}</td>
 
                 <td>{{ $favs->introduced_date }}</td>
 
