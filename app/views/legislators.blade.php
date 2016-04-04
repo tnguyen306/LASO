@@ -7,8 +7,13 @@
   <li><a href="/legislators/fl">Florida</a></li>
   <li><a href="/legislators/ga">Georgia</a></li>
   <li><a href="/legislators/nh">New Hampshire</a></li>
-  <li><a href="/legislators/tx">Texas*</a></li>
+  <li><a href="/legislators/tx">Texas</a></li>
   <li><a href="/legislators/tn">Tennessee</a></li>
+  <li><a href="/legislators/ca">California</a></li>
+  <li><a href="/legislators/or">Oregon</a></li>
+  <li><a href="/legislators/wa">Washington</a></li>
+  <li><a href="/legislators/ma">Massachusetts</a></li>
+  <li><a href="/legislators/me">Maine</a></li>
 </ul>
 <h2>Live Search</h2>
 <div class="form-group">

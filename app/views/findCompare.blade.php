@@ -8,11 +8,17 @@
 <input type="text" id="search" name="search" class="form-control input-lg"><br>
 <label for="sel1">Select list:</label>
   <select class="form-control" id="state" name="state">
+    <option value="%">All</option>
     <option value="ga">Georgia</option>
     <option value="fl">Florida</option>
     <option value="nh">New Hampshire</option>
     <option value="tx">Texas</option>
     <option value="tn">Tennessee</option>
+    <option value="ca">California</option>
+    <option value="or">Oregon</option>
+    <option value="wa">Washington</option>
+    <option value="ma">Massachusetts</option>
+    <option value="me">Maine</option>
   </select>
   <input type="hidden" name="parent" id="parent" value="{{$parent}}">
 </div>

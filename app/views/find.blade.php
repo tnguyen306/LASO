@@ -14,6 +14,11 @@
     <option value="nh">New Hampshire</option>
     <option value="tx">Texas</option>
     <option value="tn">Tennessee</option>
+    <option value="ca">California</option>
+    <option value="or">Oregon</option>
+    <option value="wa">Washington</option>
+    <option value="ma">Massachusetts</option>
+    <option value="me">Maine</option>
   </select>
 </div>
 </div>

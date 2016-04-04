@@ -56,5 +56,10 @@ class LegislatorTableSeeder extends Seeder {
         self::run_state('nh','1003');
         self::run_state('tx','1004');
         self::run_state('tn','1005');
+        self::run_state('ma','1006');
+        self::run_state('me','1007');
+        self::run_state('ca','1008');
+        self::run_state('or','1009');
+        self::run_state('wa','1010');
     }
 }
