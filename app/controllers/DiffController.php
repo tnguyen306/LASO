@@ -9,12 +9,20 @@ foreach ($bill1 as $d1) {
 }
 foreach ($bill2 as $d2) {
 }
-      $a1=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->author_id]);
-      $c1=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->coauthor_id]);
+      $a11=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->author_id]);
+foreach ($a11 as $a1) {
+}
+      $c11=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->coauthor_id]);
+foreach ($c11 as $c1) {
+}
       $an1=$a1->first_name." ".$a1->last_name;
       $cn1=$c1->first_name." ".$c1->last_name;
-      $a2=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->author_id]);
-      $c2=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->coauthor_id]);
+      $a21=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->author_id]);
+foreach ($a21 as $a2) {
+}
+      $c21=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->coauthor_id]);
+foreach ($c21 as $c2) {
+}
       $an2=$a1->first_name." ".$a1->last_name;
       $cn2=$c1->first_name." ".$c1->last_name;
 
