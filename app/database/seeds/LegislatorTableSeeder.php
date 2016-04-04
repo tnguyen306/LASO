@@ -9,6 +9,8 @@ class LegislatorTableSeeder extends Seeder {
                 new RecursiveArrayIterator(json_decode($ljson, TRUE)),
                 RecursiveIteratorIterator::SELF_FIRST);
             foreach ($jsonIterator3 as $k3 => $v3) {
+                //stuff otherwise undefined
+                $ichamber="Not Found";
 	            if(strcmp($k3,"leg_id")==0){
 		            $iid=$v3;     
 	        }elseif(strcmp($k3,"first_name")==0){
@@ -48,8 +50,8 @@ class LegislatorTableSeeder extends Seeder {
         DB::statement("insert into legislators (id,first_name,last_name,state,branch,district) values('0','No','Author','00','none','none')");
         self::run_state('ga','1001'); 
         self::run_state('fl','1002');
-        //self::run_state('nh','1003');
-        //self::run_state('tx','1004');
-        //self::run_state('tn','1005');
+        self::run_state('nh','1003');
+        self::run_state('tx','1004');
+        self::run_state('tn','1005');
     }
 }

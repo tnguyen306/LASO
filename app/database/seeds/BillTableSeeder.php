@@ -36,8 +36,8 @@ class BillTableSeeder extends Seeder {
 	        }elseif(strcmp($k2,"state")==0){
 		            $istate=$v2;
 	        }elseif(strcmp($k2,"sponsors")==0){
-			        $iauthor=$v2[0]['leg_id'];
                     try{
+                        $iauthor=$v2[0]['leg_id'];
                         $icoauthor=$v2[1]['leg_id'];
                     }catch(Exception $e){
                         $pass_var=1;
@@ -55,6 +55,11 @@ class BillTableSeeder extends Seeder {
                         $idesc=$idesc;
                         }else{
                         $idesc="No Description Found";
+                        }
+                        if(isset($iauthor)){
+                        $iauthor=$iauthor;
+                        }else{
+                        $iauthor="0";
                         }
                         if(isset($icoauthor)){
                         $icoauthor=$icoauthor;
@@ -111,8 +116,8 @@ class BillTableSeeder extends Seeder {
     public function run()
     {
         DB::statement("delete from bills where true");
-        self::run_state('ga','2015_16');
-        //self::run_state('fl','2016');
+        //self::run_state('ga','2015_16');
+        self::run_state('fl','2016');
         //self::run_state('nh','2016');
         //self::run_state('tx','84');
         //self::run_state('tn','109');
