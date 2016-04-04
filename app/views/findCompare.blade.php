@@ -10,6 +10,9 @@
   <select class="form-control" id="state" name="state">
     <option value="ga">Georgia</option>
     <option value="fl">Florida</option>
+    <option value="nh">New Hampshire</option>
+    <option value="tx">Texas</option>
+    <option value="tn">Tennessee</option>
   </select>
   <input type="hidden" name="parent" id="parent" value="{{$parent}}">
 </div>

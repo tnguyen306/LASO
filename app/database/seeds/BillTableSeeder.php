@@ -22,7 +22,7 @@ class BillTableSeeder extends Seeder {
 
         for ($x = 0; $x < count($ids); $x++) {
             $urladd = str_replace(' ','%20',$ids[$x]);
-            echo $urladd . "\n";
+            echo $state.$urladd . "\n";
 	        try{$json2 = file_get_contents('http://openstates.org/api/v1//bills/'.$state.'/'.$session.'/'.$urladd.'/?apikey=e2f56937c8c74a67a0f6133152f0c2f2');
             $js2 = json_decode($json2);
             $jsonIterator2 = new RecursiveIteratorIterator(
@@ -121,9 +121,9 @@ class BillTableSeeder extends Seeder {
     {
         //DB::statement("delete from bills where true");
         //self::run_state('ga','2015_16');
-        self::run_state('fl','2016');
+        //self::run_state('fl','2016');
         //self::run_state('nh','2016');
         //self::run_state('tx','84');
-        self::run_state('tn','109');
+        //self::run_state('tn','109');
     }
 }
