@@ -11,6 +11,8 @@ class LegislatorTableSeeder extends Seeder {
             foreach ($jsonIterator3 as $k3 => $v3) {
                 //stuff otherwise undefined
                 $ichamber="Not Found";
+                $idist="Not Found";
+                $iparty="Not Found";
 	            if(strcmp($k3,"leg_id")==0){
 		            $iid=$v3;     
 	        }elseif(strcmp($k3,"first_name")==0){
