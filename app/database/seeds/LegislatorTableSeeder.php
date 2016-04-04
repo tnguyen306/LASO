@@ -12,35 +12,39 @@ class LegislatorTableSeeder extends Seeder {
             $idist="Not Found";
             $iparty="Not Found";
             foreach ($jsonIterator3 as $k3 => $v3) {
-                //stuff otherwise undefined
+                try{
+                    //stuff otherwise undefined
 
-	            if(strcmp($k3,"leg_id")==0){
-		            $iid=$v3;     
-	        }elseif(strcmp($k3,"first_name")==0){
-		            $ifname=$v3;
-	        }elseif(strcmp($k3,"last_name")==0){
-		            $ilname=$v3;
-	        }elseif(strcmp($k3,"state")==0){
-		            $istate=$v3;
-	        }elseif(strcmp($k3,"district")==0){
-		            $idist=$v3;
-	        }elseif(strcmp($k3,"photo_url")==0){
-		            $iphoto=$v3;
-	        }elseif(strcmp($k3,"party")==0){
-		            $iparty=$v3;
-	        }elseif(strcmp($k3,"chamber")==0){
-		            $ichamber=$v3;
-	        }elseif(strcmp($k3,"suffixes")==0){ // the last field, so all is here
-                $newleg = new Legislator;
-                $newleg->id=$iid;
-                $newleg->first_name=$ifname;
-                $newleg->last_name=$ilname;
-                $newleg->state=$istate;
-                $newleg->branch=$ichamber;
-                $newleg->district=$idist;
-                $newleg->photo_path=$iphoto;
-                $newleg->bio=$iparty;
-                $newleg->save();
+	                if(strcmp($k3,"leg_id")==0){
+		                $iid=$v3;     
+	            }elseif(strcmp($k3,"first_name")==0){
+		                $ifname=$v3;
+	            }elseif(strcmp($k3,"last_name")==0){
+		                $ilname=$v3;
+	            }elseif(strcmp($k3,"state")==0){
+		                $istate=$v3;
+	            }elseif(strcmp($k3,"district")==0){
+		                $idist=$v3;
+	            }elseif(strcmp($k3,"photo_url")==0){
+		                $iphoto=$v3;
+	            }elseif(strcmp($k3,"party")==0){
+		                $iparty=$v3;
+	            }elseif(strcmp($k3,"chamber")==0){
+		                $ichamber=$v3;
+	            }elseif(strcmp($k3,"suffixes")==0){ // the last field, so all is here
+                    $newleg = new Legislator;
+                    $newleg->id=$iid;
+                    $newleg->first_name=$ifname;
+                    $newleg->last_name=$ilname;
+                    $newleg->state=$istate;
+                    $newleg->branch=$ichamber;
+                    $newleg->district=$idist;
+                    $newleg->photo_path=$iphoto;
+                    $newleg->bio=$iparty;
+                    $newleg->save();
+                }
+            }catch(Exception $e){
+                        $pass_var=1;
             }
         }
     }
