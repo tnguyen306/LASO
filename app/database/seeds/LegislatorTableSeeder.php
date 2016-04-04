@@ -42,11 +42,14 @@ class LegislatorTableSeeder extends Seeder {
     public function run()
     {
         DB::statement("delete from legislators where true");
-        DB::statement("delete from legislators where id=1");
-        DB::statement("delete from legislators where id=0");
+        //DB::statement("delete from legislators where id=1");
+        //DB::statement("delete from legislators where id=0");
         DB::statement("insert into legislators (id,first_name,last_name,state,branch,district) values('1','No','Coauthor','00','none','none')");
         DB::statement("insert into legislators (id,first_name,last_name,state,branch,district) values('0','No','Author','00','none','none')");
         self::run_state('ga','1001'); 
         self::run_state('fl','1002');
+        //self::run_state('nh','1003');
+        //self::run_state('tx','1004');
+        //self::run_state('tn','1005');
     }
 }
