@@ -72,10 +72,6 @@ class BillTableSeeder extends Seeder {
                         //different states have different methods for full text
                         $itxt="Error in Fetch; try path for now";
                         try{
-                            if($istate=='ga'){
-                                //pdf
-                                $itxt=pdf2text($w2['url']); // pdf text
-                            }else{
                                 if(substr($w2['url'],-4,4)=='pdf' or ($w2['url'],-4,4)=='PDF'){
                                     $itxt=pdf2text($w2['url']); // pdf text
                                 }else{
@@ -134,7 +130,7 @@ class BillTableSeeder extends Seeder {
         self::run_state('ma','189th');
         self::run_state('me','127');
         //self::run_state('ca','20152016'); // figure out their odd url thing
-        self::run_state('or','2016 Regular Session');
+        self::run_state('or',"2016 Regular Session");
         self::run_state('wa','2015-2016');
         
 
