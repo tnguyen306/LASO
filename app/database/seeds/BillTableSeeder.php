@@ -72,7 +72,7 @@ class BillTableSeeder extends Seeder {
                         //different states have different methods for full text
                         $itxt="Error in Fetch; try path for now";
                         try{
-                                if(substr($w2['url'],-4,4)=='pdf' or ($w2['url'],-4,4)=='PDF'){
+                                if((substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                                     $itxt=pdf2text($w2['url']); // pdf text
                                 }else{
                                     if($istate=='fl'){
