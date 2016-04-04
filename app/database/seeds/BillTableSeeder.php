@@ -17,7 +17,7 @@ class BillTableSeeder extends Seeder {
 		        array_push($ids,$val);
 	        }
         }
-        echo count($ids). " bills to import from ".$state. "\n";
+        echo count($ids). " bills to import from ".$state. "\n\n\n\n";
 
 
         for ($x = 0; $x < count($ids); $x++) {
@@ -71,39 +71,43 @@ class BillTableSeeder extends Seeder {
                         $iurl = $w2['url']; // url
                         //different states have different methods for full text
                         $itxt="Error in Fetch; try path for now";
-                        if($istate=='ga'){
-                            //pdf
-                            $itxt=pdf2text($w2['url']); // pdf text
-                        }else{
-                            //florida only, so far
-                            if(substr($w2['url'],-4,4)=='HTML'){
-                                //html
-                                $dom = new domDocument('1.0', 'utf-8');
-                                $ihtml =file_get_contents($w2['url']);
-                                $dom->loadHTML($ihtml);
-                                $pre= $dom->getElementsByTagName('pre');
-                                $itxt = $pre->item(0)->nodeValue;
-                            }else{
+                        try{
+                            if($istate=='ga'){
+                                //pdf
                                 $itxt=pdf2text($w2['url']); // pdf text
+                            }else{
+                                //florida only, so far
+                                if(substr($w2['url'],-4,4)=='HTML'){
+                                    //html
+                                    $dom = new domDocument('1.0', 'utf-8');
+                                    $ihtml =file_get_contents($w2['url']);
+                                    $dom->loadHTML($ihtml);
+                                    $pre= $dom->getElementsByTagName('pre');
+                                    $itxt = $pre->item(0)->nodeValue;
+                                }else{
+                                    $itxt=pdf2text($w2['url']); // pdf text
+                                }
                             }
+                            // push this revision to the database
+                            $new_derived_key = $istate.$ids[$x].'r'.strval($r);
+                            $newbill = new Bill;
+                            $newbill->id =$new_derived_key;
+                            $newbill->state=$istate;
+                            $newbill->ext_id =$istate.$ids[$x].' rev'.strval($r);
+                            $newbill->title=$ititle;
+                            $newbill->text =$itxt;
+                            $newbill->amount="coming";
+                            $newbill->status ="status";
+                            $newbill->introduced_date=$icreated;
+                            $newbill->passed_date =$iupdated;
+                            $newbill->revision_id=strval($r);
+                            $newbill->doc_path =$iurl;
+                            $newbill->author_id=$iauthor;
+                            $newbill->coauthor_id =$icoauthor;
+                            $newbill->save();
+                        }catch(Exception $e){
+                        $pass_var=1;
                         }
-                        // push this revision to the database
-                        $new_derived_key = $istate.$ids[$x].'r'.strval($r);
-                        $newbill = new Bill;
-                        $newbill->id =$new_derived_key;
-                        $newbill->state=$istate;
-                        $newbill->ext_id =$istate.$ids[$x].' rev'.strval($r);
-                        $newbill->title=$ititle;
-                        $newbill->text =$itxt;
-                        $newbill->amount="coming";
-                        $newbill->status ="status";
-                        $newbill->introduced_date=$icreated;
-                        $newbill->passed_date =$iupdated;
-                        $newbill->revision_id=strval($r);
-                        $newbill->doc_path =$iurl;
-                        $newbill->author_id=$iauthor;
-                        $newbill->coauthor_id =$icoauthor;
-                        $newbill->save();
                     }
 	        }
 
@@ -117,9 +121,9 @@ class BillTableSeeder extends Seeder {
     {
         //DB::statement("delete from bills where true");
         //self::run_state('ga','2015_16');
-        //self::run_state('fl','2016');
-        self::run_state('nh','2016');
+        self::run_state('fl','2016');
+        //self::run_state('nh','2016');
         //self::run_state('tx','84');
-        //self::run_state('tn','109');
+        self::run_state('tn','109');
     }
 }

@@ -71,6 +71,9 @@
 <h3>States Supported So Far</h3>
 <p><b>Georgia</b></p>
 <p><b>Florida</b></p>
+<p><b>New Hampshire</b></p>
+<p><b>Tennessee</b></p>
+<p><b>Texas</b></p>
 <br>
 @if (Session::get('uid', 'guest')=='guest');
 <h2>Begin Your Search</h2>
