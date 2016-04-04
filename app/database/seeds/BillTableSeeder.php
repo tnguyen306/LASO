@@ -76,16 +76,22 @@ class BillTableSeeder extends Seeder {
                                 //pdf
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
-                                //florida only, so far
-                                if(substr($w2['url'],-4,4)=='HTML'){
-                                    //html
-                                    $dom = new domDocument('1.0', 'utf-8');
-                                    $ihtml =file_get_contents($w2['url']);
-                                    $dom->loadHTML($ihtml);
-                                    $pre= $dom->getElementsByTagName('pre');
-                                    $itxt = $pre->item(0)->nodeValue;
-                                }else{
+                                if(substr($w2['url'],-4,4)=='pdf' or ($w2['url'],-4,4)=='PDF'){
                                     $itxt=pdf2text($w2['url']); // pdf text
+                                }else{
+                                    if($istate=='fl'){
+                                        $dom = new domDocument('1.0', 'utf-8');
+                                        $ihtml =file_get_contents($w2['url']);
+                                        $dom->loadHTML($ihtml);
+                                        $pre= $dom->getElementsByTagName('pre');
+                                        $itxt = $pre->item(0)->nodeValue;
+                                    }else{
+                                        $dom = new domDocument('1.0', 'utf-8');
+                                        $ihtml =file_get_contents($w2['url']);
+                                        $dom->loadHTML($ihtml);
+                                        $pre= $dom->getElementsByTagName('body');
+                                        $itxt = $pre->item(0)->nodeValue;
+                                    }
                                 }
                             }
                             // push this revision to the database
@@ -122,7 +128,7 @@ class BillTableSeeder extends Seeder {
         //DB::statement("delete from bills where true");
         //self::run_state('ga','2015_16');
         //self::run_state('fl','2016');
-        //self::run_state('nh','2016');
+        self::run_state('nh','2016');
         //self::run_state('tx','84');
         //self::run_state('tn','109');
         self::run_state('ma','189th');
