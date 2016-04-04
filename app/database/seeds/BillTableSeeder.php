@@ -89,7 +89,6 @@ class BillTableSeeder extends Seeder {
                                         $itxt = $pre->item(0)->nodeValue;
                                     }
                                 }
-                            }
                             // push this revision to the database
                             $new_derived_key = $istate.$ids[$x].'r'.strval($r);
                             $newbill = new Bill;
