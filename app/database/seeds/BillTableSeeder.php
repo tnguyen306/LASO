@@ -69,7 +69,7 @@ class BillTableSeeder extends Seeder {
                 //different states have different methods for full text
                 $itxt="Error in Fetch; try path for now";
                 try{
-                        if(($mimetype=="application/pdf")or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
+                        if(strcmp($mimetype,"application/pdf")==0)or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                             $itxt=pdf2text($w2['url']); // pdf text
                         }else{
                             //html rules
@@ -130,7 +130,7 @@ class BillTableSeeder extends Seeder {
         //self::run_state('ma','189th'); 
         //self::run_state('me','127'); //sometimes rtf? no good support yet
         //self::run_state('ca','20152016');
-        self::run_state('or','2016 Regular Session'); // this didn't work previously, why?
+        self::run_state('or','2016 Regular Session'); // pdf, override encode?
         //self::run_state('wa','2015-2016'); // pdf AND html
         
 
