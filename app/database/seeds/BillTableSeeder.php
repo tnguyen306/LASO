@@ -154,12 +154,12 @@ class BillTableSeeder extends Seeder {
     public function run()
     {
         //DB::statement("delete from bills where true");
-        //self::run_state('ga','2015_16'); //pdf
+        self::run_state('ga','2015_16'); //pdf
         //self::run_state('fl','2016'); // pdf AND html
         //self::run_state('nh','2016'); // html
         //self::run_state('tx','84'); // no bills, somehow
         //self::run_state('tn','109');
-        self::run_state('ma','189th'); 
+        //self::run_state('ma','189th'); 
         //self::run_state('me','127'); //sometimes rtf? no good support yet
         //self::run_state('ca','20152016');
         //self::run_state('or','2016 Regular Session'); // pdf, override encode?
