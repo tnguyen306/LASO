@@ -35,8 +35,8 @@ class BillTableSeeder extends Seeder {
 	        $istate=$jsonIterator2['state'];
 	        $v2=$jsonIterator2['sponsors'];
             try{
-                $iauthor=$v2[0]['leg_id'];
-                $icoauthor=$v2[1]['leg_id'];
+                $iauthor=trim($v2[0]['leg_id'],' ');
+                $icoauthor=trim($v2[1]['leg_id'],' ');
             }catch(Exception $e){
                 $pass_var=1;
             }
