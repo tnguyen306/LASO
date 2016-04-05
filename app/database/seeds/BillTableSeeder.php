@@ -31,7 +31,7 @@ class BillTableSeeder extends Seeder {
                 //RecursiveIteratorIterator::SELF_FIRST);
             $jsonIterator2=json_decode($json2,true);
             $ititle=$jsonIterator2['title'];
-	        $idesc=$jsonIterator2['description'];
+	        //$idesc=$jsonIterator2['description'];
 	        $istate=$jsonIterator2['state'];
 	        $v2=$jsonIterator2['sponsors'];
             try{
