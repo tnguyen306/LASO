@@ -122,6 +122,7 @@ class BillTableSeeder extends Seeder {
                     }catch(Exception $e){
                 $pass_var=1;
                  echo ("error in textget". "\n");
+                 echo ($e);
                 }try{
                     // push this revision to the database
                     $new_derived_key = $istate.$ids[$x].'r'.strval($r);
