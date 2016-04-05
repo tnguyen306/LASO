@@ -79,6 +79,7 @@ class BillTableSeeder extends Seeder {
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
+                                echo(
                                 $dom->loadHTML($ihtml);
                                 $pre=$dom->getElementById('bill_all');
                                 $itxt = $pre->item(0)->nodeValue;
@@ -94,6 +95,10 @@ class BillTableSeeder extends Seeder {
                                 $itxt = $pre->item(0)->nodeValue;
                             }
                         }
+                    }catch(Exception $e){
+                $pass_var=1;
+                 echo ($ihtml);
+                }try{
                     // push this revision to the database
                     $new_derived_key = $istate.$ids[$x].'r'.strval($r);
                     $newbill = new Bill;
