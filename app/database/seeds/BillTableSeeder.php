@@ -117,7 +117,7 @@ class BillTableSeeder extends Seeder {
     public function run()
     {
         //DB::statement("delete from bills where true");
-        //self::run_state('ga','2015_16'); //pdf
+        self::run_state('ga','2015_16'); //pdf
         //self::run_state('fl','2016'); // pdf AND html
         //self::run_state('nh','2016'); // html
         //self::run_state('tx','84'); // no bills, somehow
