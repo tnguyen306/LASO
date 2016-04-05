@@ -75,43 +75,49 @@ class BillTableSeeder extends Seeder {
                 //different states have different methods for full text
                 $itxt="Error in Fetch; try path for now";
                 try{
-                        if((strcmp($mimetype,"application/pdf")==0) or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
+                    if(strcmp($istate,'or')==0){
+                        //$itxt=pdf2text($w2['url']); // pdf text
+                        echo ("or method: ");
+                        echo $w2['url']. "\n";
+                        $pdfdata=file_get_contents($w2['url']);
+                        $itxt=self::ExtractTextFromPdf($pdfdata);
+                    }elseif((strcmp($mimetype,"application/pdf")==0) or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                             $itxt=pdf2text($w2['url']); // pdf text
                             echo $w2['url']. "\n";
+                    }else{
+                        //html rules
+                        if(strcmp($istate,'fl')==0){
+                            echo ("fl method: ");
+                            echo $w2['url']. "\n";
+                            $dom = new domDocument('1.0', 'utf-8');
+                            $ihtml =file_get_contents($w2['url']);
+                            $dom->loadHTML($ihtml);
+                            $pre= $dom->getElementsByTagName('pre');
+                            $itxt = $pre->item(0)->nodeValue;
+                        }elseif(strcmp($istate,'ca')==0){
+                            //ca messes EVERYTHING up, so we have to make our own terrible parser
+                            echo ("ca method: ");
+                            echo $w2['url']. "\n";
+                            $dom = new domDocument('1.0', 'utf-8');
+                            $ihtml =file_get_contents($w2['url']);
+                            $itxt="<div><div><div><div>".explode('<div id="bill">',$ihtml)[1];
+                            $itxt=str_replace("</body>"," ",$itxt);
+                            $itxt=str_replace("</html>"," ",$itxt);
+                        }elseif(strcmp($istate,'or')==0){
+                            //$itxt=pdf2text($w2['url']); // pdf text
+                            echo ("or method: ");
+                            echo $w2['url']. "\n";
+                            $pdfdata=file_get_contents($w2['url']);
+                            $itxt=self::ExtractTextFromPdf($pdfdata);
                         }else{
-                            //html rules
-                            if(strcmp($istate,'fl')==0){
-                                echo ("fl method: ");
-                                echo $w2['url']. "\n";
-                                $dom = new domDocument('1.0', 'utf-8');
-                                $ihtml =file_get_contents($w2['url']);
-                                $dom->loadHTML($ihtml);
-                                $pre= $dom->getElementsByTagName('pre');
-                                $itxt = $pre->item(0)->nodeValue;
-                            }elseif(strcmp($istate,'ca')==0){
-                                //ca messes EVERYTHING up, so we have to make our own terrible parser
-                                echo ("ca method: ");
-                                echo $w2['url']. "\n";
-                                $dom = new domDocument('1.0', 'utf-8');
-                                $ihtml =file_get_contents($w2['url']);
-                                $itxt="<div><div><div><div>".explode('<div id="bill">',$ihtml)[1];
-                                $itxt=str_replace("</body>"," ",$itxt);
-                                $itxt=str_replace("</html>"," ",$itxt);
-                            }elseif(strcmp($istate,'or')==0){
-                                //$itxt=pdf2text($w2['url']); // pdf text
-                                echo ("or method: ");
-                                echo $w2['url']. "\n";
-                                $pdfdata=file_get_contents($w2['url']);
-                                $itxt=self::ExtractTextFromPdf($pdfdata);
-                            }else{
-                                echo ("general method: ");
-                                echo $w2['url']. "\n";
-                                $dom = new domDocument('1.0', 'utf-8');
-                                $ihtml =file_get_contents($w2['url']);
-                                $dom->loadHTML($ihtml);
-                                $pre= $dom->getElementsByTagName('body');
-                                $itxt = $pre->item(0)->nodeValue;
-                            }
+                            echo ("general method: ");
+                            echo $w2['url']. "\n";
+                            $dom = new domDocument('1.0', 'utf-8');
+                            $ihtml =file_get_contents($w2['url']);
+                            $dom->loadHTML($ihtml);
+                            $pre= $dom->getElementsByTagName('body');
+                            $itxt = $pre->item(0)->nodeValue;
+                        }
                         }
                     }catch(Exception $e){
                 $pass_var=1;
