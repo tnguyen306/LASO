@@ -113,6 +113,7 @@ class BillTableSeeder extends Seeder {
                     $newbill->save();
                 }catch(Exception $e){
                 $pass_var=1;
+                 echo ("Above error". "\n");
                 }
         }
     }catch(Exception $e){
