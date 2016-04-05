@@ -75,13 +75,12 @@ class BillTableSeeder extends Seeder {
                                 $pre= $dom->getElementsByTagName('pre');
                                 $itxt = $pre->item(0)->nodeValue;
                             }elseif(strcmp($istate,'ca')==0){
+                                //ca messes EVERYTHING up, so we have to make our own terrible parser
                                 echo ("ca method: ");
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
-                                $dom->loadHTML($ihtml);
-                                $pre=$dom->getElementById('bill_all');
-                                $itxt = $pre->item(0)->nodeValue;
+                                $itxt=explode('<div id="bill">',$ihtml)[1];
                             }elseif(strcmp($istate,'or')==0){
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
@@ -96,7 +95,7 @@ class BillTableSeeder extends Seeder {
                         }
                     }catch(Exception $e){
                 $pass_var=1;
-                 echo ($ihtml);
+                 echo ("error in textget". "\n");
                 }try{
                     // push this revision to the database
                     $new_derived_key = $istate.$ids[$x].'r'.strval($r);
@@ -117,7 +116,7 @@ class BillTableSeeder extends Seeder {
                     $newbill->save();
                 }catch(Exception $e){
                 $pass_var=1;
-                 echo ($e);
+                 echo ($"error in save". "\n");
                 }
         }
     }catch(Exception $e){
