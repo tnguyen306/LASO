@@ -136,7 +136,7 @@ class BillTableSeeder extends Seeder {
         //self::run_state('tn','109');
         //self::run_state('ma','189th'); 
         //self::run_state('me','127'); //sometimes rtf? no good support yet
-        self::run_state('ca','20152016');
+        //self::run_state('ca','20152016');
         self::run_state('or','2016 Regular Session'); // pdf, override encode?
         //self::run_state('wa','2015-2016'); // pdf AND html
         
