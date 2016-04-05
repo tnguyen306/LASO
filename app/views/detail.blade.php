@@ -53,7 +53,7 @@
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#full_text">Hide/Show Full Text</button>
         <div class="collapse in" id ="full_text" style="background-color:#FFFFF5;">
             <div class="container"><p>
-{{{ $text }}}
+{{ $text }}
 </p>
         </div>    
     </div>
