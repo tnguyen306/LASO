@@ -21,6 +21,7 @@
     <option value="me">Maine</option>
   </select>
   <input type="hidden" name="parent" id="parent" value="{{$parent}}">
+<label for="sel1">Number of Results to Show:</label>
 <select class="form-control" id="limit" name="limit">
     <option value="50">50</option>
     <option value="fl">100</option>
