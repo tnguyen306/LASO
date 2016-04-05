@@ -79,7 +79,6 @@ class BillTableSeeder extends Seeder {
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
-                                echo(
                                 $dom->loadHTML($ihtml);
                                 $pre=$dom->getElementById('bill_all');
                                 $itxt = $pre->item(0)->nodeValue;
