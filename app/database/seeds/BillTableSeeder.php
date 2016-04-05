@@ -116,7 +116,7 @@ class BillTableSeeder extends Seeder {
                     $newbill->save();
                 }catch(Exception $e){
                 $pass_var=1;
-                 echo ($"error in save". "\n");
+                 echo ("error in save". "\n");
                 }
         }
     }catch(Exception $e){
