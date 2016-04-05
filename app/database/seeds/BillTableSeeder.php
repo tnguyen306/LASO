@@ -60,9 +60,7 @@ class BillTableSeeder extends Seeder {
                 $mimetype = $w2['mimetype'];
                 //different states have different methods for full text
                 $itxt="Error in Fetch; try path for now";
-                echo $iurl;
-                echo "/n";
-                echo $mimetype.'/n';
+                echo ('     '.strcmp($mimetype,"application/pdf"));
                 try{
                         if((strcmp($mimetype,"application/pdf")==0) or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                             $itxt=pdf2text($w2['url']); // pdf text
