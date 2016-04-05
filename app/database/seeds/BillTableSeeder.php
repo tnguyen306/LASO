@@ -63,7 +63,7 @@ class BillTableSeeder extends Seeder {
                 try{
                         if((strcmp($mimetype,"application/pdf")==0) or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                             $itxt=pdf2text($w2['url']); // pdf text
-                            echo $itxt. "\n";
+                            echo $w2['url']. "\n";
                         }else{
                             //html rules
                             if(strcmp($istate,'fl')==0){
