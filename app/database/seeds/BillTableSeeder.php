@@ -67,20 +67,26 @@ class BillTableSeeder extends Seeder {
                         }else{
                             //html rules
                             if(strcmp($istate,'fl')==0){
+                                echo ("fl method: ")
+                                echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
                                 $dom->loadHTML($ihtml);
                                 $pre= $dom->getElementsByTagName('pre');
                                 $itxt = $pre->item(0)->nodeValue;
                             }elseif(strcmp($istate,'ca')==0){
+                                echo ("ca method: ")
+                                echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
                                 $dom->loadHTML($ihtml);
-                                $pre= $dom->getElementById('bill_all');
+                                $pre=$dom->getElementById('bill_all');
                                 $itxt = $pre->item(0)->nodeValue;
                             }elseif(strcmp($istate,'or')==0){
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
+                                echo ("general method: ")
+                                echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
                                 $dom->loadHTML($ihtml);
@@ -117,14 +123,14 @@ class BillTableSeeder extends Seeder {
     public function run()
     {
         //DB::statement("delete from bills where true");
-        self::run_state('ga','2015_16'); //pdf
+        //self::run_state('ga','2015_16'); //pdf
         //self::run_state('fl','2016'); // pdf AND html
         //self::run_state('nh','2016'); // html
         //self::run_state('tx','84'); // no bills, somehow
         //self::run_state('tn','109');
         //self::run_state('ma','189th'); 
         //self::run_state('me','127'); //sometimes rtf? no good support yet
-        //self::run_state('ca','20152016');
+        self::run_state('ca','20152016');
         self::run_state('or','2016 Regular Session'); // pdf, override encode?
         //self::run_state('wa','2015-2016'); // pdf AND html
         
