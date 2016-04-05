@@ -75,9 +75,9 @@ class BillTableSeeder extends Seeder {
                 //different states have different methods for full text
                 $itxt="Error in Fetch; try path for now";
                 try{
-                    if(strcmp($istate,'or')==0){
+                    if(strcmp($istate,'or')==0 or (strcmp($istate,'ma')==0)){
                         //$itxt=pdf2text($w2['url']); // pdf text
-                        echo ("or method: ");
+                        echo ("last resort pdf method: ");
                         echo $w2['url']. "\n";
                         $pdfdata=file_get_contents($w2['url']);
                         $itxt=self::ExtractTextFromPdf($pdfdata);
@@ -159,10 +159,10 @@ class BillTableSeeder extends Seeder {
         //self::run_state('nh','2016'); // html
         //self::run_state('tx','84'); // no bills, somehow
         //self::run_state('tn','109');
-        //self::run_state('ma','189th'); 
+        self::run_state('ma','189th'); 
         //self::run_state('me','127'); //sometimes rtf? no good support yet
         //self::run_state('ca','20152016');
-        self::run_state('or','2016 Regular Session'); // pdf, override encode?
+        //self::run_state('or','2016 Regular Session'); // pdf, override encode?
         //self::run_state('wa','2015-2016'); // pdf AND html
         
 
