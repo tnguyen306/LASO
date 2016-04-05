@@ -3,7 +3,7 @@
 <div class="container">
 <h2>By State</h2>
 
-<select class="form-control" onchange="window.open(this.value,'','');">
+<select class="form-control" onchange="window.open(this.value,'_self','');">
   <option value="/legislators/%">All</a></li>
   <option value="/legislators/ca">California</option>
   <option value="/legislators/fl">Florida</option>
