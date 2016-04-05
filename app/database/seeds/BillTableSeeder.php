@@ -34,6 +34,8 @@ class BillTableSeeder extends Seeder {
 	        //$idesc=$jsonIterator2['description'];
 	        $istate=$jsonIterator2['state'];
 	        $v2=$jsonIterator2['sponsors'];
+            $iauthor="0";
+            $icoauthor="1";
             try{
                 $iauthor=trim($v2[0]['leg_id'],' ');
                 $icoauthor=trim($v2[1]['leg_id'],' ');
@@ -48,19 +50,9 @@ class BillTableSeeder extends Seeder {
                 
                 // set unset variables
                 if(isset($idesc)){
-                $idesc=$idesc;
+                    $idesc=$idesc;
                 }else{
-                $idesc="No Description Found";
-                }
-                if(isset($iauthor)){
-                $iauthor=$iauthor;
-                }else{
-                $iauthor="0";
-                }
-                if(isset($icoauthor)){
-                $icoauthor=$icoauthor;
-                }else{
-                $icoauthor="1";
+                    $idesc="No Description Found";
                 }
                 // manage revisions
                 $r=$r+1;            
@@ -85,6 +77,8 @@ class BillTableSeeder extends Seeder {
                                 $dom->loadHTML($ihtml);
                                 $pre= $dom->getElementById('bill_all');
                                 $itxt = $pre->item(0)->nodeValue;
+                            }elseif($istate=='or'){
+                                $itxt=pdf2text($w2['url']); // pdf text
                             }else{
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
