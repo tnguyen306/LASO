@@ -60,24 +60,27 @@ class BillTableSeeder extends Seeder {
                 $mimetype = $w2['mimetype'];
                 //different states have different methods for full text
                 $itxt="Error in Fetch; try path for now";
+                echo $iurl;
+                echo "/n";
+                echo $mimetype.'/n';
                 try{
                         if((strcmp($mimetype,"application/pdf")==0) or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                             $itxt=pdf2text($w2['url']); // pdf text
                         }else{
                             //html rules
-                            if($istate=='fl'){
+                            if(strcmp($istate,'fl')==0){
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
                                 $dom->loadHTML($ihtml);
                                 $pre= $dom->getElementsByTagName('pre');
                                 $itxt = $pre->item(0)->nodeValue;
-                            }elseif($istate=='ca'){
+                            }elseif(strcmp($istate,'ca')==0){
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
                                 $dom->loadHTML($ihtml);
                                 $pre= $dom->getElementById('bill_all');
                                 $itxt = $pre->item(0)->nodeValue;
-                            }elseif($istate=='or'){
+                            }elseif(strcmp($istate,'or')==0){
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
                                 $dom = new domDocument('1.0', 'utf-8');
