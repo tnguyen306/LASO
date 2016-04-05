@@ -2,19 +2,20 @@
 @section('content')
 <div class="container">
 <h2>By State</h2>
-<ul class="nav nav-tabs">
-  <li><a href="/legislators/%">All</a></li>
-  <li><a href="/legislators/fl">Florida</a></li>
-  <li><a href="/legislators/ga">Georgia</a></li>
-  <li><a href="/legislators/nh">New Hampshire</a></li>
-  <li><a href="/legislators/tx">Texas</a></li>
-  <li><a href="/legislators/tn">Tennessee</a></li>
-  <li><a href="/legislators/ca">California</a></li>
-  <li><a href="/legislators/or">Oregon</a></li>
-  <li><a href="/legislators/wa">Washington</a></li>
-  <li><a href="/legislators/ma">Massachusetts</a></li>
-  <li><a href="/legislators/me">Maine</a></li>
-</ul>
+
+<select class="form-control" onchange="window.open(this.value,'','');">
+  <option value="/legislators/%">All</a></li>
+  <option value="/legislators/ca">California</option>
+  <option value="/legislators/fl">Florida</option>
+  <option value="/legislators/ga">Georgia</option>
+  <option value="/legislators/me">Maine</option>
+  <option value="/legislators/ma">Massachusetts</option>
+  <option value="/legislators/nh">New Hampshire</option>
+  <option value="/legislators/or">Oregon</option>
+  <option value="/legislators/tx">Texas</option>
+  <option value="/legislators/tn">Tennessee</option>
+  <option value="/legislators/wa">Washington</option>
+</select>
 <h2>Live Search</h2>
 <div class="form-group">
 <input type="text" id="search" class="form-control input-lg"><br>
