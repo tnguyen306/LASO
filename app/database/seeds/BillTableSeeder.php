@@ -69,17 +69,25 @@ class BillTableSeeder extends Seeder {
                         // manage revisions
                         $r=$r+1;            
                         $iurl = $w2['url']; // url
+                        $mimetype = $w2['mimetype'];
                         //different states have different methods for full text
                         $itxt="Error in Fetch; try path for now";
                         try{
-                                if((substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
+                                if(($mimetype=="application/pdf")or (substr($w2['url'],-3,3)=='pdf') or (substr($w2['url'],-3,3)=='PDF')){
                                     $itxt=pdf2text($w2['url']); // pdf text
                                 }else{
+                                    //html rules
                                     if($istate=='fl'){
                                         $dom = new domDocument('1.0', 'utf-8');
                                         $ihtml =file_get_contents($w2['url']);
                                         $dom->loadHTML($ihtml);
                                         $pre= $dom->getElementsByTagName('pre');
+                                        $itxt = $pre->item(0)->nodeValue;
+                                    }elseif($istate=='ca'){
+                                        $dom = new domDocument('1.0', 'utf-8');
+                                        $ihtml =file_get_contents($w2['url']);
+                                        $dom->loadHTML($ihtml);
+                                        $pre= $dom->getElementById('bill_all');
                                         $itxt = $pre->item(0)->nodeValue;
                                     }else{
                                         $dom = new domDocument('1.0', 'utf-8');
@@ -121,15 +129,15 @@ class BillTableSeeder extends Seeder {
     public function run()
     {
         //DB::statement("delete from bills where true");
-        //self::run_state('ga','2015_16');
-        //self::run_state('fl','2016');
-        self::run_state('nh','2016');
-        //self::run_state('tx','84');
+        //self::run_state('ga','2015_16'); //pdf
+        //self::run_state('fl','2016'); // pdf AND html
+        //self::run_state('nh','2016'); // html
+        //self::run_state('tx','84'); // no bills, somehow
         //self::run_state('tn','109');
-        self::run_state('ma','189th');
-        self::run_state('me','127');
-        //self::run_state('ca','20152016'); // figure out their odd url thing
-        self::run_state('or',"2016 Regular Session");
+        //self::run_state('ma','189th'); 
+        self::run_state('me','127'); //sometimes rtf? no good support yet
+        //self::run_state('ca','20152016');
+        self::run_state('or','2016 Regular Session'); // this didn't work previously, why?
         self::run_state('wa','2015-2016');
         
 
