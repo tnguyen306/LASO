@@ -67,7 +67,7 @@ class BillTableSeeder extends Seeder {
                         }else{
                             //html rules
                             if(strcmp($istate,'fl')==0){
-                                echo ("fl method: ")
+                                echo ("fl method: ");
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
@@ -75,7 +75,7 @@ class BillTableSeeder extends Seeder {
                                 $pre= $dom->getElementsByTagName('pre');
                                 $itxt = $pre->item(0)->nodeValue;
                             }elseif(strcmp($istate,'ca')==0){
-                                echo ("ca method: ")
+                                echo ("ca method: ");
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
@@ -85,7 +85,7 @@ class BillTableSeeder extends Seeder {
                             }elseif(strcmp($istate,'or')==0){
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
-                                echo ("general method: ")
+                                echo ("general method: ");
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
