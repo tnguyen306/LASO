@@ -23,9 +23,9 @@
 <label for="sel1">Number of Results to Show:</label>
 <select class="form-control" id="limit" name="limit">
     <option value="50">50</option>
-    <option value="fl">100</option>
-    <option value="fl">200</option>
-    <option value="fl">400</option>
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="400">400</option>
 </select>
 </div>
 </div>
