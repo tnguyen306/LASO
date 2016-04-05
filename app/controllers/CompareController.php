@@ -17,7 +17,8 @@ class CompareController extends BaseController
         $id = Input::get('parent');
         $search = '%'.Input::get('search').'%';
         $state = Input::get('state');
-        $results = DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) AND (state = (:state)) limit 50',['search1'=>$search,'search2'=>$search,'search3'=>$search,'state'=>$state]);
+        $limit = Input::get('limit');
+        $results = DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) AND (state = (:state)) limit :limit',['search1'=>$search,'search2'=>$search,'search3'=>$search,'state'=>$state,'limit'=>$limit]);
         return View::make('selectcompare')->with(array('results'=>$results,'parent'=>$id));
     }
 }

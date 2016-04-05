@@ -20,6 +20,12 @@
     <option value="ma">Massachusetts</option>
     <option value="me">Maine</option>
   </select>
+<select class="form-control" id="limit" name="limit">
+    <option value="50">50</option>
+    <option value="fl">100</option>
+    <option value="fl">200</option>
+    <option value="fl">400</option>
+</select>
 </div>
 </div>
 <button type="submit" class="btn btn-primary btn-lg">Search</button>
