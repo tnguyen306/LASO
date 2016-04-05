@@ -8,7 +8,7 @@ class BillTableSeeder extends Seeder {
         //Find all the streams in FlateDecode format (not sure what this is), and then loop through each of them
         if (preg_match_all ('/<<[^>]*FlateDecode[^>]*>>\s*stream(.+)endstream/Uis', $pdfdata, $m)) foreach ($m[1] as $chunk) {
 	        $chunk = gzuncompress (ltrim ($chunk)); //uncompress the data using the PHP gzuncompress function
-	        $chunk = iconv ('UTF-8', 'ASCII//TRANSLIT', $chunk); //suggested in comments to code above to remove junk characters
+	        //$chunk = iconv ('UTF-8', 'ASCII//TRANSLIT', $chunk); //suggested in comments to code above to remove junk characters
 	        //If there are [] in the data, then extract all stuff within (), or just extract () from the data directly
 	        $a = preg_match_all ('/\[([^\]]+)\]/', $chunk, $m2) ? $m2[1] : array ($chunk); //get all the stuff within []
 	        foreach ($a as $subchunk) if (preg_match_all ('/\(([^\)]+)\)/', $subchunk, $m3)) $result .= join ('', $m3[1]); //within ()
