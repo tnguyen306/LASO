@@ -80,7 +80,9 @@ class BillTableSeeder extends Seeder {
                                 echo $w2['url']. "\n";
                                 $dom = new domDocument('1.0', 'utf-8');
                                 $ihtml =file_get_contents($w2['url']);
-                                $itxt=explode('<div id="bill">',$ihtml)[1];
+                                $itxt="<div><div><div>".explode('<div id="bill">',$ihtml)[1];
+                                $itxt=str_replace("</body>"," ",$itxt);
+                                $itxt=str_replace("</html>"," ",$itxt);
                             }elseif(strcmp($istate,'or')==0){
                                 $itxt=pdf2text($w2['url']); // pdf text
                             }else{
