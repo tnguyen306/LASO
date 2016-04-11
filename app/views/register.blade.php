@@ -19,10 +19,6 @@
             <div class="controls">
               <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" value="">
             </div>
-          <label class="control-label" for="photo">Photo URL:</label>
-          <div class="controls">
-            <input type="text" class="form-control input-lg" id="photo" name="photo" placeholder="Photo URL" value="">
-          </div><br>
         </div>
         <button class="btn btn-large btn-primary" type="submit">Sign up</button>
       </form>

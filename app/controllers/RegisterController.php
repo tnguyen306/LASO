@@ -16,7 +16,8 @@ class RegisterController extends BaseController
         $id = Input::get('email');
         $pw = Input::get('password');
         $name = Input::get('name');
-        $photo = Input::get('photo');
+        $photo="none: to add";        
+        //$photo = Input::get('photo');
         // hash salted with lowecast email
         $salted_hash = md5(strtolower($id).$pw);
         $count = DB::select('Select * FROM users where email=:id',['id'=>$id]);
