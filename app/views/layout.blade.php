@@ -14,10 +14,10 @@
         background-color:#F5F5EB;
     }
     del {
-        background-color:red;
+        background-color:#F75D59;
     }
     ins {
-        background-color:yellowgreen;
+        background-color:#5EFB6E;
     }
     </style>
 </head>
@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-@if (Session::get('uid', 'guest')=='guest');
+@if (Session::get('uid', 'guest')=='guest')
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register"><span class="glyphicon glyphicon-userg"></span> Register</a></li>
