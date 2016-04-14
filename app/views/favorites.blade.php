@@ -19,6 +19,7 @@
 <form action="/find" method="post">
      <input type="hidden" name="state" id="state" value="{{substr($item['display'],0,2)}}">
       <input type="hidden" name="search" id="search" value="{{substr($item['display'],2)}}">
+      <input type="hidden" name="limit" id="limit" value="50">
     <button class="btn btn-info btn-small">See More...</button>
 </form>
 @endif

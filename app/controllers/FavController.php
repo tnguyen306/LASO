@@ -23,7 +23,7 @@ class FavController extends BaseController {
                 $t_disp=$leg->first_name." ".$leg->last_name;
             } else { //keyword or similar
                 $ti=explode("~~",$t_items);
-                $t_res=DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) and state like :state order by introduced_date DESC limit 10',['search1'=>$ti[0],'search2'=>$ti[0],'search3'=>$ti[0],'state'=>$ti[1]]);
+                $t_res=DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) and state like :state order by introduced_date DESC limit 10',['search1'=>"%".$ti[0]."%",'search2'=>"%".$ti[0]."%",'search3'=>"%".$ti[0]."%",'state'=>$ti[1]]);
                 $t_item=$ti;
             }
             //new array for this iteration
