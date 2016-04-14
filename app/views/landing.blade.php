@@ -75,9 +75,7 @@
 <p><b>Tennessee</b></p>
 <p><b>Texas</b></p>
 <p><b>California</b></p>
-<p><b>Oregon</b></p>
 <p><b>Washington</b></p>
-<p><b>Massachusetts</b></p>
 <p><b>Maine</b></p>
 <br>
 @if (Session::get('uid', 'guest')=='guest');

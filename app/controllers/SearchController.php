@@ -22,7 +22,7 @@ class SearchController extends BaseController
         $limit = Input::get('limit');
         //$results = DB::select('SELECT * FROM fullbill WHERE ((id like :search1) or (description like :search2) or (title like :search3)) AND (state like (:state)) limit 50',['search1'=>$search,'search2'=>$search,'search3'=>$search,'state'=>$state]);
         $results=DB::select('SELECT * FROM bills WHERE ((id like :search1) or (description like :search2) or (title like :search3)) AND (state like (:state)) limit :limit',['search1'=>$search,'search2'=>$search,'search3'=>$search,'state'=>$state,'limit'=>$limit]);
-        return View::make('search')->with(array('results'=>$results,'query'=>Input::get('search')));
+        return View::make('search')->with(array('results'=>$results,'query'=>Input::get('search'),'state'=>Input::get('state')));
     }
     public function favadd($query)
     {

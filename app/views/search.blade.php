@@ -8,7 +8,7 @@
 
 
 
-    <h2>Results for {{$query}}</h2><a href="/qadd/{{$query}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></p>
+    <h2>Results for {{$query}}</h2><a href="/qadd/{{$query}}~~{{$state}}/" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span> Add to Favorites</a></p>
     <div class="table-responsive">
     <table id="table" class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
