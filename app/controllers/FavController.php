@@ -14,7 +14,7 @@ class FavController extends BaseController {
             $t_id=$favorite->id;
             //search accordingly
             if ($t_type=="bill"){
-                $t_res=DB::select('select * from bills where id like :search order by introduced_date DESC limit 5',['search'=>$t_item]);
+                $t_res=DB::select('select * from bills where id like :search order by introduced_date DESC limit 5',['search'=>"%".$t_item."%"]);
             }elseif ($t_type=="legislator"){
                 $t_res=DB::select('select * from bills where (author_id like ? or coauthor_id like ?) order by introduced_date DESC limit 5',[$t_items,$t_items]);
                 $legislator = DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$t_item]);
