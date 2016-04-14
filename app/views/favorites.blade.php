@@ -8,10 +8,16 @@
 
 <a href="/legislator/{{$item['item']}}"><button class="btn btn-info btn-small">See More...</button></a>
 </br>
+@elseif ($item['type']=="search")
+<form action="/find" method="post">
+     <input type="hidden" name="state" id="state" value="{{$item['display'][1]}}">
+      <input type="hidden" name="search" id="search" value="{{$item['display'][0]}}">
+    <button class="btn btn-info btn-small">See More...</button>
+</form>
 @else
 <form action="/find" method="post">
-     <input type="hidden" name="state" id="state" value="%">
-      <input type="hidden" name="search" id="search" value="{{$item['display']}}">
+     <input type="hidden" name="state" id="state" value="{{substr($item['display'],0,2)}}">
+      <input type="hidden" name="search" id="search" value="{{substr($item['display'],2)}}">
     <button class="btn btn-info btn-small">See More...</button>
 </form>
 @endif
