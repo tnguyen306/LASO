@@ -10,8 +10,9 @@
 </br>
 @elseif ($item['type']=="search")
 <form action="/find" method="post">
-     <input type="hidden" name="state" id="state" value="%{{trim($item['item'][1],"%")}}%">
-      <input type="hidden" name="search" id="search" value="%{{trim($item['item'][0],"%")}}%">
+     <input type="hidden" name="state" id="state" value="{{trim($item['item'][1],"%")}}">
+      <input type="hidden" name="search" id="search" value="{{trim($item['item'][0],"%")}}">
+      <input type="hidden" name="search" id="search" value="50">
     <button class="btn btn-info btn-small">See More...</button>
 </form>
 @else
