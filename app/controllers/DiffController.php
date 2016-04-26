@@ -25,11 +25,11 @@ unset($c11);
       $a21=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->author_id]);
 foreach ($a21 as $a2) {
 }
-unset($a21)
+unset($a21);
       $c21=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d2->coauthor_id]);
 foreach ($c21 as $c2) {
 }
-unset($c21)
+unset($c21);
       $an2=$a1->first_name." ".$a1->last_name;
       $cn2=$c1->first_name." ".$c1->last_name;
 
