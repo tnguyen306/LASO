@@ -3,6 +3,7 @@ include '/home/lasoadmin/laso/app/external/simplediff.php';
 class DiffController extends BaseController {
     public function diff($i1,$i2)
     {
+     ini_set('memory_limit', '256M');
      $bill1 = DB::select('Select * from bills WHERE id=:id limit 1',['id' => $i1]);
      $bill2 = DB::select('Select * FROM bills WHERE id=:id limit 1',['id' => $i2]);
 foreach ($bill1 as $d1) {

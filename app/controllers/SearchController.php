@@ -17,6 +17,7 @@ class SearchController extends BaseController
     }
     public function find()
     {
+        ini_set('memory_limit', '256M');
         $search = '%'.trim(Input::get('search')).'%';
         $state = Input::get('state');
         $limit = Input::get('limit');
