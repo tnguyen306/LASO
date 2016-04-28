@@ -4,7 +4,7 @@ class DiffController extends BaseController {
     public function diff($i1,$i2)
     {
      ini_set('memory_limit', '256M');
-     $d1 = DB::select('Select * from bills WHERE id=:id limit 1',['id' => $i1])[0]
+     $d1 = DB::select('Select * from bills WHERE id=:id limit 1',['id' => $i1])[0];
      $d2 = DB::select('Select * FROM bills WHERE id=:id limit 1',['id' => $i2])->first();
       $a1=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->author_id])->first();
       $c1=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$d1->coauthor_id])->first();
