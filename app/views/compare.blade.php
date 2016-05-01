@@ -59,7 +59,6 @@
     $('#diff2').html(difft);
     $('#diff3').html(difft);
     $('#orig1').html(origt);
-    return 0;
 </script>
 
 
