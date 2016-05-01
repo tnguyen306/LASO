@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <!-- Difference Code, for special thing -->
-<h1> Compare your own documents, LASO style!</h1>
+
 <style>
 .noshow ins{
     background-color:transparent !important;
@@ -16,6 +16,7 @@
 <script>tinymce.init({ selector:'textarea' });</script>
 <script src="http://ejohn.org/files/jsdiff.js"></script>
 <div id="diffframe" style="padding:5%">
+<h1> Compare your own documents, LASO style!</h1>
 <textarea id="origin">Copy and paste your original document here!</textarea>
 <textarea id="revin">Copy and paste your revision here!</textarea>
 <script>
