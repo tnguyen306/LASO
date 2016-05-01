@@ -43,6 +43,7 @@
 @else
                 <li><a href="/legislators"><span class="glyphicon glyphicon-userg"></span> Legislators</a></li>
                 <li><a href="/fav/{{Session::get('uid', 'guest')}}">Favorites</a></li>
+                <li><a href="/mdc">Compare other Docs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">User ID: {{Session::get('uid', 'guest')}}</a></li>

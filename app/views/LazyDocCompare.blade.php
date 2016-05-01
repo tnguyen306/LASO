@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
 <!-- Difference Code, for special thing -->
+<h1> Compare your own documents, LASO style!</h1>
 <style>
 .noshow ins{
     background-color:transparent !important;
