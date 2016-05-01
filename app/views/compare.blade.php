@@ -49,6 +49,18 @@
 
         </tbody>
     </table>
+<script>
+    var origt = "{{{$d1->text}}}";
+    var revt = "{{{$d2->text}}}";
+    var difft = diffString(origt,revt);
+    $('#diff1').html(difft);
+    $('#diff2').html(difft);
+    $('#diff3').html(difft);
+    $('#orig1').html(origt);
+    return 0;
+</script>
+
+
 
     <h3>Bill Text Differences</h3>
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#sides">Hide/Show Side By Side</button><button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#just_diff">Hide/Show Large Difference Panel</button><button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#just_orig">Hide/Show Large Original Panel</button>
@@ -58,13 +70,13 @@
 <td valign="top" style="width:50%">
   <blockquote style="background-color:#FFFFF5;">
     <div class="noshow">
-{{$diff}}
+      <p id="diff1"></p>
     </div>
   </blockquote>
 </td>
 <td valign="top" style="width:50%">
   <blockquote style="background-color:#FFFFF5;">
-    {{ $diff }}
+    <p id="diff2"></p>
   </blockquote>
 </td>
 </tr>
@@ -73,15 +85,16 @@
 
 <div class="collapse out" id="just_diff">
   <blockquote style="background-color:#FFFFF5;">
-    {{ $diff }}
+    <p id="diff3"></p>
   </blockquote>
 </div>
 <div class="collapse out" id="just_orig">
   <blockquote style="background-color:#FFFFF5;">
-    {{ $d1->text }}
+    <p id="orig1"></p>
   </blockquote>
 </div>
     </div>
+</div>
 </div>
 @endif
 @stop

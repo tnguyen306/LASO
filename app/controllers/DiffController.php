@@ -15,8 +15,8 @@ class DiffController extends BaseController {
       $an2=$a1->first_name." ".$a1->last_name;
       $cn2=$c1->first_name." ".$c1->last_name;
 
-         $diff =  htmlDiff($d1->text,$d2->text); // memory leak within?
+         //$diff =  htmlDiff($d1->text,$d2->text); // memory leak within?
 
-         return View::make('compare')->with(array('diff'=>$diff,'d1'=>$d1,'d2'=>$d2,'an1'=>$an1,'an2'=>$an2,'cn1'=>$cn1,'cn2'=>$cn2));
+         return View::make('compare')->with(array('d1'=>$d1,'d2'=>$d2,'an1'=>$an1,'an2'=>$an2,'cn1'=>$cn1,'cn2'=>$cn2));
     }
 }
