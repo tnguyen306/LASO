@@ -49,8 +49,8 @@
 
         </tbody>
     </table>
-<p style="visibility: hidden;" id="origin">{{d1->text}}</p>
-<p style="visibility: hidden;" id="revin">{{d2->text}}</p>
+<p style="visibility: hidden;" id="origin">{{$d1->text}}</p>
+<p style="visibility: hidden;" id="revin">{{$d2->text}}</p>
 <script>
     var origt = jQuery('#origin').val();
     var revt = jQuery('#revin').val();
