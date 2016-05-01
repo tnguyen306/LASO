@@ -32,7 +32,7 @@ function compareit(){
     return 0;
 }
 </script>
-<button onclick="compareit()">Click me</button>
+<button class="btn btn-primary btn-lg" onclick="compareit()">Compare</button>
 
 
     <h3>Text Differences</h3>
