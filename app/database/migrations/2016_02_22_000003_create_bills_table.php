@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+//TODO also includes document type
 class CreateBillsTable extends Migration {
 
 	/**
@@ -31,6 +31,7 @@ class CreateBillsTable extends Migration {
             $table->timestamps();
             //DB::statement('ALTER TABLE bills ADD FULLTEXT ft_index_name(title, id,description,text)');
 		});
+        //TODO include document types
 	}
 
 	/**

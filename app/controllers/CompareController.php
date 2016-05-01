@@ -12,6 +12,10 @@ class CompareController extends BaseController
     {
          return View::make('findCompare')->with(array('parent'=>$id));
     }
+    public function lazy()
+    {
+         return View::make('LazyDocCompare');
+    }
     public function find($id)
     {
         $id = Input::get('parent');

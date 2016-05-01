@@ -26,8 +26,10 @@ Route::get('/legislators/{state}', 'AllLegController@bystate');
 Route::get('/favrm/{id}', 'FavController@rmfav');
 Route::get('billadd/{id}/{bid}', 'BillController@favadd');
 Route::get('legadd/{id}', 'AuthorController@favadd');
-Route::get('qadd/{query}', 'SearchController@favadd');
+Route::get('qadd/{query}', 'CompareController@lazy');
 
+//doc compare thing?
+Route::get('/mdc', 'FavController@rmfav');
 
 //login stuff
 Route::get('/login', 'LoginController@index');

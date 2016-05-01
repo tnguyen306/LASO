@@ -48,6 +48,50 @@ class LegislatorTableSeeder extends Seeder {
             }
         }
     }
+public function run_national($chamber)
+    {
+        $ljson = file_get_contents('http://congress.api.sunlightfoundation.com/legislators?chamber='.$chamber.'&in_office=true&apikey=e2f56937c8c74a67a0f6133152f0c2f2');
+        $jsonIterator3 = new RecursiveIteratorIterator(
+                new RecursiveArrayIterator(json_decode($ljson, TRUE)),
+                RecursiveIteratorIterator::SELF_FIRST);
+            $ichamber=$chamber;
+            $idist="Not Found";
+            $iparty="Not Found";
+            $iphoto="Not Found"; //TODO replace with null image
+            $istate="US";
+            foreach ($jsonIterator3 as $k3 => $v3) {
+                try{
+                    //stuff otherwise undefined
+
+	                if(strcmp($k3,"leg_id")==0){
+		                $iid=$v3;     
+	            }elseif(strcmp($k3,"first_name")==0){
+		                $ifname=$v3;
+	            }elseif(strcmp($k3,"last_name")==0){
+		                $ilname=$v3;
+	            }elseif(strcmp($k3,"state_name")==0){
+		                $idist=$v3;
+	            }elseif(strcmp($k3,"party")==0){
+		                $iparty=$v3;
+	            }elseif(strcmp($k3,"chamber")==0){
+		                $ichamber=$v3;
+	            }elseif(strcmp($k3,"website")==0){ // the last field, so all is here
+                    $newleg = new Legislator;
+                    $newleg->id=$iid;
+                    $newleg->first_name=$ifname;
+                    $newleg->last_name=$ilname;
+                    $newleg->state=$istate;
+                    $newleg->branch=$ichamber;
+                    $newleg->district=$idist;
+                    $newleg->photo_path=$iphoto;
+                    $newleg->bio=$iparty;
+                    $newleg->save();
+                }
+            }catch(Exception $e){
+                        $pass_var=1;
+            }
+        }
+    }
     public function run()
     {
         DB::statement("delete from legislators where true");
@@ -65,5 +109,7 @@ class LegislatorTableSeeder extends Seeder {
         self::run_state('ca','1008');
         self::run_state('or','1009');
         self::run_state('wa','1010');
+        self::run_national("senate");
+        self::run_national("house");
     }
 }
