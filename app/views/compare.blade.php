@@ -49,9 +49,11 @@
 
         </tbody>
     </table>
+<p style="visibility: hidden;" id="origin">{{d1->text}}</p>
+<p style="visibility: hidden;" id="revin">{{d2->text}}</p>
 <script>
-    var origt = "{{{$d1->text}}}";
-    var revt = "{{{$d2->text}}}";
+    var origt = jQuery('#origin').val();
+    var revt = jQuery('#revin').val();
     var difft = diffString(origt,revt);
     $('#diff1').html(difft);
     $('#diff2').html(difft);
