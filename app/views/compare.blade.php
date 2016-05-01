@@ -49,8 +49,8 @@
 
         </tbody>
     </table>
-<p style="visibility: hidden;" id="origin">{{$d1->text}}</p>
-<p style="visibility: hidden;" id="revin">{{$d2->text}}</p>
+<p style="display: none;" id="origin">{{$d1->text}}</p>
+<p style="display: none;" id="revin">{{$d2->text}}</p>
 <script src="http://ejohn.org/files/jsdiff.js"></script>
 <script>
 function docompare(){
