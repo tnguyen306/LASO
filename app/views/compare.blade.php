@@ -53,7 +53,7 @@
 <p style="visibility: hidden;" id="revin">{{$d2->text}}</p>
 <script src="http://ejohn.org/files/jsdiff.js"></script>
 <script>
-$(document).ready ( function(){
+function docompare(){
     var origt = jQuery('#origin').text();
     var revt = jQuery('#revin').text();
     var difft = diffString(origt,revt);
@@ -61,8 +61,8 @@ $(document).ready ( function(){
     $('#diff2').html(difft);
     $('#diff3').html(difft);
     $('#orig1').html(origt);
-});​
-
+}
+window.onload = docompare;
 </script>
 
 
