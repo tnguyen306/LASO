@@ -53,8 +53,8 @@
 <p style="visibility: hidden;" id="revin">{{$d2->text}}</p>
 <script src="http://ejohn.org/files/jsdiff.js"></script>
 <script>
-    var origt = jQuery('#origin').val();
-    var revt = jQuery('#revin').val();
+    var origt = jQuery('#origin').text();
+    var revt = jQuery('#revin').text();
     var difft = diffString(origt,revt);
     $('#diff1').html(difft);
     $('#diff2').html(difft);
