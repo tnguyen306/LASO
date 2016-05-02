@@ -17,6 +17,9 @@
 <script src="http://ejohn.org/files/jsdiff.js"></script>
 <div id="diffframe" style="padding:5%">
 <h1> Compare your own documents, LASO style!</h1>
+@if (Session::get('uid', 'guest')=='guest')
+<p>This feature only avaliable for registered users</p>
+@else
 <textarea id="origin">Copy and paste your original document here!</textarea>
 <textarea id="revin">Copy and paste your revision here!</textarea>
 <script>
@@ -70,4 +73,5 @@ function compareit(){
 </div>
 </div>
 <!-- end difference code -->
+@endif
 @stop

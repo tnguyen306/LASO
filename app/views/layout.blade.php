@@ -36,6 +36,7 @@
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
 @if (Session::get('uid', 'guest')=='guest')
+            <li><a href="/mdc">Compare other Docs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register"><span class="glyphicon glyphicon-userg"></span> Register</a></li>
