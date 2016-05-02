@@ -25,9 +25,9 @@
 <script>
 function compareit(){
     tinyMCE.triggerSave();
-    var origt = $('#origin').text();
-    var revt = $('#revin').text();
-    var difft = diffString(origt,revt);
+    var origt = $('#origin').val();
+    var revt = $('#revin').val();
+    var difft = diffString($(origt).text(),$(revt).text());
     $('#diff1').html(difft);
     $('#diff2').html(difft);
     $('#diff3').html(difft);
