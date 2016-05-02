@@ -22,9 +22,9 @@
 <script>
 function compareit(){
     tinyMCE.triggerSave();
-    var origt = $('#origin').val().replace(/&gt;/g,">").replace(/&lt;/g,"<");
-    var revt = $('#revin').val().replace(/&gt;/g,">").replace(/&lt;/g,"<");
-    var difft = diffString(origt,revt).replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/<p/g,"<div").replace(/</p/g,"</div");
+    var origt = $('#origin').val().replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&quot;/g,"\"");
+    var revt = $('#revin').val().replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&quot;/g,"\"");
+    var difft = diffString(origt,revt).replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&quot;/g,"\"");
     $('#diff1').html(difft);
     $('#diff2').html(difft);
     $('#diff3').html(difft);
@@ -43,13 +43,13 @@ function compareit(){
 <td valign="top" style="width:50%">
   <blockquote style="background-color:#FFFFF5;">
     <div class="noshow">
-      <p id="diff1"></p>
+      <div id="diff1"></div>
     </div>
   </blockquote>
 </td>
 <td valign="top" style="width:50%">
   <blockquote style="background-color:#FFFFF5;">
-    <p id="diff2"></p>
+    <div id="diff2"></div>
   </blockquote>
 </td>
 </tr>
@@ -58,12 +58,12 @@ function compareit(){
 
 <div class="collapse out" id="just_diff">
   <blockquote style="background-color:#FFFFF5;">
-    <p id="diff3"></p>
+    <div id="diff3"></div>
   </blockquote>
 </div>
 <div class="collapse out" id="just_orig">
   <blockquote style="background-color:#FFFFF5;">
-    <p id="orig1"></p>
+    <div id="orig1"></div>
   </blockquote>
 </div>
     </div>
