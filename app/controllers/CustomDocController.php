@@ -14,7 +14,7 @@ class CustomDocController extends BaseController {
     public function select_compare($id)
     {
         $docs = DB::table('docs')->get();
-        return View::make('scdoc')->with(array('orig_id'=>$id,'docs'=>$docs));
+        return View::make('scdoc')->with(array('id'=>$id,'docs'=>$docs));
     }
     public function create()
     {
