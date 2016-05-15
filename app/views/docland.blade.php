@@ -20,7 +20,7 @@
         <tbody>
 @foreach ($docs as $doc) 
             <tr class="searchable">
-                <td><a href='/docs/{{doc->id}}' class="btn btn-info btn-small" role="button">Go</a></td>
+                <td><a href="{{'/docs/'.doc->id}}" class="btn btn-info btn-small" role="button">Go</a></td>
                 <td>{{ $favs->title}}</td>
                 <td>{{ $favs->user_id }}</td>
                 <td>{{ $favs->sharing }}</td>
