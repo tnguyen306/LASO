@@ -30,6 +30,11 @@ Route::get('qadd/{query}', 'SearchController@favadd');
 
 //doc compare thing?
 Route::get('/mdc', 'CompareController@lazy');
+Route::get('/docs/', 'CustomDocController@landing');
+Route::get('/docs/{id}', 'CustomDocController@show');
+Route::get('/docs/new', 'CustomDocController@create');
+Route::post('/docs/new', 'CustomDocController@create_post');
+Route::get('/docs/compare/{id1}/{id2}', 'CustomDocController@compare');
 
 //login stuff
 Route::get('/login', 'LoginController@index');

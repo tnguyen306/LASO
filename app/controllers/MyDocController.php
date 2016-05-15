@@ -1,5 +1,5 @@
 <?php
-//TODO finsh, test
+//THIS ISN'T USED
 class BillController extends BaseController {
     public function doc($id)
     {
