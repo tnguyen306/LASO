@@ -43,7 +43,7 @@
 <button data-toggle="collapse" class="btn btn-default btn-xs" data-target="#textbox">Hide/Show Document Text</button>
 <div class="collapse in" id="textbox">
   <blockquote style="background-color:#FFFFF5;">
-    <p id="orig1">{{doc->text}}</p>
+    <p id="orig1">{{$doc->text}}</p>
   </blockquote>
 </div>
 @endif
