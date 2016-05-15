@@ -35,7 +35,7 @@ Route::get('/docs/show/{id}', 'CustomDocController@show');
 Route::get('/docs/new', 'CustomDocController@create');
 Route::post('/docs/new', 'CustomDocController@create_post');
 Route::get('/docs/compare/{id1}/{id2}', 'CustomDocController@compare');
-Route::get('/docs/select/{id1}', 'CustomDocController@select_compare');
+Route::get('/docs/select/{id}', 'CustomDocController@select_compare');
 
 //login stuff
 Route::get('/login', 'LoginController@index');
