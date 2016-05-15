@@ -3,7 +3,7 @@
 class CustomDocController extends BaseController {
     public function landing()
     {
-        $docs = DB::table('docs');
+        $docs = DB::table('docs')->get();
         return View::make('docland')->with(array('docs'=>$docs));
     }
     public function show($id)
