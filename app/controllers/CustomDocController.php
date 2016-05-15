@@ -11,6 +11,11 @@ class CustomDocController extends BaseController {
         $doc = DB::table('docs')->where('id', $id)->first();
         return View::make('doctext')->with(array('doc'=>$doc));
     }
+    public function select_compare($id)
+    {
+        $docs = DB::table('docs')->get();
+        return View::make('scdoc')->with(array('orig_id'=>$id));
+    }
     public function create()
     {
         return View::make('createdoc');

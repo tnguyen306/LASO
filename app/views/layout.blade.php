@@ -36,7 +36,7 @@
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
 @if (Session::get('uid', 'guest')=='guest')
-            <li><a href="/mdc">Compare other Docs</a></li>
+            <li><a href="/docs/">Compare other Docs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register"><span class="glyphicon glyphicon-userg"></span> Register</a></li>
@@ -44,7 +44,7 @@
 @else
                 <li><a href="/legislators"><span class="glyphicon glyphicon-userg"></span> Legislators</a></li>
                 <li><a href="/fav/{{Session::get('uid', 'guest')}}">Favorites</a></li>
-                <li><a href="/mdc">Compare other Docs</a></li>
+                <li><a href="/docs/">Compare other Docs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">User ID: {{Session::get('uid', 'guest')}}</a></li>
