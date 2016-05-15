@@ -3,13 +3,13 @@
 <div class="container">
     <h2>Create New Document</h2>
 
-<form action="" method="post">
+<form action="/docs/new" method="post">
     <h3><input type="text" class="form-control input-lg" id="title" name="title" placeholder="Title"></h3>
     <div class="table">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <tbody>
                 <th>Sharing Options</th>
-                <td><input type="text" class="form-control input-lg" id="pdate" name="pdate" placeholder="Sharing Options"></td>
+                <td><input type="text" class="form-control input-lg" id="sharing" name="sharing" placeholder="Sharing Options"></td>
             </tr>
         </tbody>
     </table>
