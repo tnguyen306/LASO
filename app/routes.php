@@ -33,7 +33,7 @@ Route::get('/mdc', 'CompareController@lazy');
 Route::get('/docs/', 'CustomDocController@landing');
 Route::get('/docs/show/{id}', 'CustomDocController@show');
 Route::get('/docs/edit/{id}', 'CustomDocController@edit');
-Route::post('/docs/edit{id}', 'CustomDocController@edit_post');
+Route::post('/docs/edit/{id}', 'CustomDocController@edit_post');
 Route::get('/docs/new', 'CustomDocController@create');
 Route::post('/docs/new', 'CustomDocController@create_post');
 Route::get('/docs/compare/{id1}/{id2}', 'CustomDocController@compare');
