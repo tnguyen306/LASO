@@ -13,7 +13,7 @@ class CustomDocController extends BaseController {
     {
         $doc = DB::table('docs')->where('id', $id)->first();
         $uid = Session::get('uid', '0');
-        if (($doc->user_id==$uid)or((strpos($doc->sharing, '*'.$uid.'*') !== false))){ // can view if owned or shared
+        if (($doc->user_id==$uid)or((strpos($doc->sharing, '*'.$uid.'*') !== false))or($doc->sharing=='public'){ // can view if owned or shared
             return View::make('doctext')->with(array('doc'=>$doc));
         }else{
             Session::flash('message','Insufficent permission for document '.$id);
@@ -83,7 +83,7 @@ class CustomDocController extends BaseController {
         $uid = Session::get('uid', '0');
         $doc1 = DB::table('docs')->where('id', $id1)->first();
         $doc2 = DB::table('docs')->where('id', $id2)->first();
-        if ((($doc1->user_id==$uid)or(strpos($doc1->sharing, '*'.$uid.'*') !== false))and(($doc2->user_id==$uid)or(strpos($doc2->sharing, '*'.$uid.'*') !== false))){ // can view if both owned or shared
+        if ((($doc1->user_id==$uid)or(strpos($doc1->sharing, '*'.$uid.'*') !== false)or($doc1->sharing=='public')and(($doc2->user_id==$uid)or(strpos($doc2->sharing, '*'.$uid.'*') !== false)or($doc2->sharing=='public')){ // can view if both owned or shared
             return View::make('docdiff')->with(array('doc1'=>$doc1,'doc2'=>$doc2));
         }else{
             Session::flash('message','Insufficent permission');
