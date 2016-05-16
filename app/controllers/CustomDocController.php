@@ -4,7 +4,7 @@ class CustomDocController extends BaseController {
     public function landing()
     {
         $uid = Session::get('uid', '0');
-        $docs = DB::table('docs')->where('user_id', $id)->get();
+        $docs = DB::table('docs')->where('user_id', $uid)->get();
         $shared = DB::table('docs')->where('sharing','like', '%*'.$id.'*%')->get();
         $public = DB::table('docs')->where('sharing', 'public')->get(); 
         return View::make('docland')->with(array('docs'=>$docs,'shared'=>$shared,'public'=>$public));
@@ -23,8 +23,8 @@ class CustomDocController extends BaseController {
     public function select_compare($id)
     {
         $uid = Session::get('uid', '0');
-        $docs = DB::table('docs')->where('user_id', $id)->get();
-        $shared = DB::table('docs')->where('sharing','like', '%*'.$id.'*%')->get();
+        $docs = DB::table('docs')->where('user_id', $uid)->get();
+        $shared = DB::table('docs')->where('sharing','like', '%*'.$uid.'*%')->get();
         $public = DB::table('docs')->where('sharing', 'public')->get(); 
         return View::make('sdoc')->with(array('docs'=>$docs,'shared'=>$shared,'public'=>$public));
     }
