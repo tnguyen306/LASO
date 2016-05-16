@@ -65,7 +65,7 @@ class CustomDocController extends BaseController {
         $uid = Session::get('uid', '0');
         $doc = DB::table('docs')->where('id', $id)->first();
         if ($doc->user_id == $uid){
-            $newdoc = DB::table('docs')->where('id', $id)->first();
+            $newdoc = Document::where('id', $id)->first();
             $newdoc->user_id =$doc->user_id;
             $newdoc->title=Input::get('title');
             $newdoc->text=Input::get('text');
