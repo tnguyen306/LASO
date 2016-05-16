@@ -5,7 +5,7 @@ class CustomDocController extends BaseController {
     {
         $uid = Session::get('uid', '0');
         $docs = DB::table('docs')->where('user_id', $uid)->get();
-        $shared = DB::table('docs')->where('sharing','like', '%*'.$id.'*%')->get();
+        $shared = DB::table('docs')->where('sharing','like', '%*'.$uid.'*%')->get();
         $public = DB::table('docs')->where('sharing', 'public')->get(); 
         return View::make('docland')->with(array('docs'=>$docs,'shared'=>$shared,'public'=>$public));
     }
