@@ -58,7 +58,7 @@ class CustomDocController extends BaseController {
         Session::flash('message','Your document, '.Input::get('title').' has been created');
         return Redirect::to('/docs/');
     }
-    public function edit_post()
+    public function edit_post($id)
     {
         // add this function
         // add security
