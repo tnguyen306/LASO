@@ -22,7 +22,7 @@
 </p>
         </div>    
     </div>
-<input class="btn btn-large btn-primary" type="submit" value="Change Text">
+<input class="btn btn-large btn-primary" type="submit" value="Create">
 </form>
 </div>
 @stop

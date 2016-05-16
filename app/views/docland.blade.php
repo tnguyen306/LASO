@@ -27,6 +27,22 @@
                 <td>{{ $doc->sharing }}</td>
             </tr>
 @endforeach
+@foreach ($shared as $doc) 
+            <tr class="searchable">
+                <td><a href="{{'/docs/show/'.$doc->id}}" class="btn btn-info btn-small" role="button">Go</a></td>
+                <td>{{ $doc->title}}</td>
+                <td>{{ $doc->user_id }}</td>
+                <td>{{ $doc->sharing }}</td>
+            </tr>
+@endforeach
+@foreach ($public as $doc) 
+            <tr class="searchable">
+                <td><a href="{{'/docs/show/'.$doc->id}}" class="btn btn-info btn-small" role="button">Go</a></td>
+                <td>{{ $doc->title}}</td>
+                <td>{{ $doc->user_id }}</td>
+                <td>{{ $doc->sharing }}</td>
+            </tr>
+@endforeach
         </tbody>
     </table>
 </div>
