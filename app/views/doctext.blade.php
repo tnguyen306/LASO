@@ -16,6 +16,7 @@
 <p>This feature only avaliable for registered users</p>
 @else
 <a href="/docs/select/{{$doc->id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span>Compare To Another Document</a>
+<a href="/docs/edit/{{$doc->id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
     <div class="table">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
