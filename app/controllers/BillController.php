@@ -11,8 +11,16 @@ foreach ($acur as $auth) {
     $ccur=DB::select('Select first_name,last_name,district,bio,id,photo_path from legislators where id=?',[$detail->coauthor_id]);
 foreach ($ccur as $cauth) {
 }
-    $authname=$auth->first_name." ".$auth->last_name;
-    $cauthname=$cauth->first_name." ".$cauth->last_name;
+    if (empty($auth)){
+      $authname="No Author";
+    }else{
+      $authname=$auth->first_name." ".$auth->last_name;
+    }
+    if (empty($cauth)){
+      $cauthname="No Coauthor";
+    }else{
+      $cauthname=$cauth->first_name." ".$cauth->last_name;
+    }
      return View::make('detail')->with(array('eid'=>$detail->ext_id,'title'=>$detail->title,'author'=>$authname,'coauthor'=>$cauthname,'status'=>$detail->status,'idate'=>$detail->introduced_date,'pdate'=>$detail->passed_date,'amount'=>$detail->amount,'text'=>$detail->text,'id'=>$id, 'author_id'=>$detail->author_id,'coauthor_id'=>$detail->coauthor_id,'doc_path'=>$detail->doc_path,'description'=>$detail->description ));
     }
     public function favrm($id,$bid)
