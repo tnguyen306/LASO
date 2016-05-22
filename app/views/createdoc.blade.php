@@ -9,7 +9,7 @@
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <tbody>
                 <th>Sharing Options</th>
-                <td><input type="text" class="form-control input-lg" id="sharing" name="sharing" placeholder="Sharing Options"></td>
+                <td><input type="text" class="form-control input-lg" id="sharing" name="sharing" placeholder="Sharing Options"><small>Please use asterisks (*) on both sides of each user id number desired.</td>
             </tr>
         </tbody>
     </table>

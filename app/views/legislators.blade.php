@@ -2,9 +2,10 @@
 @section('content')
 <div class="container">
 <h2>By State</h2>
-
-<select class="form-control" onchange="window.open(this.value,'_self','');">
-  <option value="/legislators/%">All</a></li>
+<h3> You have selected {{$state}}</h3>
+<label for="statesel">State:</label><select id="statesel" class="form-control" onchange="window.open(this.value,'_self','');">
+  <option> </option>
+  <option value="/legislators/%">All</option>
   <option value="/legislators/ca">California</option>
   <option value="/legislators/fl">Florida</option>
   <option value="/legislators/ga">Georgia</option>

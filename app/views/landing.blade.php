@@ -81,7 +81,7 @@
 <p><b>Washington</b></p>
 <p><b>Maine</b></p>
 <br>
-@if (Session::get('uid', 'guest')=='guest');
+@if (Session::get('uid', 'guest')=='guest')
 <h2>Begin Your Search</h2>
 <a href="/register"><button class="btn btn-default btn-primary" ><h1>Sign Up</h1></button></a>
 @else
