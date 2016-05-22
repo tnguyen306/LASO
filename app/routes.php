@@ -16,7 +16,7 @@
 
 Route::get('/fav/{id}', 'FavController@fav');
 Route::get('bill/{id}', 'BillController@bill');
-Route::get('db', 'UserController@index'); // move to admin before long
+//Route::get('db', 'UserController@index'); // move to admin before long
 Route::get('/diff/{i1}/{i2}', 'DiffController@diff');
 Route::get('/legislator/{id}', 'AuthorController@index');
 Route::get('/legislators/', 'AllLegController@index');

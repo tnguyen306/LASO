@@ -26,7 +26,7 @@ class CustomDocController extends BaseController {
         $docs = DB::table('docs')->where('user_id', $uid)->get();
         $shared = DB::table('docs')->where('sharing','like', '%*'.$uid.'*%')->get();
         $public = DB::table('docs')->where('sharing', 'public')->get(); 
-        return View::make('sdoc')->with(array('docs'=>$docs,'shared'=>$shared,'public'=>$public));
+        return View::make('scdoc')->with(array('id'=>$id,'docs'=>$docs,'shared'=>$shared,'public'=>$public));
     }
     public function create()
     {

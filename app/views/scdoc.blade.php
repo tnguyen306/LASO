@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="container">
-<h2> Compare your own Documents </h2>
+<h2> Select a document to compare to </h2>
 <h2>Live Search</h2>
 <div class="form-group">
 <input type="text" id="search" class="form-control input-lg"><br>
