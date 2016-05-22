@@ -6,7 +6,7 @@
 <h2>Search For Bills To Compare with {{$parent}}</h2>
 <div class="form-group">
 <input type="text" id="search" name="search" class="form-control input-lg"><br>
-<label for="sel1">Select list:</label>
+<label for="sel1">State:</label>
   <select class="form-control" id="state" name="state">
     <option value="%">All</option>
     <option value="ga">Georgia</option>
