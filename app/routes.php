@@ -38,6 +38,8 @@ Route::get('/docs/new', 'CustomDocController@create');
 Route::post('/docs/new', 'CustomDocController@create_post');
 Route::get('/docs/compare/{id1}/{id2}', 'CustomDocController@compare');
 Route::get('/docs/select/{id}', 'CustomDocController@select_compare');
+Route::get('/docs/del/{id}', 'CustomDocController@delete');
+Route::post('/docs/del/{id}', 'CustomDocController@delete_post');
 
 //login stuff
 Route::get('/login', 'LoginController@index');

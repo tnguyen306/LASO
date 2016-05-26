@@ -34,7 +34,18 @@ class CustomDocController extends BaseController {
     }
     public function edit($id)
     {
-        // add this function
+        // add security
+        $doc = DB::table('docs')->where('id', $id)->first();
+        $uid = Session::get('uid', '0');
+        if ($doc->user_id == $uid){ // can edit if owned
+            return View::make('editdoc')->with(array('doc'=>$doc));
+        }else{ 
+            Session::flash('message','Insufficent permission for document '.$id);
+            return Redirect::to('/docs/');
+        }
+    }
+    public function delete($id)
+    {
         // add security
         $doc = DB::table('docs')->where('id', $id)->first();
         $uid = Session::get('uid', '0');
@@ -56,6 +67,20 @@ class CustomDocController extends BaseController {
         $newdoc->sharing=Input::get('sharing');
         $newdoc->save();
         Session::flash('message','Your document, '.Input::get('title').' has been created');
+        return Redirect::to('/docs/');
+    }
+    public function delete_post($id)
+    {
+        // add this function
+        // add security
+        $uid = Session::get('uid', '0');
+        $doc = DB::table('docs')->where('id', $id)->first();
+        if ($doc->user_id == $uid){
+            $doc->delete();
+            Session::flash('message',Input::get('title').' has been deleted');
+        }else{
+            Session::flash('message','Insufficent permission for delete');
+        }
         return Redirect::to('/docs/');
     }
     public function edit_post($id)
