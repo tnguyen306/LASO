@@ -17,6 +17,7 @@
 @else
 <a href="/docs/select/{{$doc->id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-eye-open"></span>Compare To Another Document</a>
 <a href="/docs/edit/{{$doc->id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-pencil"></span>Edit</a>
+<a href="/docs/del/{{$doc->id}}" class="btn btn-default btn-small" role="button"><span class="glyphicon glyphicon-remove"></span>Delete</a>
     <div class="table">
     <table class="table table-hover" style="background-color:#FFFFF5;">
         <thead>
