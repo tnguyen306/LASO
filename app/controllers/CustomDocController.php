@@ -50,7 +50,7 @@ class CustomDocController extends BaseController {
         $doc = DB::table('docs')->where('id', $id)->first();
         $uid = Session::get('uid', '0');
         if ($doc->user_id == $uid){ // can edit if owned
-            return View::make('editdoc')->with(array('doc'=>$doc));
+            return View::make('docdel')->with(array('doc'=>$doc));
         }else{ 
             Session::flash('message','Insufficent permission for document '.$id);
             return Redirect::to('/docs/');
