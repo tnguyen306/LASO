@@ -76,7 +76,7 @@ class CustomDocController extends BaseController {
         $uid = Session::get('uid', '0');
         $doc = DB::table('docs')->where('id', $id)->first();
         if ($doc->user_id == $uid){
-            DB::delete('delete from docs')->where('id', $id)->first();
+            DB::delete('delete from docs where id = ?', array($id));
             Session::flash('message',Input::get('title').' has been deleted');
         }else{
             Session::flash('message','Insufficent permission for delete');
