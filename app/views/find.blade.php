@@ -1,0 +1,35 @@
+@extends('layout')
+@section('content')
+<form method="post" action="/find">
+<div class="container">
+<div class="form-group">
+<h2>Search For Bills</h2>
+<div class="form-group">
+<input type="text" id="search" name="search" class="form-control input-lg"><br>
+<label for="sel1">State:</label>
+  <select class="form-control" id="state" name="state">
+    <option value="%">All</option>
+    <option value="ga">Georgia</option>
+    <option value="fl">Florida</option>
+    <option value="nh">New Hampshire</option>
+    <option value="tx">Texas</option>
+    <option value="tn">Tennessee</option>
+    <option value="ca">California</option>
+    <option value="or">Oregon</option>
+    <option value="wa">Washington</option>
+    <option value="ma">Massachusetts</option>
+    <option value="me">Maine</option>
+  </select>
+<label for="sel1">Number of Results to Show:</label>
+<select class="form-control" id="limit" name="limit">
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="400">400</option>
+</select>
+</div>
+</div>
+<button type="submit" class="btn btn-primary btn-lg">Search</button>
+</form>
+@stop
+
