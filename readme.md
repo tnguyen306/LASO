@@ -28,7 +28,7 @@ Currently, this application is configured for use with mysql.
 
 ###TODO
 
-Finish document support
+Check how many connections a user has open
 
 ### Laravel License
 
