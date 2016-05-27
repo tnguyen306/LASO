@@ -9,8 +9,12 @@ class UserController extends BaseController
      */
     public function index()
     {
-        $users = DB::select('Select * FROM users');
+        if(Session::get('admin', 'false')=='true'){
+            $users = DB::select('Select * FROM users');
 
-        return View::make('users')->with('users',$users);
+            return View::make('users')->with('users',$users);
+        }else{
+            return Redirect::to('/adminlogin');
+        }
     }
 }

@@ -16,7 +16,7 @@
 
 Route::get('/fav/{id}', 'FavController@fav');
 Route::get('bill/{id}', 'BillController@bill');
-//Route::get('db', 'UserController@index'); // move to admin before long
+
 Route::get('/diff/{i1}/{i2}', 'DiffController@diff');
 Route::get('/legislator/{id}', 'AuthorController@index');
 Route::get('/legislators/', 'AllLegController@index');
@@ -55,6 +55,7 @@ Route::get('admin', 'AdminController@index');
 Route::get('adminlogin', 'AdminController@adminloginpage');
 Route::post('adminlogin', 'AdminController@adminlogin');
 Route::get('adminlogout', 'AdminController@adminlogout');
+Route::get('db', 'UserController@index');
 
 //landing
 Route::get('/', 'SearchController@landing');
