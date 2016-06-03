@@ -5,13 +5,13 @@ class ApiController extends BaseController
     // no security at all, need to work on api keys or user ids
     public function docs()
     {
-        $docs = DB::select('Select * from docs');
+        $results = DB::select('Select * from docs');
         return json_encode($results);
     }
     
     public function doc($id)
     {
-        $docs = DB::table('docs')->where('id', $id)->get();
+        $results = DB::table('docs')->where('id', $id)->get();
         return json_encode($results);
     }
 
@@ -23,7 +23,7 @@ class ApiController extends BaseController
 
     public function bill($id)
     {
-        $docs = DB::table('bills')->where('id', $id)->get();
+        $results = DB::table('bills')->where('id', $id)->get();
         return json_encode($results);
     }
 
@@ -35,7 +35,7 @@ class ApiController extends BaseController
 
     public function legislator($id)
     {
-        $docs = DB::table('legislators')->where('id', $id)->get();
+        $results = DB::table('legislators')->where('id', $id)->get();
         return json_encode($results);
     }
 }
