@@ -3,7 +3,7 @@
 class AllLegController extends BaseController
 {
     /**
-     * Show a list of all of the application's users.
+     * Show legislators in table, by state or not
      *
      * @return Response
      */
