@@ -65,3 +65,11 @@ Route::get('/search', 'SearchController@index');
 Route::post('/find', 'SearchController@find');
 Route::post('/compare/{id}','CompareController@find');
 Route::get('/compare/{id}','CompareController@index');
+
+//api stuff
+Route::get('/api/docs', 'ApiController@docs');
+Route::get('/api/doc/{id}', 'ApiController@doc');
+Route::get('/api/legs', 'ApiController@legislators');
+Route::get('/api/leg/{id}', 'ApiController@legislator');
+Route::get('/api/bills', 'ApiController@bills');
+Route::get('/api/bill/{id}', 'ApiController@bill');
