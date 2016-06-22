@@ -6,36 +6,36 @@ class ApiController extends BaseController
     public function docs()
     {
         $results = DB::select('Select * from docs');
-        return json_encode($results);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
     
     public function doc($id)
     {
         $results = DB::table('docs')->where('id', $id)->get();
-        return json_encode($results);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
 
-    public function bills()
+    public function bills($hi,$low)
     {
-        $results = DB::select('Select * from bills');
-        return json_encode($results);
+        $results = DB::select('Select * from bills limit ? ?', [$hi,$low]);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
 
     public function bill($id)
     {
         $results = DB::table('bills')->where('id', $id)->get();
-        return json_encode($results);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
 
     public function legislators()
     {
         $results = DB::select('Select * from legislators');
-        return json_encode($results);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
 
     public function legislator($id)
     {
         $results = DB::table('legislators')->where('id', $id)->get();
-        return json_encode($results);
+        return Response::json($results)->setCallback(Input::get('callback'));
     }
 }
