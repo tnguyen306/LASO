@@ -83,6 +83,6 @@ Route::get('/public/{slug}',function($slug)
     }
     catch (Illuminate\Filesystem\FileNotFoundException $exception)
     {
-        die("Not found");
+        die("Not found at " . getcwd() . '/public/' . $slug);
     }
 });
