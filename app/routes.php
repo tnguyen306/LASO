@@ -77,5 +77,12 @@ Route::get('/api/bill/{id}', 'ApiController@bill');
 //expose the public directory
 Route::get('/public/{slug}',function($slug)
 {
-    return File::get(public_path() . '/public/' . $slug);
+    try
+    {
+        return File::get(getcwd . '/public/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found");
+    }
 });
