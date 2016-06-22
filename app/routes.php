@@ -73,3 +73,40 @@ Route::get('/api/legs', 'ApiController@legislators');
 Route::get('/api/leg/{id}', 'ApiController@legislator');
 Route::get('/api/bills/{low}/{size}', 'ApiController@bills');
 Route::get('/api/bill/{id}', 'ApiController@bill');
+
+//expose the public directory
+Route::get('/public/{slug}',function($slug)
+{
+    try
+    {
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found at " . getcwd() . '/public/' . $slug);
+    }
+});
+//expose the public js dir
+Route::get('/public/js/{slug}',function($slug)
+{
+    try
+    {
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/js/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found at " . getcwd() . '/public/' . $slug);
+    }
+});
+//expose the public css dir
+Route::get('/public/css/{slug}',function($slug)
+{
+    try
+    {
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/css/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found at " . getcwd() . '/public/' . $slug);
+    }
+});
