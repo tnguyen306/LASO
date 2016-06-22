@@ -79,7 +79,7 @@ Route::get('/public/{slug}',function($slug)
 {
     try
     {
-        return File::get(getcwd() . '/public/' . $slug);
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/' . $slug);
     }
     catch (Illuminate\Filesystem\FileNotFoundException $exception)
     {
