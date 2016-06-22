@@ -15,9 +15,9 @@ class ApiController extends BaseController
         return Response::json($results)->setCallback(Input::get('callback'));
     }
 
-    public function bills($hi,$low)
+    public function bills($size,$low)
     {
-        $results = DB::select('Select * from bills limit ($hi-$low) offset $low ?', [$hi,$low]);
+        $results = DB::select('Select * from bills limit ? offset ?', [$size,$low]);
         return Response::json($results)->setCallback(Input::get('callback'));
     }
 

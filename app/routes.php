@@ -71,5 +71,5 @@ Route::get('/api/docs', 'ApiController@docs');
 Route::get('/api/doc/{id}', 'ApiController@doc');
 Route::get('/api/legs', 'ApiController@legislators');
 Route::get('/api/leg/{id}', 'ApiController@legislator');
-Route::get('/api/bills/{low}/{hi}', 'ApiController@bills');
+Route::get('/api/bills/{low}/{size}', 'ApiController@bills');
 Route::get('/api/bill/{id}', 'ApiController@bill');
