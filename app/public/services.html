@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>LASO Mobile</title>
+
+  <!-- CSS  -->
+  <style>
+    body {
+        background-color:#F5F5EB;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="grey darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo"><img src="http://lasosearch.com/images/logo_m.png" style="max-width:60px;max-height:60px;"/></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://lasosearch.com">Full Site</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="http://lasosearch.com">Full Site</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center light-blue-text">LASO Search Mobile</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">At a glance, see state legislators and your uploaded documents.</h5>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <br><br>
+      <div id="bills">
+        <h5 class="header col s12 light">See all bills - Under Construction</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <button class="waves-effect waves-light btn">Go</button>     
+        </div>
+      </div>
+      <br>
+      <div id="bill">
+        <h5 class="header col s12 light">Find a bill - Under Construction</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <input placeholder="Bill ID" id="bill_id" type="text">
+          <button class="waves-effect waves-light btn">Go</button>
+        </div>
+        
+      </div>
+      <br>
+      <div id="legs">
+        <h5 class="header col s12 light">See all legislators</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <button class="waves-effect waves-light btn" onclick="laso_legs()">Go</button>
+        </div>
+      </div>
+      <br>
+      <div id="leg">
+        <h5 class="header col s12 light">Find a legislator</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <input placeholder="Legislator ID" id="leg_id" type="text">
+          <button class="waves-effect waves-light btn" onclick="laso_leg()">Go</button>
+        </div>
+      </div>
+      <br>
+      <div id="docs">
+        <h5 class="header col s12 light">See all comparison documents</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <button class="waves-effect waves-light btn" onclick="laso_docs()">Go</button>
+        </div>
+      </div>
+      <br>
+      <div id="doc">
+        <h5 class="header col s12 light">Find a document</h5>
+        <div class="row" style="padding:0px 35px 0px 35px;">
+          <input placeholder="Document ID" id="doc_id" type="text">
+          <button class="waves-effect waves-light btn" onclick="laso_doc()">Go</button>
+        </div>
+      </div>
+      <br><br><br>
+      <div id="res_bin">
+        <h5 class="header col s12 light">Result</h5>
+        <div id="res"></div>
+      </div>
+
+
+
+
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <footer class="page-footer grey lighten-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">LASOSEARCH</h5>
+          <p class="grey-text text-lighten-4">Currently in Beta. Contact Ryan Birmingham at birm@rbirm.us with inquiries, concerns, or requests.</p>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/laso_services.js"></script>
+
+  </body>
+</html>
