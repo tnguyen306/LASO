@@ -86,3 +86,27 @@ Route::get('/public/{slug}',function($slug)
         die("Not found at " . getcwd() . '/public/' . $slug);
     }
 });
+//expose the public js dir
+Route::get('/public/js/{slug}',function($slug)
+{
+    try
+    {
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/js/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found at " . getcwd() . '/public/' . $slug);
+    }
+});
+//expose the public css dir
+Route::get('/public/css/{slug}',function($slug)
+{
+    try
+    {
+        return File::get('/home/lasoadmin/gitlive/LASO/app/public/css/' . $slug);
+    }
+    catch (Illuminate\Filesystem\FileNotFoundException $exception)
+    {
+        die("Not found at " . getcwd() . '/public/' . $slug);
+    }
+});
