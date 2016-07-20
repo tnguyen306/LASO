@@ -12,8 +12,8 @@
     }
   </style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-  <link href="css/style.css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="grey darken-3" role="navigation">
@@ -39,61 +39,84 @@
 
     </div>
   </div>
-
-
-  <div class="container">
+  <ul class="collapsible" data-collapsible="accordion">
     <br><br>
-      <div id="bills">
-        <h5 class="header col s12 light">See all bills - Under Construction</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <button class="waves-effect waves-light btn">Go</button>     
+    <li id="billcon" class="container" class="collapse">
+      <div class="collapsible-header"><i class="material-icons">subtitles</i>Bills</div>
+        <div class="collapsible-body">
+          <div id="bills">
+            <h5 class="header col s12 light">See all bills - Under Construction</h5>
+            <div class="row" style="padding:0px 35px 0px 35px;">
+              <button class="waves-effect waves-light btn">Go</button>
+            </div>
+          </div>
+          <br>
+          <div id="bill">
+            <h5 class="header col s12 light">Find a bill - Under Construction</h5>
+            <div class="row" style="padding:0px 35px 0px 35px;">
+              <input placeholder="Bill ID" id="bill_id" type="text">
+              <button class="waves-effect waves-light btn">Go</button>
+            </div>
         </div>
       </div>
-      <br>
-      <div id="bill">
-        <h5 class="header col s12 light">Find a bill - Under Construction</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <input placeholder="Bill ID" id="bill_id" type="text">
-          <button class="waves-effect waves-light btn">Go</button>
+  </li>
+  <li id="billcompare" class="container" class="collapse">
+    <div class="collapsible-header"><i class="material-icons">dashboard</i>Bill Comparison</div>
+      <div class="collapsible-body">
+        <div id="billscpm">
+          <h5 class="header col s12 light">Compare Two Bills</h5>
+          <input placeholder="First Bill ID" id="cmp1_id" type="text">
+          <input placeholder="Second Bill ID" id="cmp2_id" type="text">
+          <div class="row" style="padding:0px 35px 0px 35px;">
+            <button class="waves-effect waves-light btn" onclick="laso_compare()">Go</button>
+          </div>
         </div>
-        
-      </div>
-      <br>
-      <div id="legs">
-        <h5 class="header col s12 light">See all legislators</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <button class="waves-effect waves-light btn" onclick="laso_legs()">Go</button>
+    </div>
+</li>
+      <li id="legcon" class="container" class="collapse">
+        <div class="collapsible-header"><i class="material-icons">person_pin</i>Legislators</div>
+          <div class="collapsible-body">
+            <div id="legs">
+              <h5 class="header col s12 light">See all legislators</h5>
+              <div class="row" style="padding:0px 35px 0px 35px;">
+                <button class="waves-effect waves-light btn" onclick="laso_legs()">Go</button>
+              </div>
+            </div>
+            <br>
+            <div id="leg">
+              <h5 class="header col s12 light">Find a legislator</h5>
+              <div class="row" style="padding:0px 35px 0px 35px;">
+                <input placeholder="Legislator ID" id="leg_id" type="text">
+                <button class="waves-effect waves-light btn" onclick="laso_leg()">Go</button>
+              </div>
+            </div>
+          </div>
+      </li>
+      <li id="doccon" class="container" class="collapse">
+        <div class="collapsible-header"><i class="material-icons">description</i>Documents</div>
+          <div class="collapsible-body">
+          <div id="docs">
+            <h5 class="header col s12 light">See all comparison documents</h5>
+            <div class="row" style="padding:0px 35px 0px 35px;">
+              <button class="waves-effect waves-light btn" onclick="laso_docs()">Go</button>
+            </div>
+          </div>
+          <br>
+          <div id="doc">
+            <h5 class="header col s12 light">Find a document</h5>
+            <div class="row" style="padding:0px 35px 0px 35px;">
+              <input placeholder="Document ID" id="doc_id" type="text">
+              <button class="waves-effect waves-light btn" onclick="laso_doc()">Go</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <br>
-      <div id="leg">
-        <h5 class="header col s12 light">Find a legislator</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <input placeholder="Legislator ID" id="leg_id" type="text">
-          <button class="waves-effect waves-light btn" onclick="laso_leg()">Go</button>
-        </div>
-      </div>
-      <br>
-      <div id="docs">
-        <h5 class="header col s12 light">See all comparison documents</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <button class="waves-effect waves-light btn" onclick="laso_docs()">Go</button>
-        </div>
-      </div>
-      <br>
-      <div id="doc">
-        <h5 class="header col s12 light">Find a document</h5>
-        <div class="row" style="padding:0px 35px 0px 35px;">
-          <input placeholder="Document ID" id="doc_id" type="text">
-          <button class="waves-effect waves-light btn" onclick="laso_doc()">Go</button>
-        </div>
-      </div>
+      </li>
       <br><br><br>
       <div id="res_bin">
         <h5 class="header col s12 light">Result</h5>
         <div id="res"></div>
       </div>
-
+</ul>
 
 
 
@@ -122,10 +145,19 @@
 
 
   <!--  Scripts-->
+  <script src="js/jsdiff.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
+
   <script src="js/init.js"></script>
   <script src="js/laso_services.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : true
+    });
+  });
 
+  </script>
   </body>
 </html>
