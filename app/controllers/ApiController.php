@@ -35,12 +35,12 @@ class ApiController extends BaseController
 
     public function legislator($id)
     {
-        $results = DB::table('legislators')->where('id', $id)->get()[0];
+        $results = DB::table('legislators')->where('id', $id)->get();
         return Response::json($results)->setCallback(Input::get('callback'));
     }
     public function keyget($user,$pw)
     {
-        $results = DB::table('users')->where('email', $user)->get();
+        $results = DB::table('users')->where('email', $user)->get()[0];
         $resp_key = array( "key" => "");
         if ($results["password"]==$pw){
             $resp_key["key"] = $results['authkey'];
