@@ -73,7 +73,7 @@ Route::get('/api/legs', 'ApiController@legislators');
 Route::get('/api/leg/{id}', 'ApiController@legislator');
 Route::get('/api/bills/{low}/{size}', 'ApiController@bills');
 Route::get('/api/bill/{id}', 'ApiController@bill');
-Route::get('/api/key/{user}/{hash}', 'ApiController@key');
+Route::get('/api/key/{user}/{hash}', 'ApiController@keyget');
 
 //expose the public directory
 Route::get('/public/{slug}',function($slug)
