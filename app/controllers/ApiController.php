@@ -40,7 +40,7 @@ class ApiController extends BaseController
     }
     public function keyget($user,$pw)
     {
-        $results = DB::table('legislators')->where('email', $user)->get()->first();
+        $results = DB::table('users')->where('email', $user)->get()->first();
         $resp_key = array( "key" => "");
         if ($results[password]==$pw){
             $resp_key["key"] = $results['authkey'];
