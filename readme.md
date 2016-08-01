@@ -1,3 +1,17 @@
+#### This Should be in line with what's on the server
+
+##To do that...
+
+git remote add live ssh://lasoadmin@lasosearch.com/~/gitlive/LASO
+
+add and commit as normal
+
+git push live lasosearch_server
+
+And your changes are pushed to the server; how nice!
+
+#### General Readme Stuff
+
 ## Using
 
 To host, go to this folder, and run "php artisan host"
@@ -14,7 +28,7 @@ Currently, this application is configured for use with mysql.
 
 ###TODO
 
-Allow Summary Inputs
+Check how many connections a user has open
 
 ### Laravel License
 
