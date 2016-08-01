@@ -42,7 +42,7 @@ class ApiController extends BaseController
     {
         $results = DB::table('users')->where('email', $user)->first();
         $resp_key = array( "key" => "");
-        if ($results["password"]==$pw){
+        if ($results->password==$pw){
             $resp_key["key"] = $results['authkey'];
             return Response::json($resp_key)->setCallback(Input::get('callback'));
         } else {
