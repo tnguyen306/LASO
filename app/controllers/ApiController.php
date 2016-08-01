@@ -38,7 +38,7 @@ class ApiController extends BaseController
         $results = DB::table('legislators')->where('id', $id)->get();
         return Response::json($results)->setCallback(Input::get('callback'));
     }
-    public function keyget($user,$pw)
+    public function keyget($user,$pw) # get a user's key from hashed credentials
     {
         $results = DB::table('users')->where('email', $user)->first();
         $resp_key = array( "key" => "");
