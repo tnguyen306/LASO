@@ -16,7 +16,7 @@ class RegisterController extends BaseController
         $id = Input::get('email');
         $pw = Input::get('password');
         $name = Input::get('name');
-        $photo="none: to add";        
+        $photo="none: to add";
         //$photo = Input::get('photo');
         // hash salted with lowecast email
         $salted_hash = md5(strtolower($id).$pw);
@@ -26,7 +26,7 @@ class RegisterController extends BaseController
             Session::flash('message',"All inputs except photo are required.");
             return Redirect::to('/register');
         }
-        
+
         if (!(count($count)==0)){
             Session::flash('message',"User created. Please log in.");
             return Redirect::to('/login');
@@ -37,6 +37,7 @@ class RegisterController extends BaseController
         $newuser->password = $salted_hash;
         $newuser->name= $name;
         $newuser->photo_path = $photo;
+        $newuser->authkey = md5(uniqid());
         $newuser->save();
         return Redirect::to('/login');
     }
