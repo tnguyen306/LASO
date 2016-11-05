@@ -1,0 +1,17 @@
+get commands from page layer:
+-states for search (no input)
+-username salt for first step of auth (username input)
+-search results (bar text, state, year min, year max input)
+-details overlay (bill id input)
+-list favorites (username input)
+-favorite search results (fav id input)
+-favorite comparison results (fav id input)
+
+queries to db layer to use
+-which states are OK()
+-username salt get (username)
+-get pw hash (username)
+-results for search (bar text, state, year min, year max)
+-description for item (bill id)
+-text for item (bill id)
+-favorites for user (username)
