@@ -16,8 +16,6 @@ page elements:
 -search input bar
 --search bar text input
 --state selector dropdown
---year min input
---year max input
 --search button
 
 -search results area
@@ -45,6 +43,7 @@ get commands needed:
 -favorite comparison results (fav id input)
 
 decisions to make:
+-mobile
 -color
 -should diff area scroll together
 -save LEFT or RIGHT as something
