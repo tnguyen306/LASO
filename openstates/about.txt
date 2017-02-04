@@ -1,0 +1,4 @@
+http://docs.openstates.org/en/latest/api/
+
+
+A python application to get info from openstates and insert into a database; creating schema and tables as needed.
