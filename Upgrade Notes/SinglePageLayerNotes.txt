@@ -1,0 +1,50 @@
+page elements:
+-top bar
+--logo
+--about overlay trigger ("About")
+--help overlay trigger ("Help")
+--favorites dropdown
+---favorite author
+---favorite search
+---favorite comparison
+--login window overlay trigger ("Login")
+---username
+---password
+---logout button (clears)
+---submit (fades away overlay, preserving values)
+
+-search input bar
+--search bar text input
+--state selector dropdown
+--search button
+
+-search results area
+--space for results
+---each result
+----details overlay button ("details")
+----Name and ID of result
+----LEFT and RIGHT buttons to send the text to either the left or right diff area
+
+-diff area
+--LEFT area (editable text)
+--RIGHT area (editable text)
+--DIFF area (non-editable result of diff)
+
+-footer
+--empty for asthetics, for now
+
+get commands needed:
+-states for search (no input)
+-username salt for first step of auth (username input)
+-search results (bar text, state, year min, year max input)
+-details overlay (bill id input)
+-list favorites (username input)
+-favorite search results (fav id input)
+-favorite comparison results (fav id input)
+
+decisions to make:
+-mobile
+-color
+-should diff area scroll together
+-save LEFT or RIGHT as something
+-in general, adding in user documents
