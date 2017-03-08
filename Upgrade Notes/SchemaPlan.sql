@@ -58,7 +58,7 @@ CREATE TABLE user
                           PRIMARY KEY (`owner`,`type`,`id`)
              );
 
-/*Tag*/CREATE TABLE favorite
+/*Tag*/CREATE TABLE tag
              (
                           `owner`  INT NOT NULL,
                           `type`   VARCHAR(16) NOT NULL,
