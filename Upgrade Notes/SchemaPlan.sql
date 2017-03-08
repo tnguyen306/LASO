@@ -1,81 +1,95 @@
 /*User*/
-CREATE TABLE User (
-  `Id` int not null auto_increment,
-  `Login` varchar(32) not null unique,
-  `Email` varchar(64) not null unique,
-  `Credentials`  varchar(64) not null,
-  `CredType` varchar(32) not null default 'SHA256',
-  `ApiKey` char(64) not null unique,
-  Primary Key(ID)
-);
-/*Bill*/
-CREATE TABLE Bill (
-  `State` char(2) not null,
-  `Session` varchar(16) not null,
-  `Prefix` varchar(8) not null,
-  `Number` varchar(16) not null, /* number can include letters sometimes, so need varchar */
-  `Revised` timestamp not null,
-  `Authors` JSON,
-  `Title` varchar(128) not null, /* Consider normalizing out text and title */
-  `Text` text, /* Consider normalizing out text and title */
-   Primary Key(State,Session,Prefix,Number,Revised)
-);
-/*State*/
-CREATE TABLE State(
-  `Name` varchar(32) not null,
-  `Abbreviation` char(2) not null,
-  `ApiMethod` varchar(16) not null,
-  `Options` json default null, /* options for render, search, and api */
-  primary key (`Abbreviation`)
-);
-/*Legislator*/
-CREATE TABLE Legislator(
-  `Name` varchar(64) not null,
-  `Photo` varchar(64),
-  `ID` , varchar(32) not null,
-  `Session` varchar(16) not null
-  `State` char(2) not null,
-  `Position` ,
-  foreign key `State` references State(Abbreviation),
-  primary key (`State`, `Session`, 'ID')
-);
-/*Favorite*/
-CREATE TABLE Favorite(
-  `Owner` int not null,
-  `Type` varchar(16) not null,
-  `Id` varchar(32) not null,
-  `Weight` int not null default 0,
-  foreign key `Owner` references User(Id),
-  primary key (`Owner`,`Type`,`ID`)
-);
-/*Tag*/
-CREATE TABLE Favorite(
-  `Owner` int not null,
-  `Type` varchar(16) not null,
-  `Id` varchar(32) not null,
-  `Tag` varchar(32) not null default 'Important',
-  `Weight` int not null default 0,
-  foreign key `Owner` references User(Id),
-  primary key (`Owner`,`Type`,`ID`)
-);
-/*Document*/
-CREATE TABLE Document (
-  `ID` int auto_increment not null,
-  `Revised` timestamp not null,
-  `Owner` int not null,
-  `Permissions` JSON not null,
-  `Title` text not null, /* Consider normalizing out text and title */
-  `Text` varchar(128), /* Consider normalizing out text and title */
-  Primary Key(State,Session,Prefix,Number,Revised),
-  foreign key `Owner` references User(Id)
-);
-/*FetchLog*/
-create table FetchLog
-  `Id` int auto_increment not null,
-  `RecordsAdded` int not null default 0,
-  `State` char(2) not null,
-  `TimeStamp` timestamp not null default CURRENT_TIMESTAMP,
-  `Detail` text,
-  foreign key `State` references State(Abbreviation),
-  primary key (Id)
-);
+CREATE TABLE user
+             (
+                          `id`          INT NOT NULL auto_increment,
+                          `login`       VARCHAR(32) NOT NULL UNIQUE,
+                          `email`       VARCHAR(64) NOT NULL UNIQUE,
+                          `credentials` VARCHAR(64) NOT NULL,
+                          `credtype`    VARCHAR(32) NOT NULL DEFAULT 'SHA256',
+                          `apikey`      CHAR(64) NOT NULL UNIQUE,
+                          PRIMARY KEY(id)
+             );
+
+/*Bill*/CREATE TABLE bill
+             (
+                          `state`   CHAR(2) NOT NULL,
+                          `session` VARCHAR(16) NOT NULL,
+                          `prefix`  VARCHAR(8) NOT NULL,
+                          `number`  VARCHAR(16) NOT NULL,
+                          /* number can include letters sometimes, so need varchar */
+                          `revised` TIMESTAMP NOT NULL,
+                          `authors` JSON,
+                          `title` VARCHAR(128) NOT NULL,
+                          /* Consider normalizing out text and title */
+                          `text` TEXT,
+                          /* Consider normalizing out text and title */
+                          PRIMARY KEY(state,session,prefix,number,revised)
+             );
+
+/*State*/CREATE TABLE state
+             (
+                          `name`         VARCHAR(32) NOT NULL,
+                          `abbreviation` CHAR(2) NOT NULL,
+                          `apimethod`    VARCHAR(16) NOT NULL,
+                          `options` JSON DEFAULT NULL,
+                          /* options for render, search, and api */
+                          PRIMARY KEY (`abbreviation`)
+             );
+
+/*Legislator*/CREATE TABLE legislator
+             (
+                          `name`  VARCHAR(64) NOT NULL,
+                          `photo` VARCHAR(64),
+                          `id` ,
+                                    VARCHAR(32) NOT NULL,
+                          `session` VARCHAR(16) NOT NULL `state` CHAR(2) NOT NULL,
+                          `position` ,
+                          FOREIGN KEY `state` REFERENCES state(abbreviation),
+                          PRIMARY KEY (`state`, `session`, 'ID')
+             );
+
+/*Favorite*/CREATE TABLE favorite
+             (
+                          `owner`  INT NOT NULL,
+                          `type`   VARCHAR(16) NOT NULL,
+                          `id`     VARCHAR(32) NOT NULL,
+                          `weight` INT NOT NULL DEFAULT 0,
+                          FOREIGN KEY `owner` references user(id),
+                          PRIMARY KEY (`owner`,`type`,`id`)
+             );
+
+/*Tag*/CREATE TABLE favorite
+             (
+                          `owner`  INT NOT NULL,
+                          `type`   VARCHAR(16) NOT NULL,
+                          `id`     VARCHAR(32) NOT NULL,
+                          `tag`    VARCHAR(32) NOT NULL DEFAULT 'Important',
+                          `weight` INT NOT NULL DEFAULT 0,
+                          FOREIGN KEY `owner` references user(id),
+                          PRIMARY KEY (`owner`,`type`,`id`)
+             );
+
+/*Document*/CREATE TABLE document
+             (
+                          `id` INT auto_increment NOT NULL,
+                          `revised` TIMESTAMP NOT NULL,
+                          `owner` INT NOT NULL,
+                          `permissions` JSON NOT NULL,
+                          `title` TEXT NOT NULL,
+                          /* Consider normalizing out text and title */
+                          `text` VARCHAR(128),
+                          /* Consider normalizing out text and title */
+                          PRIMARY KEY(state,session,prefix,number,revised),
+                          FOREIGN KEY `owner` references user(id)
+             );
+
+/*FetchLog*/CREATE TABLE fetchlog
+             (
+                          `id`           INT auto_increment NOT NULL,
+                          `recordsadded` INT NOT NULL DEFAULT 0,
+                          `state`        CHAR ( 2 ) NOT NULL,
+                          `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                          `detail` TEXT,
+                          FOREIGN KEY `state` references state ( abbreviation ) ,
+                          PRIMARY KEY ( id )
+             );
