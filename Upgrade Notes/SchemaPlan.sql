@@ -7,6 +7,7 @@ Key
 Session
 Title
 Prefix
+Revision Date
 Number
 Link
 Text
@@ -27,3 +28,9 @@ Owner
 Type
 ID
 Weight(?)
+/*Document*/
+Name
+Title
+Text
+Owner
+Permissions
