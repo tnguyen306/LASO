@@ -9,4 +9,8 @@ class BaseMethod(Object):
 
     # get items
 
-    # return log of what succeeded
+    # put in table
+
+    # handle errors
+    
+    # return indication of what succeeded
