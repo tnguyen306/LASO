@@ -16,7 +16,7 @@ CREATE TABLE Bill (
   `Number` varchar(16) not null, /* number can include letters sometimes, so need varchar */
   `Revised` timestamp not null,
   `Authors` JSON,
-  `Title` text not null, /* Consider normalizing out text and title */
+  `Title` varchar(128) not null, /* Consider normalizing out text and title */
   `Text` text, /* Consider normalizing out text and title */
    Primary Key(State,Session,Prefix,Number,Revised)
 );
@@ -45,21 +45,37 @@ CREATE TABLE Favorite(
   `Type` varchar(16) not null,
   `Id` varchar(32) not null,
   `Weight` int not null default 0,
-  foreign key `Owner` references User(Id)
+  foreign key `Owner` references User(Id),
+  primary key (`Owner`,`Type`,`ID`)
 );
 /*Tag*/
-Owner
-Type
-ID
-Tag
+CREATE TABLE Favorite(
+  `Owner` int not null,
+  `Type` varchar(16) not null,
+  `Id` varchar(32) not null,
+  `Tag` varchar(32) not null default 'Important',
+  `Weight` int not null default 0,
+  foreign key `Owner` references User(Id),
+  primary key (`Owner`,`Type`,`ID`)
+);
 /*Document*/
-Name
-Title
-Text
-Owner
-Permissions
-/*Fetch*/
-RecordsAdded
-Method
-State
-TimeStamp
+CREATE TABLE Document (
+  `ID` int auto_increment not null,
+  `Revised` timestamp not null,
+  `Owner` int not null,
+  `Permissions` JSON not null,
+  `Title` text not null, /* Consider normalizing out text and title */
+  `Text` varchar(128), /* Consider normalizing out text and title */
+  Primary Key(State,Session,Prefix,Number,Revised),
+  foreign key `Owner` references User(Id)
+);
+/*FetchLog*/
+create table FetchLog
+  `Id` int auto_increment not null,
+  `RecordsAdded` int not null default 0,
+  `State` char(2) not null,
+  `TimeStamp` timestamp not null default CURRENT_TIMESTAMP,
+  `Detail` text,
+  foreign key `State` references State(Abbreviation),
+  primary key (Id)
+);
