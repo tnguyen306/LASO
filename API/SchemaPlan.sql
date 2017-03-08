@@ -82,14 +82,3 @@ CREATE TABLE user
                           PRIMARY KEY(state,session,prefix,number,revised),
                           FOREIGN KEY `owner` references user(id)
              );
-
-/*FetchLog*/CREATE TABLE fetchlog
-             (
-                          `id`           INT auto_increment NOT NULL,
-                          `recordsadded` INT NOT NULL DEFAULT 0,
-                          `state`        CHAR ( 2 ) NOT NULL,
-                          `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                          `detail` TEXT,
-                          FOREIGN KEY `state` references state ( abbreviation ) ,
-                          PRIMARY KEY ( id )
-             );
