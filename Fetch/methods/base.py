@@ -42,6 +42,10 @@ class BaseMethod(Object):
         Search the api for the next item.
         """
         self.last
+        if True: # if there's more to go
+            return "hi"
+        else: # if done
+            return 0
 
     def next(self):
         """
@@ -50,8 +54,10 @@ class BaseMethod(Object):
         # grab a thing to work on
         # work on it
         try:
-            item = []
+            item = self.api()
             yield item
+            if not item:
+                raise StopIteration
         except Exception as err:
             # insert into error (state, error, source) {state}, {err}, {src};
             # self.state, str(err), self.queue_id
