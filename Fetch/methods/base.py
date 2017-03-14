@@ -61,13 +61,13 @@ class BaseMethod(Object):
         """
         Get the next item in the generator.
         """
-        # grab a thing to work on
-        # work on it
         try:
             item = self.api()
             yield item
             if not item:
                 raise StopIteration
+        except StopIteration:
+            pass
         except Exception as err:
             query = "insert into error (state, error, source)\
              values(%s, %s, %s);"
@@ -79,9 +79,7 @@ class BaseMethod(Object):
         """
         Handle queue and log before deletion.
         """
-        # log
-        # insert into fetchlog (recordsadded) {count} ; self.count
-        query = "insert into error (recordsadded)\
+        query = "insert into fetchlog (recordsadded)\
          values(%s);"
         self.cursor.execute(query, (self.count,))
         done_queue = "update queue set finished = now() where id = %s;"
@@ -89,6 +87,6 @@ class BaseMethod(Object):
         if False: # if we didn't finish
             # if we did not, add a new queue entry
             next_queue = "insert into queue (priority, state, min, max)\
-            %s, %s min = %s max = %s in_progress='N';"
+            values(%s, %s, %s, %s);"
             self.cursor.execute(neq_queue, (self.priority, self.state,
                                             self.last, self.maximum))
