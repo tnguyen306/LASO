@@ -44,7 +44,7 @@ CREATE TABLE user
                                     VARCHAR(32) NOT NULL,
                           `session` VARCHAR(16) NOT NULL `state` CHAR(2) NOT NULL,
                           `position` ,
-                          FOREIGN KEY `state` REFERENCES state(abbreviation),
+                          FOREIGN KEY (`state`) REFERENCES state(abbreviation),
                           PRIMARY KEY (`state`, `session`, 'ID')
              );
 
@@ -58,14 +58,14 @@ CREATE TABLE user
                           PRIMARY KEY (`owner`,`type`,`id`)
              );
 
-/*Tag*/CREATE TABLE favorite
+/*Tag*/CREATE TABLE tag
              (
                           `owner`  INT NOT NULL,
                           `type`   VARCHAR(16) NOT NULL,
                           `id`     VARCHAR(32) NOT NULL,
                           `tag`    VARCHAR(32) NOT NULL DEFAULT 'Important',
                           `weight` INT NOT NULL DEFAULT 0,
-                          FOREIGN KEY `owner` references user(id),
+                          FOREIGN KEY (`owner`) references user(id),
                           PRIMARY KEY (`owner`,`type`,`id`)
              );
 
@@ -80,16 +80,5 @@ CREATE TABLE user
                           `text` VARCHAR(128),
                           /* Consider normalizing out text and title */
                           PRIMARY KEY(state,session,prefix,number,revised),
-                          FOREIGN KEY `owner` references user(id)
-             );
-
-/*FetchLog*/CREATE TABLE fetchlog
-             (
-                          `id`           INT auto_increment NOT NULL,
-                          `recordsadded` INT NOT NULL DEFAULT 0,
-                          `state`        CHAR ( 2 ) NOT NULL,
-                          `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                          `detail` TEXT,
-                          FOREIGN KEY `state` references state ( abbreviation ) ,
-                          PRIMARY KEY ( id )
+                          FOREIGN KEY (`owner`) references user(id)
              );
