@@ -13,7 +13,8 @@ CREATE TABLE errors
                           `state`       CHAR(2) NOT NULL,
                           `min`         VARCHAR(64),
                           `max`         VARCHAR(64),
-                          `in_progress` CHAR(1),
+                          `started` TIMESTAMP default NULL,
+                          `finished` TIMESTAMP default NULL,
                           PRIMARY KEY (id)
              );
 
@@ -22,5 +23,7 @@ CREATE TABLE errors
                           `id`           INT auto_increment NOT NULL,
                           `recordsadded` INT NOT NULL DEFAULT 0,
                           `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                          `source`       INT NOT NULL,
+                          FOREIGN KEY (source) references queue(id),
                           PRIMARY KEY ( id )
              );
