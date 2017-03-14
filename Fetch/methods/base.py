@@ -3,26 +3,25 @@ from contextlib import contextmanager
 
 class BaseMethod(Object):
     """
-    Base tools to fetch and use bills and other objects from an API and process them gracefully with a generator.
-    Defines a base api usage method; inhereting classes will likely have a different api() function.
+    Base tools to fetch and use bills and other objects from an
+     API and process them gracefully with a generator.
+    Defines a base api usage method; inhereting classes will
+     likely have a different api() function.
     """
-
 
     def __init__(self, *args, **kwargs):
         """Handle general initialization for all classes."""
         self.type = type
         self.args = args
         self.kwarfs = kwargs
-        # get next thing in queue
-        # select * from queue where in_progress<>'Y' order by priority desc;
-        # set those variables
+        # select * from queue where started is null order by priority desc limit 1;
+        # keep those variables
         self.maximum = ""
         self.minimum = ""
         self.state = ""
         self.queue_id = ""
-        # update the queue to put that in progress
-        self.processed = 0
-        # keep track of what to put in min if we don't finish
+        # update queue set in_progress="Y" where id={id}; self.queue_id;
+        self.count = 0
         self.last = self.minimum
 
     def __iter__(self):
@@ -42,7 +41,7 @@ class BaseMethod(Object):
         """
         Search the api for the next item.
         """
-        pass
+        self.last
 
     def next(self):
         """
@@ -64,11 +63,15 @@ class BaseMethod(Object):
         Handle queue and log before deletion.
         """
         # log
+        # insert into fetchlog (recordsadded) {count} ; self.count
         if True:
             pass
             # if we finished it
-            # delete from queue where id = {id} self.queue_id
+            # update queue set finished = now() where id = {id} self.queue_id
         else:
             pass
-            # if we did not
-            # update queue set min = {min} , in_progress='N'; self.last
+            # if we did not, add a new queue entry
+            # insert into queue (priority, state, min, max)
+            # {priority} {state} min = {min} max = {max},
+            # in_progress='N';
+            # self.priority, self.state,  self.last,  self.maximum
