@@ -73,7 +73,7 @@ class BaseMethod(Object):
              values(%s, %s, %s);"
             self.cursor.execute(query, (self.state, str(err), self.queue_id))
             raise err
-        # update internal log
+        self.count += 1
 
     def __del__(self):
         """
