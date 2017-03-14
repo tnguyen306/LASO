@@ -53,7 +53,8 @@ class BaseMethod(Object):
             item = []
             yield item
         except Exception as err:
-            # log the exception
+            # insert into error (state, error, source) {state}, {err}, {src};
+            # self.state, str(err), self.queue_id
             raise err
         # update internal log
         # end generator when at end
