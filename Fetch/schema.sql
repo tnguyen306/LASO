@@ -8,12 +8,13 @@ CREATE TABLE errors
 
 /*queue*/CREATE TABLE queue
              (
+                          `id`          INT auto_increment NOT NULL
                           `priority`    INT DEFAULT 0,
                           `state`       CHAR(2) NOT NULL,
                           `min`         VARCHAR(64),
                           `max`         VARCHAR(64),
                           `in_progress` CHAR(1),
-                          PRIMARY KEY (state, min, max)
+                          PRIMARY KEY (id)
              );
 
 /*FetchLog*/CREATE TABLE fetchlog
