@@ -24,6 +24,6 @@ CREATE TABLE errors
                           `recordsadded` INT NOT NULL DEFAULT 0,
                           `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                           `source`       INT NOT NULL,
-                          FOREIGN KEY (source) references queue(id),
+                          FOREIGN KEY fk_fl_src (source) references queue(id),
                           PRIMARY KEY ( id )
              );
