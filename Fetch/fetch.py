@@ -14,8 +14,6 @@ from methods.base import basemethod
 # initalize appropriate method (after check and sanitize)
 method = basemethod()
 
-# for as long as we can before killing:
-    # make method get items in batch
-    # method.get
-    # make method update the table
-# get last method position, and update queue/queue locks 
+with method.work(start, end):
+    pass
+    # loop through generator of bills
