@@ -1,5 +1,5 @@
 import json
-from contextlib import contextmanager
+import pymysql
 
 class BaseMethod(Object):
     """
@@ -14,13 +14,23 @@ class BaseMethod(Object):
         self.type = type
         self.args = args
         self.kwarfs = kwargs
-        # select * from queue where started is null order by priority desc limit 1;
+        cursor = pymysql.connect(host='localhost', db='fetch').cursor()
+        self.cursor = cursor
+
+        queue_query = "select * from queue where started is null\
+        order by priority desc limit 1;"
         # keep those variables
-        self.maximum = ""
-        self.minimum = ""
-        self.state = ""
-        self.queue_id = ""
-        # update queue set in_progress="Y" where id={id}; self.queue_id;
+        cursor.execute(queue_query)
+        result = cursor.fetchone()
+        self.maximum = result['min']
+        self.minimum = result['max']
+        self.state = result['state']
+        queue_id = result['id']
+        self.queue_id = queue_id
+
+        started_query = "update queue set in_progress='Y' where\
+        id=%s; self.queue_id;"
+        cursor.execute(started_query, (queue_id,))
         self.count = 0
         self.last = self.minimum
 
@@ -43,7 +53,7 @@ class BaseMethod(Object):
         """
         self.last
         if True: # if there's more to go
-            return "hi"
+            return {{"title": "Sample Bill"}}
         else: # if done
             return 0
 
@@ -59,11 +69,11 @@ class BaseMethod(Object):
             if not item:
                 raise StopIteration
         except Exception as err:
-            # insert into error (state, error, source) {state}, {err}, {src};
-            # self.state, str(err), self.queue_id
+            query = "insert into error (state, error, source)\
+             values(%s, %s, %s);"
+            self.cursor.execute(query, (self.state, str(err), self.queue_id))
             raise err
         # update internal log
-        # end generator when at end
 
     def __del__(self):
         """
@@ -71,14 +81,14 @@ class BaseMethod(Object):
         """
         # log
         # insert into fetchlog (recordsadded) {count} ; self.count
-        if True:
-            pass
-            # if we finished it
-            # update queue set finished = now() where id = {id} self.queue_id
-        else:
-            pass
+        query = "insert into error (recordsadded)\
+         values(%s);"
+        self.cursor.execute(query, (self.count,))
+        done_queue = "update queue set finished = now() where id = %s;"
+        self.cursor.execute(done_queue, (self.queue_id,))
+        if False: # if we didn't finish
             # if we did not, add a new queue entry
-            # insert into queue (priority, state, min, max)
-            # {priority} {state} min = {min} max = {max},
-            # in_progress='N';
-            # self.priority, self.state,  self.last,  self.maximum
+            next_queue = "insert into queue (priority, state, min, max)\
+            %s, %s min = %s max = %s in_progress='N';"
+            self.cursor.execute(neq_queue, (self.priority, self.state,
+                                            self.last, self.maximum))
