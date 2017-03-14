@@ -44,7 +44,7 @@ CREATE TABLE user
                                     VARCHAR(32) NOT NULL,
                           `session` VARCHAR(16) NOT NULL `state` CHAR(2) NOT NULL,
                           `position` ,
-                          FOREIGN KEY `state` REFERENCES state(abbreviation),
+                          FOREIGN KEY (`state`) REFERENCES state(abbreviation),
                           PRIMARY KEY (`state`, `session`, 'ID')
              );
 
@@ -65,7 +65,7 @@ CREATE TABLE user
                           `id`     VARCHAR(32) NOT NULL,
                           `tag`    VARCHAR(32) NOT NULL DEFAULT 'Important',
                           `weight` INT NOT NULL DEFAULT 0,
-                          FOREIGN KEY `owner` references user(id),
+                          FOREIGN KEY (`owner`) references user(id),
                           PRIMARY KEY (`owner`,`type`,`id`)
              );
 
@@ -80,5 +80,5 @@ CREATE TABLE user
                           `text` VARCHAR(128),
                           /* Consider normalizing out text and title */
                           PRIMARY KEY(state,session,prefix,number,revised),
-                          FOREIGN KEY `owner` references user(id)
+                          FOREIGN KEY (`owner`) references user(id)
              );
