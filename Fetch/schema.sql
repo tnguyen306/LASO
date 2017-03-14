@@ -1,9 +1,12 @@
 /*errors*/
 CREATE TABLE errors
              (
-                          `id`    INT auto_increment NOT NULL,
-                          `state` CHAR(2) NOT NULL,
-                          `error` TEXT PRIMARY KEY ('Id')
+                          `id`     INT auto_increment NOT NULL,
+                          `state`  CHAR(2) NOT NULL,
+                          `error`  TEXT,
+                          `source` INT NOT NULL,
+                          FOREIGN KEY (source) references queue(id) on delete cascade,
+                          PRIMARY KEY ('Id')
              );
 
 /*queue*/CREATE TABLE queue
@@ -24,6 +27,6 @@ CREATE TABLE errors
                           `recordsadded` INT NOT NULL DEFAULT 0,
                           `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                           `source`       INT NOT NULL,
-                          FOREIGN KEY (source) references queue(id),
+                          FOREIGN KEY (source) references queue(id) on delete cascade,
                           PRIMARY KEY ( id )
              );
