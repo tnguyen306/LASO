@@ -1,7 +1,7 @@
 import json
 import pymysql
 
-class BaseMethod(Object):
+class Worker(Object):
     """
     Base tools to fetch and use bills and other objects from an
      API and process them gracefully with a generator.
