@@ -1,79 +1,125 @@
-<html>
-<!-- https://getuikit.com/index.html for docs-->
-    <div class="" id="all-content" style="padding:1% 2% 1% 2%; min-width: 500px;">
-        <head>
-            <div class="uk-navbar" id="navbar">
-                <a href="" class="uk-navbar-brand">LASO</a>
-                <ul class="uk-navbar-nav">
-                    <li><a href="">About</a></li>
-                    <li><a href="">Favorites</a></li>
-                    <li><a href="">Help</a></li>
-                </ul>
-                <div class="uk-navbar-flip">
-                    <ul class="uk-navbar-nav">
-                        <li><a href="">Login <i class="uk-icon-user"></i></a></li>
-                    </ul>
-                </div>
-                <br/>
-            </div>
-            <hr class="uk-grid-divider">
-            <div class="uk-grid uk-panel-box" id="searchbar">
-                <form class="uk-width-medium-1-1 uk-container-center">
-                    <span class="uk-width-medium-1-6" id="search-label">Search</span>
-                    <span class="uk-width-medium-4-6" id="search-txt"><input type="text" placeholder="search" class="uk-form-width-large"></input></span>
-                    <span class="uk-width-medium-1-6" id="search-btn"><button class="uk-button-large uk-button-primary">GO</button></span>
-                </form>
-            </div>
-            <hr class="uk-grid-divider">
-        </head>
-        <body>
-            <div class="uk-grid uk-grid-divider" id="area-container">
-                <div class="uk-width-medium-1-3 uk-container-center" id="area-1">
-                    <div class="uk-panel-box">
-                        <span class="" id="area-1-title">Blue Area</span>
-                        <br/>
-                        <span class="" id="area-1-content">
-                            <article class="uk-article">
-                                <h1 class="uk-article-title">Blue Bill</h1>
-                                <p class="uk-article-meta">Bob Blueworth</p>
-                                <p class="uk-article-lead">Water is legal now.</p>
-                        </span>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3 uk-container-center" id="area-2">
-                    <div class="uk-panel-box">
-                        <span class="" id="area-2-title">Diff Area</span>
-                        <br/>
-                        <span class="" id="area-2-content">
-                            <article class="uk-article">
-                                <h1 class="uk-article-title"><ins>Yellow</ins><del>Blue</del></h1>
-                                <p class="uk-article-meta">Bob <del>Blue</del><ins>Yellow</ins>worth</p>
-                                <p class="uk-article-lead"><del>Water</del><ins>Electricity</ins> is legal now.</p>
-                        </span>
-                    </div>
-                </div>
-                <div class="uk-width-medium-1-3 uk-container-center" id="area-3">
-                    <div class="uk-panel-box">
-                        <span class="" id="area-3-title">Yellow Area</span>
-                        <br/>
-                        <span class="" id="area-3-content">
-                            <article class="uk-article">
-                                <h1 class="uk-article-title">Yellow Bill</h1>
-                                <p class="uk-article-meta">Bob Yelloworth</p>
-                                <p class="uk-article-lead">Electricity is legal now.</p>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <hr class="uk-grid-divider">
-        </body>
-        <footer>
-            <div class="uk-panel-box" id="footer">
-                <span class="" id="footer-txt">Footer 2017, rbirm.us</span>
-            </div>
-        </footer>
+<html ng-app="laso">
+  <head>
+    <title>LASO - Legislative Aide Services</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/laso_controllers.js"></script>
+    <script src="js/laso_services.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <div class="pure-menu pure-menu-horizontal">
+      <a href="#" class="logo_bar">
+      <img class="logo" src="laso.png" alt="Laso" />
+      </a>
     </div>
-    <div class="" id="imports">
-        <link rel="stylesheet" type="text/css" href="css/uikit.almost-flat.css">
+  </head>
+  <body>
+
+    <div class="pure-g">
+      <div id="document_modal" class="item pure-u-1 modal">
+        <div class="modal_content" ng-controller="Docs">
+          <div class="boxname">
+            Documents and Bills
+            <div class="right_buttons">
+              <div class="spacer"></div>
+              <i class="fa fa-compress close" aria-hidden="true"></i>
+            </div>
+            <input placeholder="Search" class="box_search" id="alert_search" type="text" ng-model="search"></input>
+          </div>
+          <div class="modal_box_content">
+            <table ng-repeat="doc in docs" width="100%" class="card-item pure-table pure-table-bordered">
+              <tbody>
+                <tr>
+                  <td>{{doc.title}}</td>
+                  <td>: {{doc.detail}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="document_box" class="item pure-u-1">
+        <div class="box_item" ng-controller="Docs">
+          <div class="boxname">
+            Documents and Bills
+            <div class="right_buttons">
+              <div class="spacer"></div>
+              <i id="document_exp" class="fa fa-expand" aria-hidden="true"></i>
+            </div>
+            <input placeholder="Search" class="box_search" id="alert_search" type="text" ng-model="search"></input>
+          </div>
+          <div class="box_content">
+            <table ng-repeat="docs" width="100%" class="card-item pure-table pure-table-bordered">
+              <tbody>
+                <tr>
+                  <td>{{doc.title}}</td>
+                  <td>: {{doc.detail}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="metrics_modal" class="item pure-u-1 modal">
+        <div class="modal_content" ng-controller="Metrics">
+          <div class="boxname">
+            My Metrics
+            <div class="right_buttons">
+              <div class="spacer"></div>
+              <i class="fa fa-compress close" aria-hidden="true"></i>
+            </div>
+            <input placeholder="Search" class="box_search" id="metric_search" type="text" ng-model="search"></input>
+          </div>
+          <div class="modal_box_content">
+            <table ng-repeat="metric in metrics" width="100%" class="card-item pure-table pure-table-bordered">
+              <tbody>
+                <tr>
+                  <td>{{metric.metric}}</td>
+                  <td>{{metric.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item pure-u-1">
+        <div class="box_item" ng-controller="Metrics">
+          <div class="boxname">
+            My Metrics
+            <div class="right_buttons">
+              <div class="spacer"></div>
+              <i id="metrics_exp" class="fa fa-expand" aria-hidden="true"></i>
+            </div>
+            <input placeholder="Search" class="box_search" id="metric_search" type="text" ng-model="search"></input>
+          </div>
+          <div class="box_content">
+            <table ng-repeat="metric in metrics" width="100%" class="card-item pure-table pure-table-bordered">
+              <tbody>
+                <tr>
+                  <td>{{metric.metric}}</td>
+                  <td>{{metric.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </body>
+  <footer>
+    footer - thick
+  </footer>
+  <script src="js/vis.js"></script>
+  <script src="js/modal.js"></script>
 </html>
