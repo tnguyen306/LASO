@@ -1,0 +1,137 @@
+body {
+    background-color: #FFFDFD;
+}
+.pure-menu-horizontal {
+    height: 75px;
+}
+.pure-menu {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.50);
+}
+.logo {
+    height: 60px;
+}
+.grid_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.vis_container {
+    margin: 0 auto;
+    height: 10%;
+    min-height: 25px;
+    text-align: center;
+    margin: 10px;
+    padding: 0px 15px 0px 15px;
+}
+.boxname {
+    background-color: #DF2935;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 15px 0px 15px;
+}
+
+.box_search{
+    outline:solid thin;
+    margin-bottom:10px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%
+}
+
+.modal_box_content {
+    margin: 0px 10px 20px 10px;
+    overflow: auto;
+    height: 70%;
+    padding: 0px 15px 0px 15px;
+    background-color: #CBD2D0;
+}
+
+.box_content {
+    margin: 0px 10px 20px 10px;
+    height: 35%;
+    min-height: 200px;
+    overflow: auto;
+    padding: 0px 15px 0px 15px;
+    background-color: #CBD2D0;
+}
+.boxname {
+    text-align: center;
+    font-size: 2em
+}
+.card-item {
+    margin: 5px 0px 5px 0px;
+}
+.card-item:nth-of-type(odd) {
+    background: #eee;
+}
+.card-item:nth-of-type(even) {
+    background: #ddd;
+}
+.form-q:nth-of-type(odd) {
+    background: #eee;
+}
+.form-q:nth-of-type(even) {
+    background: #ddd;
+}
+td {
+    width: 50%
+}
+body {
+    font: 10px sans-serif;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.x.axis path {
+    display: none;
+}
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+#vis_container {
+    height: 100px;
+    width: 100%
+}
+.right_buttons {
+    float: right;
+}
+.menu_buttons {
+    padding: 30px;
+    font-size: 2em;
+}
+.spacer {
+    width: 5px;
+    height: auto;
+    display: inline-block;
+}
+
+.logo{
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+  padding-top:5px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal_content {
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 90%; /* Could be more or less, depending on screen size */
+}
